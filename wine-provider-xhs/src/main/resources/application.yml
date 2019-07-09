@@ -1,0 +1,18 @@
+
+server:
+  port: 8766
+spring:
+  application:
+    name: wine-provider-xhs
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/xhs?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    data-password: root
+    useSSL: false
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+mybatis:
+  mapper-locations: mapper/*.xml
