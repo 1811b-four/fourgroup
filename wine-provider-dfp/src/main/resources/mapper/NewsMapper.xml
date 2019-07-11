@@ -5,7 +5,7 @@
 <mapper namespace="com.jk.mapper.NewsMapper">
     <select id="findNews" resultType="com.jk.model.News" parameterType="Integer" >
         select t.* from t_news t
-
+git
         LIMIT #{start},#{rows}
     </select>
 
