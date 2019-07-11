@@ -15,7 +15,9 @@
 
         <module>wine-eureka</module>
         <module>wine-config-server</module>
+        <module>wine-gateway</module>
         <module>wine-web-ui</module>
+
 
     </modules>
 
