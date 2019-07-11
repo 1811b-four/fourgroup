@@ -1,5 +1,8 @@
 package com.jk.service;
 
+import com.jk.model.Goods;
+import org.springframework.web.bind.annotation.GetMapping;
+
 /**
  * @Classname 曹龙启
  * @Description TODO
@@ -7,4 +10,8 @@ package com.jk.service;
  * @Created by ${jmh}
  */
 public interface GoodsServiceApi {
+
+
+    @GetMapping("findGood")
+    Goods findGood();
 }
