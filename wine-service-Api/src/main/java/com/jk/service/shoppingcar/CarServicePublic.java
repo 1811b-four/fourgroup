@@ -1,5 +1,10 @@
 package com.jk.service.shoppingcar;
 
+import com.jk.model.shoppingcar;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
+
 /**
  * @Classname CarServicePublic
  * @Description TODO
@@ -7,4 +12,7 @@ package com.jk.service.shoppingcar;
  * @Created by 谷凌杰
  */
 public interface CarServicePublic {
+
+    @GetMapping("query")
+    List<shoppingcar> query();
 }

@@ -1,8 +1,13 @@
 package com.jk.Controller;
 
-import com.jk.Service.CarService;
+import com.jk.model.shoppingcar;
+import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @Classname Controller
@@ -11,10 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
  * @Created by 谷凌杰
  */
 @RestController
+@RequestMapping("shopping")
 public class CarController1 {
     @Autowired
-    private CarService carService;
+    private CarServicePublic carServicePublic;
 
 
-
+    @GetMapping("query")
+    public List<shoppingcar> query(){
+        List<shoppingcar> query = carServicePublic.query();
+        return query;
+    }
 }

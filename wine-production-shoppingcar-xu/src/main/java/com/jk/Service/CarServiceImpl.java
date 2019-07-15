@@ -1,9 +1,12 @@
 package com.jk.Service;
 
 import com.jk.Mapper.CarMapper;
+import com.jk.model.shoppingcar;
 import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @Classname CarServiceImpl
@@ -15,4 +18,9 @@ import org.springframework.stereotype.Service;
 public class CarServiceImpl implements CarServicePublic {
     @Autowired
     private CarMapper carMapper;
+
+    @Override
+    public List<shoppingcar> query() {
+        return carMapper.query();
+    }
 }
