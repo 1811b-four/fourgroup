@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @Created by jmh
  */
 @RestController
-public class WineController implements WineServiceXhsApi {
+public class WineController2 implements WineServiceXhsApi {
 
     @Autowired
     private WineServiceXhsApi wineServiceXhsApi;
 
     @Override
     @PostMapping("receive")
-    public void addReceive(@RequestParam(value = "couponId", required = true) Integer couponId, User_Coupon userCoupon) {
-        wineServiceXhsApi.addReceive(couponId, userCoupon);
+    public Boolean addReceive(@RequestParam(value = "couponId", required = true) Integer couponId, User_Coupon userCoupon) {
+        return wineServiceXhsApi.addReceive(couponId, userCoupon);
     }
 }

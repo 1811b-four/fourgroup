@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Component
 public class WineServiceError implements WineServiceFeign {
     @Override
-    public void addReceive(Integer couponId, User_Coupon userCoupon) {
-
+    public Boolean addReceive(Integer couponId, User_Coupon userCoupon) {
+        return null;
     }
 }
