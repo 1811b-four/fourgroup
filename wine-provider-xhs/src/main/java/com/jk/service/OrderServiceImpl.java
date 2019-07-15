@@ -1,6 +1,6 @@
 package com.jk.service;
 
-import com.jk.mapper.OrderMapper;
+import com.jk.dao.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,4 +11,9 @@ public class OrderServiceImpl implements OrderServiceApi {
     private OrderMapper orderMapper;
 
 
+    @Override
+    public void add() {
+        orderMapper.add();
+        System.out.println("123");
+    }
 }

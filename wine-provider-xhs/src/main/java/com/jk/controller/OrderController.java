@@ -10,4 +10,8 @@ public class OrderController implements OrderServiceApi {
     @Autowired
     private OrderServiceApi orderService;
 
+    @Override
+    public void add() {
+        orderService.add();
+    }
 }
