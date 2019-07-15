@@ -1,6 +1,6 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="Expires" CONTENT="0">
@@ -136,7 +136,26 @@
     <div class="orderBody">
         <!-- 标题 -->
         <!-- 收货地址信息 -->
-        <div id="addressListDiv" class="pubWrap"></div>
+        <div id="addressListDiv" class="pubWrap">		<div class="pubTitle">
+            <h3>选择收货地址</h3>
+        </div>
+            <div class="addressList">
+                <ul class="clearfix">
+                    <li data-addrid="111538178" rgnregionid="2545" defaultaddress="true" supporteinv="true" addressconsignee="薛涵少" addressmore="货源街园丁公寓" addressmobile="166****3191" zipcode="" addressphone="" addressname="山西省 吕梁市 离石区" class="default"> <i class="orderIcon"></i>
+                        <div class="addressListTop"><span>薛涵少</span><span>收</span>
+                            <a href="javascript:;" class="defaultLit setDefault" style="display: block;">  默认地址 </a>
+                        </div>
+                        <div class="addressListBottom">
+                            <div class="address">山西省 吕梁市 离石区货源街园丁公寓</div>
+                            <div class="phoneNum">
+                                166****3191
+                            </div>
+                            <div class="operatingBtn" style="display: none;"><a href="javascript:;" class="addr">修改</a><a href="javascript:;" class="delete">删除</a></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <!-- 支付方式信息 -->
         <div class="pubWrap">
             <div class="pubTitle">
@@ -145,9 +164,6 @@
             <div class="payMent">
                 <div class="item cur"><span>在线支付</span><i class="orderIcon"></i><s class="orderIcon"></s>
                     <div class="payPrompt">支持支付宝、微信等多种支付平台。<em class="orderIcon"></em></div>
-                </div>
-                <div class="item noSelect"><span>货到付款</span><i class="orderIcon"></i><s class="orderIcon"></s>
-                    <div class="payPrompt">所选商品或所在地区不支持货到付款<em class="orderIcon"></em></div>
                 </div>
             </div>
         </div>
@@ -196,124 +212,6 @@
                 <a href="javascript:;" class="modify giftBtn">修改</a> </div>
         </div>
 
-        <!-- 优惠券、返现和礼品卡 -->
-        <div id="assets" class="pubWrap mb20">
-            <div class="pubTitle tabOpen">
-                <h3>使用优惠券/津贴/礼品卡/返现</h3>
-                <i class="orderIcon"></i>
-            </div>
-            <div class="tabWrap">
-                <div class="tabBox">
-                    <div class="tabNav">
-                        <a href="javascript:;" class="cur"><span>优惠券<i style="display: none;"></i></span></a>
-                        <a href="javascript:;"><span>津贴<i style="display: none;"></i></span></a>
-
-                        <a href="javascript:;"><span>返现<i style="display: none;"></i></span></a>
-                        <a href="javascript:;"><span>礼品卡<i style="display: none;"></i></span></a>
-                    </div>
-                    <div class="tabCon">
-                        <!-- 优惠券 -->
-                        <div id="couponListDiv" class="tabItem"></div>
-
-                        <!-- 津贴 -->
-                        <div class="tabItem" style="display:none;">
-                            <div class="balanceWrap">
-                                <div id="showJT" style="display: none;">
-                                    <div class="uesBalance">
-                                        <label class="" type=3><i class="orderIcon"></i>
-                                            <span>使用津贴 <span id="jtUseSpan" style="display: none;">（订单可用<em class="red" id="jtUseCount" >0</em>张津贴，抵扣<em class="red" id="jtUsePrice">¥0</em>元）</span></span>
-                                        </label>
-                                    </div>
-                                    <div class="allowance">我的购物津贴共<span id="jtAllCount">0</span>张，（总额为<span id="jtAllPrice">¥0</span>）</div>
-                                </div>
-                                <div id="displayJT">
-                                    <div class="uesBalance">
-                                        <label class="unavailable"><i class="orderIcon"></i><span>使用津贴</span></label>
-                                    </div>
-                                    <div class="allowance">无可用津贴</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 返现 -->
-                        <div id="cashbackDiv" class="tabItem" style="display:none;">
-                            <div class="balanceWrap">
-                                <div class="balanceTitle"><span>使用返现需要支付密码，安全必备</span><a href="http://member.jiuxian.com/myaccount/verify_paypassword.htm" target="_blank">点此设置></a></div>
-                                <div class="cashbackTitle"><span></span></div>
-                                <div class="uesBalance">
-                                    <label class="unavailable" type="2"><i class="orderIcon"></i><span>使用返现（账户当前返现：<em class="red">￥0</em>）</span></label>
-                                </div>
-                                <div class="pressSum"><input id="cashbackInput" value="0" type="text" disabled/><span>订单可用最大返现：<em class="red" id="surplusCashBackPrice">￥0</em></span></div>
-                            </div>
-                        </div>
-                        <!-- 礼品卡 -->
-                        <div class="tabItem" style="display:none;">
-                            <div id="giftCardShow">
-                                <div class="giftWrap">
-                                    <div class="giftTitle">
-                                        <span>添加礼品卡</span>
-                                    </div>
-                                    <div class="giftCardBox">
-                                        <div class="item">
-                                            <span>请输入礼品卡号：</span>
-                                            <div class="itemRight">
-                                                <input maxlength="20" id="lpksn" type="text" class="form-6" />
-                                            </div>
-                                        </div>
-                                        <div class="item"><span>请输入礼品卡密码：</span>
-                                            <div class="itemRight">
-                                                <input class="form-7" onpause="giftCardAutoFilling(event)" type="text" maxlength="4" id="lpkpw1" _di="1"><em>-</em>
-                                                <input class="form-7" type="text" maxlength="4" id="lpkpw2" _di="2"><em>-</em>
-                                                <input class="form-7" type="text" maxlength="4" id="lpkpw3" _di="3"><em>-</em>
-                                                <input class="form-7" type="text" maxlength="4" id="lpkpw4" _di="4">
-                                            </div>
-                                            <a class="sureBtn" href="javascript:;" id="searchGiftCard">确定</a>
-                                            <div class="errorPrompt" style="display: none;" id="giftCardTitle">
-                                                <i class="orderIcon"></i>
-                                                <span></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="giftWrap" id="giftCardInfo" style="display: none;">
-                                    <div class="giftTitle">
-                                        <span>已添加的礼品卡</span>
-                                    </div>
-                                    <div class="giftTable">
-                                        <div class="gHead">
-                                            <div class="gHead-1">卡号</div>
-                                            <div class="gHead-2">面值</div>
-                                            <div class="gHead-3">可用金额</div>
-                                            <div class="gHead-4">当前订单使用</div>
-                                            <div class="gHead-5">有效期</div>
-                                        </div>
-                                        <div class="gBody" id="giftCardInfoBody"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="giftCardHide" style="display: none">
-                                <div class="giftWrap">
-                                    <div class="giftTitle">
-                                        <label>非酒仙配送商品不支持使用礼品卡</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="couponsUsed">
-                    <div class="item">
-                        金额抵用：<span class="red" id="discountPriceShow">￥0.00</span>
-                    </div>
-                    <div class="item">
-                        <p id="couponCountShow">优惠券0张，优惠<span class="yellow" id="_discountPriceShow">0元</span></p>
-                        <p id="lgsCouponShow">免邮券0张，抵扣金额<span class="yellow">0元</span></p>
-                        <p id="jinteUseShow">津贴金额<span class="yellow">0元</span></p>
-                        <p id="useBackPriceShow">使用返现<span class="yellow" id="useBackPrice">0元</span></p>
-                        <p id="giftCardInfoP">礼品卡0张，金额<span class="yellow">0元</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- 结算金额 -->
         <div class="pubWrap">
@@ -329,19 +227,6 @@
                         <div class="totalList" id="settlJintiePrice" style="display: none;"><span>津贴：</span><span class="comTotalSum" id="jintiePriceInfo">-￥0.00</span></div>
                         <div class="totalList" id="settlBackPrice" style="display: none;"><span>返现：</span><span class="comTotalSum" id="backPriceInfo">-￥0.00</span></div>
                         <div class="totalList" id="settlGiftCardPrice" style="display: none;"><span>礼品卡金额：</span><span class="comTotalSum" id="giftCardPriceInfo">-￥0.00</span></div>
-                        <div class="totalList" id="settlFreight"><span>运费：</span><span class="comTotalSum yunfei" id="freightPriceInfo">￥0.00</span>
-
-                            <div id="shopFreightInfo" class="orderIcon">
-                                <div class="freightPad">
-                                    <div class="freightPop"> <i class="orderIcon cor"></i>
-                                        <div class="freightTitle">店铺运费明细</div>
-                                        <div id="freightInfoList" class="freightCon">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="totalList" id="settlLgsCouponPrice" style="display: none;"><span>运费券：</span><span class="comTotalSum" id="lgsPriceInfo">-￥0.00</span></div>
                     </div>
                 </div>
                 <div class="settlementBox settlementBg">
@@ -349,11 +234,6 @@
                         <p><span>应付总金额：</span><em class="totleNum">￥0</em></p>
                         <p id="settlAddress"><span>寄送至：</span><em id="settlAddressInfo"></em></p>
                         <p id="settlConsignee"><span>收货人：</span><em id="settlConsigneeInfo"></em><em class="phoneNunber" id="settlMobleInfo"></em></p>
-                    </div>
-                    <!-- 错误信息提示 -->
-                    <div class="deliveryPop" style="display: none;">
-                        <span>所选商品或所在地区不支持货到付款</span>
-                        <i class="orderIcon"></i>
                     </div>
                     <div class="submitBtnBox"><a id="backCart" href="http://cart.jiuxian.com">返回购物车</a><a id="submitOrder" href="javascript:;" class="submitBtn">提交订单</a></div>
                 </div>
@@ -696,7 +576,7 @@
             <i class="orderIcon pubClose" type="orderError"></i>
         </div>
         <div class="pubInsideBody">
-            <div id="activateFailure" class="warningText failureText"><i class="orderIcon"></i><span>提交失败</span></div>
+            <div id="activateFailures" class="warningText failureText"><i class="orderIcon"></i><span>提交失败</span></div>
             <div class="pubText"></div>
             <div class="addrBtn"><a href="javascript:;" class="sure">我知道了</a></div>
         </div>
@@ -767,13 +647,7 @@
                         <i class="publicIcon"></i><span>支付方式</span>
                     </h3>
                     <p>
-                        <a href="http://help.jiuxian.com/view-4-120.htm#pay_1" target="_blank" rel="nofollow">货到付款</a>
-                    </p>
-                    <p>
                         <a href="http://help.jiuxian.com/view-4-121.htm#pay_2" target="_blank" rel="nofollow">在线支付</a>
-                    </p>
-                    <p>
-                        <a href="http://help.jiuxian.com/view-4-122.htm#pay_3" target="_blank" rel="nofollow">线下支付</a>
                     </p>
                 </li>
                 <li class="servicesItme05">
@@ -850,8 +724,7 @@
                             _kxs.async = true;
                             _kxs.setAttribute('cid', 'kx_verify');
                             _kxs.src = ('https:' == document.location.protocol
-                                ? 'https://ss.knet.cn' : 'http://rr.knet.cn')
-                                + '/static/js/icon3.js?sn=2011040600100007749&tp=icon3';
+                                ? 'https://ss.knet.cn' : 'http://rr.knet.cn');
                             _kxs.setAttribute('size', 0);
                             var _kx = document.getElementById('kx_verify');
                             _kx.parentNode.insertBefore(_kxs, _kx);
@@ -948,73 +821,7 @@
                 })
     });
 </script>
-<!-- 邮件订阅  end-->
-<script>
-    //用户登录信息
-    function profileback(data) {
-        var str = window.location + "";
-        if (str.indexOf("http://cart.jiuxian.com/") != -1
-            || str.indexOf("https://pay.jiuxian.com/") != -1
-            || str.indexOf("http://order.jiuxian.com/") != -1) {
-            var _login_status_panel = $("li[name='_login_status_panel']");
-        } else {
-            var _login_status_panel = $(".topHeaderLeft[name='_new_login_status_panel']");
-        }
-        if (data.jx_user_name) {
-            var old_jx_user_name = stripscript(data.jx_user_name);
-            var jx_user_name;
-            if (old_jx_user_name != cut_str(old_jx_user_name, 10)) {
-                jx_user_name = cut_str(old_jx_user_name, 10)
-            } else {
-                jx_user_name = data.jx_user_name
-            }
 
-            if (str.indexOf("http://cart.jiuxian.com/") != -1
-                || str.indexOf("https://pay.jiuxian.com/") != -1
-                || str.indexOf("http://order.jiuxian.com/") != -1) {
-                _login_status_panel
-                    .html("<span> hi，<span class='userName' title='" + old_jx_user_name + "'>"
-                        + jx_user_name
-                        + "</span><span><a href='https://login.jiuxian.com/logout.htm' class='cartlogout'>退出</a><a class='newsNum' href='http://member.jiuxian.com/jxcircle/info_center-0.htm' target='_blank'><em>消息</em><i class='mesNum'></i></a><a class='newsNum' href='http://member.jiuxian.com/purse/my_gold_coin-1.htm' target='_blank'><em>金币</em><i class='mesNum'></i></a></span></span><i></i>")
-            } else {
-                _login_status_panel
-                    .html("<div class='clearfix'><p class='greeting'><em>hi，</em><span>"
-                        + jx_user_name
-                        + "</span></p><a class='headerExit' href='https://login.jiuxian.com/logout.htm'>退出</a><a class='newsNum' href='http://member.jiuxian.com/jxcircle/info_center-0.htm' target='_blank'><em>消息</em><i class='mesNum'></i></a><a class='newsNum' href='http://member.jiuxian.com/purse/my_gold_coin-1.htm' target='_blank'><em>金币</em><i class='mesNum'></i></a></div>");
-            }
-            showMesNum();
-
-        }
-        if (data.jx_user_id) {
-            _ozuid = data.jx_user_id
-        }
-        //购物车数量
-        if (data.jxcart_nums) {
-            if (data.jxcart_nums > 999) {
-                $(".jx_car_num").text("999+")
-                if ($("#side_goods_count") != null) {
-                    $("#side_goods_count").text("999+");
-                }
-            } else {
-                $(".jx_car_num").text(data.jxcart_nums);
-                if ($("#side_goods_count") != null) {
-                    $("#side_goods_count").text(data.jxcart_nums);
-                }
-            }
-        }
-    }
-
-    $(function() {
-        setTimeout(function() {
-            jQuery.post("/addJXCenterCookie.htm", {
-
-            }, function(d) {
-                if (d == undefined) { return; }
-                profileback(d);
-            }, "json");
-        }, 1000);
-    });
-</script>
 
 <script type="text/javascript">
     //99click用户ID变量赋值

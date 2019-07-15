@@ -13,7 +13,6 @@ public class OrderServiceImpl implements OrderServiceApi {
 
     @Override
     public void add() {
-        orderMapper.add();
         System.out.println("123");
     }
 }
