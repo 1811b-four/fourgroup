@@ -6,9 +6,9 @@ spring:
     name: wine-provider-xhs
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/xhs?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://192.168.1.10:3306/wineproject?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Hongkong
     username: root
-    data-password: root
+    data-password: 123
     useSSL: false
 eureka:
   client:
