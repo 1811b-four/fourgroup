@@ -39,7 +39,7 @@ public class WineServiceImpl implements WineServiceXhsApi {
         }
 
 
-        /*Jedis jedis = new Jedis("192.168.1.112",6379);
+        /*Jedis jedis = new Jedis("192.168.1.137",6379);
         jedis.auth("123");
         String name = "jmh";
         String s = jedis.get(name);
