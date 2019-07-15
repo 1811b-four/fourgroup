@@ -7,4 +7,5 @@ package com.jk.service;
  * @Created by ${jmh}
  */
 public interface GoodsServiceApi {
+
 }
