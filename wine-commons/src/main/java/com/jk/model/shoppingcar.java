@@ -16,6 +16,15 @@ public class shoppingcar {
     private BigDecimal goods_total_price;
     private BigDecimal goods_unit_price;
     private String goods_img;
+    private Integer goods_coin;
+
+    public Integer getGoods_coin() {
+        return goods_coin;
+    }
+
+    public void setGoods_coin(Integer goods_coin) {
+        this.goods_coin = goods_coin;
+    }
 
     public Integer getCar_id() {
         return car_id;

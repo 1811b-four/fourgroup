@@ -1,4 +1,9 @@
 package com.jk.Mapper;
+
+import com.jk.model.shoppingcar;
+
+import java.util.List;
+
 /**
  * @Classname CarMapper
  * @Description TODO
@@ -6,4 +11,5 @@ package com.jk.Mapper;
  * @Created by 谷凌杰
  */
 public interface CarMapper {
+    List<shoppingcar> query();
 }
