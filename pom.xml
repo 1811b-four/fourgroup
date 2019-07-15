@@ -18,6 +18,9 @@
         <module>wine-gateway</module>
         <module>wine-web-ui</module>
 
+        <module>wine-consumer-qwb</module>
+        <module>wine-provider-qwb</module>
+
 
     </modules>
 
