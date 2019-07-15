@@ -22,6 +22,8 @@
         <module>wine-provider-qwb</module>
 
 
+        <module>wine-consumer-shoppingcar-xu</module>
+        <module>wine-production-shoppingcar-xu</module>
     </modules>
 
 
