@@ -15,9 +15,9 @@ spring:
     name: springcloud-provider
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/jmh?serverTimezone=Hongkong&&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://192.168.1.10:3306/wineproject?serverTimezone=Hongkong&&characterEncoding=utf8&useSSL=false
     username: root
-    password: 201220
+    password: 123
 
 mybatis:
   mapper-locations: mapper/*.xml
