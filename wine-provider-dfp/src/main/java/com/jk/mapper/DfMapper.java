@@ -1,6 +1,9 @@
 package com.jk.mapper;
 
+import com.jk.model.EchaBean;
 import com.jk.model.Goods;
+import com.jk.model.ParamBean;
+import com.jk.model.TreeBean;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,4 +23,8 @@ public interface DfMapper {
     Integer queryNewsCount();
 
     void addReceive(Goods good);
+
+/*    List<EchaBean> queryDataList(ParamBean paramBean);
+
+    List<TreeBean> queryTreeNode(@Param("id") Integer id, @Param("pid") int pid);*/
 }

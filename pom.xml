@@ -15,8 +15,18 @@
 
         <module>wine-eureka</module>
         <module>wine-config-server</module>
+        <module>wine-gateway</module>
         <module>wine-web-ui</module>
 
+        <module>wine-consumer-qwb</module>
+        <module>wine-provider-qwb</module>
+
+
+        <module>wine-consumer-shoppingcar-xu</module>
+        <module>wine-production-shoppingcar-xu</module>
+
+        <module>wine-provider-jmh</module>
+        <module>wine-feign-jmh</module>
     </modules>
 
 

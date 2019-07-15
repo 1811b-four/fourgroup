@@ -1,7 +1,10 @@
 package com.jk.service;
 
 import com.jk.mapper.DfMapper;
+import com.jk.model.EchaBean;
 import com.jk.model.Goods;
+import com.jk.model.ParamBean;
+import com.jk.model.TreeBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,4 +37,22 @@ public class DfServiceImpl  implements  GoodsServiceApi{
     public void add(Goods good) {
         newsMapper.addReceive(good);
     }
+/*
+    @Override
+    public List<EchaBean> queryDataList(ParamBean paramBean) {
+        return newsMapper.queryDataList(paramBean);
+    }
+
+
+    @Override
+    public List<TreeBean> queryTreeNode(Integer id) {
+        String name = "pid";
+        int pid = Integer.parseInt(name);
+        return newsMapper.queryTreeNode(id,pid);
+    }*/
+
+
+
+
+
 }
