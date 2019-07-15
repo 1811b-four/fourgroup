@@ -1,0 +1,23 @@
+
+
+server:
+  port: 8768
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+spring:
+  application:
+    name: springcloud-provider
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.10:3306/wineproject?serverTimezone=Hongkong&&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123
+
+mybatis:
+  mapper-locations: mapper/*.xml
