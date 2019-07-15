@@ -1,0 +1,28 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: wine-consumer-qwb
+  data:
+    thymeleaf:
+      encoding: UTF-8
+      servlet:
+        content-type: text/html
+#  redis:
+#    database: 0
+#    host: 127.0.0.1
+#    port: 6379
+#    password: 123
+#    timeout: 500
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+#eurekafeign:
+#  hystrix:
+#    enabled: true
+
