@@ -4,7 +4,7 @@ package com.jk.service;
 import com.jk.mapper.WineMapper;
 import com.jk.model.User_Coupon;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import redis.clients.jedis.Jedis;
 import java.util.Random;
@@ -15,16 +15,16 @@ import java.util.Random;
  * @Date 2019/7/14 16:56
  * @Created by jmh
  */
-@RestController
+@Service
 public class WineServiceImpl implements WineServiceXhsApi {
 
     @Autowired
     private WineMapper wineMapper;
 
     @Override
-    public void addReceive(Integer couponId, User_Coupon userCoupon) {
+    public Boolean addReceive(Integer couponId, User_Coupon userCoupon) {
 
-        final int ACTIVATECODENUM = 200;
+        final int ACTIVATECODENUM = 1;
         Random random = new Random();
         String candicateCode = "abcdefghijklmnopqrstuvwxyz";
         candicateCode += candicateCode.toUpperCase();
@@ -48,6 +48,6 @@ public class WineServiceImpl implements WineServiceXhsApi {
         userCoupon.setUserId(i);
         userCoupon.setCouponId(couponId);
 
-        wineMapper.addReceive(userCoupon);
+        return wineMapper.addReceive(userCoupon);
     }
 }

@@ -12,5 +12,5 @@ import org.apache.ibatis.annotations.Param;
  */
 @Mapper
 public interface WineMapper {
-    void addReceive(User_Coupon userCoupon);
+    Boolean addReceive(User_Coupon userCoupon);
 }

@@ -4,7 +4,7 @@
 
 
     <insert id="addReceive" parameterType="com.jk.model.User_Coupon">
-        insert into user-coupon (couponId,userId,couponSerialNumber)
+        insert into user_coupon (couponId,userId,couponSerialNumber)
         values (#{couponId},#{userId},#{couponSerialNumber});
     </insert>
 

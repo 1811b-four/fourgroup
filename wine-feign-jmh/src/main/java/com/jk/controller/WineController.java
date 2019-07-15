@@ -22,8 +22,8 @@ public class WineController {
     private WineServiceFeign wineServiceFeign;
 
     @PostMapping("receive")
-    public void addReceive(@RequestParam(value = "couponId",required = true) Integer couponId, User_Coupon userCoupon){
-        wineServiceFeign.addReceive(couponId,userCoupon);
+    public Boolean addReceive(@RequestParam(value = "couponId",required = true) Integer couponId, User_Coupon userCoupon){
+        return wineServiceFeign.addReceive(couponId,userCoupon);
     }
 
 
