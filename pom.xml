@@ -17,6 +17,8 @@
         <module>wine-config-server</module>
         <module>wine-web-ui</module>
 
+        <module>wine-consumer-shoppingcar-xu</module>
+        <module>wine-production-shoppingcar-xu</module>
     </modules>
 
 
