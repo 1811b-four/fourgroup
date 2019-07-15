@@ -18,3 +18,6 @@ spring:
     username: root
     password: x1229
 
+
+mybatis:
+  mapper-locations: Mapper/*.xml
