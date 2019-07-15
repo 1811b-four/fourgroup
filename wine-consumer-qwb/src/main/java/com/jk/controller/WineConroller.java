@@ -15,17 +15,7 @@ public class WineConroller {
     private GoodsServiceFeign goodsServiceFeign;
 
 
-    @RequestMapping("toindex")
-    public String toindex(){
 
-    return "index";
-    }
-
-    @RequestMapping("toshow")
-    public String toshow(){
-
-        return "show";
-    }
 
     @GetMapping("findGoods")
     @ResponseBody
