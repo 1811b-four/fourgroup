@@ -1,9 +1,11 @@
 package com.jk.controller;
 
+import com.jk.model.Goods;
 import com.jk.service.DfServiceImpl;
 import com.jk.service.GoodsServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,8 +23,14 @@ public class DfController implements GoodsServiceApi {
     private DfServiceImpl newsService;
 
     @Override
-    @GetMapping("findNews")
-    public HashMap<String, Object> findchuizi(@RequestParam Integer start, @RequestParam Integer pageSize) {
+    @GetMapping("find")
+    public HashMap<String, Object> findchuizi(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize) {
         return newsService.findchuizi(start,pageSize);
+    }
+
+    @Override
+    @PostMapping("add")
+    public void add(Goods good){
+        newsService.add(good);
     }
 }

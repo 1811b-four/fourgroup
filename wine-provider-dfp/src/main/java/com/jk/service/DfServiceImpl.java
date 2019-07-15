@@ -1,6 +1,7 @@
 package com.jk.service;
 
-import com.jk.mapper.DsMapper;
+import com.jk.mapper.DfMapper;
+import com.jk.model.Goods;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ import java.util.List;
 @Service
 public class DfServiceImpl  implements  GoodsServiceApi{
     @Autowired
-    private DsMapper newsMapper;
+    private DfMapper newsMapper;
 
     @Override
     public HashMap<String, Object> findchuizi(Integer start, Integer rows) {
@@ -27,5 +28,10 @@ public class DfServiceImpl  implements  GoodsServiceApi{
         hashMap.put("total",total);
         hashMap.put("rows",find);
         return hashMap;
+    }
+
+    @Override
+    public void add(Goods good) {
+        newsMapper.addReceive(good);
     }
 }
