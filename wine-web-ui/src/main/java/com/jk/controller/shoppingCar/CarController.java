@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Created by 谷凌杰
  */
 @Controller
+@RequestMapping("shoppingCar")
 public class CarController {
 
     @RequestMapping("toindex")
