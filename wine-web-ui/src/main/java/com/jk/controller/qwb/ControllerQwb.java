@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ControllerQwb {
 
 
-    @RequestMapping("toindex")
+    @RequestMapping("toindex2")
     public String toindex(){
 
         return "qwb/index";
