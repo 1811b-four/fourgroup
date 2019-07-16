@@ -19,4 +19,44 @@ public class CarServiceImpl implements CarService {
     public List<shoppingcar> query() {
         return null;
     }
+
+    @Override
+    public void addNum(Integer id) {
+
+    }
+
+    @Override
+    public void subNum(Integer id) {
+
+    }
+
+    @Override
+    public void subLostNum(Integer id) {
+
+    }
+
+    @Override
+    public void sddLostNum(Integer id) {
+
+    }
+
+    @Override
+    public void LostNum(Integer id, Integer sum) {
+
+    }
+
+    @Override
+    public void del(Integer[] strIds) {
+
+    }
+
+    @Override
+    public void deleteA(Integer id) {
+
+    }
+
+    @Override
+    public Integer sumA() {
+        return null;
+    }
 }

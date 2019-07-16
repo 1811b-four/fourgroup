@@ -29,9 +29,9 @@
 </div>
 <div class="midHeader">
     <div class="midHeaderBox">
-        <div class="jxwLogo"><p
-                style="background:url(static/shoppingcar/img/jiiuxian.png) no-repeat;"
-                class="jxwIndex"></p></div>
+        <div class="jxwLogo"><img
+                src="http://theshowqwb.oss-cn-beijing.aliyuncs.com/%E7%A7%8B%E9%A3%8E/1563239718721.jpg?Expires=1564421323&OSSAccessKeyId=LTAIkWKDlzxriB2Z&Signature=sqDS1OfZlT2E8lwiJSLLGQyJECM%3D"
+                class="jxwIndex"/></div>
         <div class="bayProcess">
             <div class="proPic"></div>
             <div class="proTex"><span class="on">我的购物车</span><span class="on2">确认订单信息</span><span
@@ -43,10 +43,10 @@
 
 <input type="hidden" id="isLogin" value="false">
 <div class="cartMain">
-    <div id="cart_container">
-        <div class="cart-t">
+    <div id="cart_container" >
+        <div class="cart-t" >
             <div class="cart-filter-bar">
-                <div class="my-cart-tit">我的购物车<span>1</span></div>
+                <div class="my-cart-tit">我的购物车<span id="sumA"></span></div>
                 <div class="my-distri-addr">配送至</div>
             </div>
             <div class="cart-thead">
@@ -59,22 +59,16 @@
                 <div class="cTab-tr cart-subtotal">小计</div>
                 <div class="cTab-tr cart-operating">操作</div>
             </div>
-            <div class="cart-tbody">
-                <div class="cart-list-wrap">
-                    <div class="p-type" proid="">
-                        <div class="cart-list select-bg " itemid="item-3360" proid="3360">
-                            <div class="clearfix" id="shoopingx">
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div id="shoppingcar"></div>
+
+
+
         </div>
         <div class="cart-gopay-bottom">
             <div class="cart-gopay-left">
                 <label class="cTab-tr  "><i class="cartIcon "></i><input name="" type="checkbox" value="" onclick="allFunction()"><span >全选</span></label>
-                <a href="javascript:;" id="delChecked">删除选中商品</a>
+                <a href="javascript:;" id="delChecked" onclick="deleteAll()">删除选中商品</a>
                 <a href="javascript:;" id="delFail">清除失效商品</a>
                 <a href="javascript:;" id="delToCollect">移入我的收藏</a>
             </div>
@@ -540,6 +534,57 @@
     });
 </script>
 <script>
+    function sumA(){
+        $.ajax({
+            url: 'http://192.168.1.111:8089/shopping/sumA',
+            type: 'post',
+            success: function (data) {
+                $("#sumA").html(data);
+            }
+        })
+    }
+
+    //批删
+    function deleteAll(){
+
+        // 返回一个 复选框对象数组
+        var arrObj = $("[name='itemCheckbox']");
+
+        var strId = "";
+        arrObj.each(function (){
+
+            if($(this).prop("checked")==true){
+                alert($(this).prop("value"))
+                strId += $(this).prop("value") + ","
+            }
+        })
+
+        //截取逗号
+        strId = strId.substring(0, strId.length-1);
+        alert(strId);
+
+        var choice = confirm("你确认刪除吗?");//确认框。
+        if (choice == true) {
+            $.ajax({
+
+                url:"http://192.168.1.111:8089/shopping/del",
+                type:"get",
+                data:{strIds:strId},
+                success:function(){
+                    location.reload();
+                    //query();
+                },
+                error:function(){
+
+                    alert("sss");
+                }
+
+            })
+
+        }
+
+
+    }
 
     //全选
     function allFunction(){
@@ -551,109 +596,179 @@
         }
     }
 
-    function aaa(){
+    //数量加
+    function aaa(id){
+        alert(id);
         var jQuery = $("#price").val();
         if(jQuery>=99){
             alert("最多可买99件");
-            stock = 99;
-            $("#price").val(stock);
             return false;
         }
-        stock = Number(jQuery)+1;
-        $("#price").val(stock);
+        /*stock = Number(jQuery)+1;
+        $("#price").val(stock);*/
+        $.ajax({
+            url: 'http://192.168.1.111:8089/shopping/addNum',
+            type: 'post',
+            data:{id:id},
+            success: function (data) {
+                query();
+            }
+        })
     }
 
-    function bbb(){
+    //数量减
+    function bbb(id){
 
         var jQuery = $("#price").val();
         if(jQuery<=1){
             alert("最少1件");
-            stock = 1;
-            $("#price").val(stock);
             return false;
         }
-        stock = Number(jQuery)-1;
-        $("#price").val(stock);
+       /* stock = Number(jQuery)-1;
+        $("#price").val(stock);*/
+        $.ajax({
+            url: 'http://192.168.1.111:8089/shopping/subNum',
+            type: 'post',
+            data:{id:id},
+            success: function (data) {
+                query();
+            }
+        })
     }
 
-    function ccc(cc){
+    //失去焦点加减
+    function ccc(cc,id){
         if(cc>99){
             alert("最多可买99件");
-            var jQuery = $("#price").val();
+            $.ajax({
+                url: 'http://192.168.1.111:8089/shopping/sddLostNum',
+                type: 'post',
+                data:{id:id},
+                success: function (data) {
+                    query();
+                }
+            })
+            /*var jQuery = $("#price").val();
             stock = 99;
             $("#price").val(stock);
+            query();*/
         }
         if(cc<1){
             alert("最少1件");
-            var jQuery = $("#price").val();
+            $.ajax({
+                url: 'http://192.168.1.111:8089/shopping/subLostNum',
+                type: 'post',
+                data:{id:id,sum:cc},
+                success: function (data) {
+                    query();
+                }
+            })
+           /* var jQuery = $("#price").val();
             stock = 1;
             $("#price").val(stock);
+            query();*/
         }
 
+        $.ajax({
+            url: 'http://192.168.1.111:8089/shopping/LostNum',
+            type: 'post',
+            data:{id:id},
+            success: function (data) {
+                query();
+            }
+        })
     }
 
-    //查询
-    $(function (){
-        $.ajax({
-        url : 'http://192.168.1.106:8089/shopping/query',
-        type : 'get',
-        success : function(data) {
-            var sum = 0;
-            for (var i = 0; i < data.length; i++) {
-                sum=data[i].goods_unit_price*data[i].goods_num;
-                $("#pric").html(sum);
-            }
-            for (var i = 0; i < data.length; i++) {
-             jmh="<div class=\"cTab-tr \">\n" +
-                 "                    <i class=\"cartIcon\"></i><input\n" +
-                 "                value="+data[i].car_id+"\" name=\"itemCheckbox\" type=\"checkbox\" ></div>\n" +
-                 "                <div class=\"cTab-tr cart-goods\">\n" +
-                 "                    <div class=\"goods-info\">\n" +
-                 "                    <div class=\"goods-img\">\n" +
-                 "                    <a href=\"http://www.jiuxian.com/goods-3360.html\" target=\"_blank\"><img\n" +
-                 "                src="+data[i].goods_img+"\n" +
-                 "                width=\"80\" height=\"80\"></a>\n" +
-                 "                    </div>\n" +
-                 "                    <div class=\"goods-right\">\n" +
-                 "                    <div class=\"goods-name\">\n" +
-                 "                    <a href=\"http://www.jiuxian.com/goods-3360.html\" target=\"_blank\">"+data[i].goods_name+"</a>\n" +
-                 "                </div>\n" +
-                 "                <div class=\"cart-tag\">\n" +
-                 "                    <span>买得</span>\n" +
-                 "                    </div>\n" +
-                 "                    </div>\n" +
-                 "                    </div>\n" +
-                 "                    </div>\n" +
-                 "                    <div class=\"cTab-tr cart-price\">\n" +
-                 "                    <div class=\"goods-price\">￥"+data[i].goods_unit_price+".00</div>\n" +
-                 "                </div>\n" +
-                 "                <div class=\"cTab-tr cart-gold\">\n" +
-                 "                    <div class=\"goods-gold\">"+data[i].goods_coin+"金币</div>\n" +
-                 "                </div>\n" +
-                 "                <div class=\"cTab-tr \">\n" +
-                 "                    <div class=\"goods-num\">\n" +
-                 "                    <p><i class=\" cut\"onclick='bbb()'>-</i></p>\n" +
-                 "                <input name=\"\" type=\"text\" class=\"num\" value="+data[i].goods_num+" id='price' onblur= \"ccc(this.value)\">\n" +
-                 "                    <p><i class=\" add \" onclick='aaa()'>+</i></p>\n" +
-                 "                </div>\n" +
-                 "                </div>\n" +
-                 "                <div class=\"cTab-tr cart-subtotal\">\n" +
-                 "                    <div class=\"goods-total-price\">￥"+data[i].goods_unit_price+".00</div>\n" +
-                 "                </div>\n" +
-                 "                <div class=\"cTab-tr cart-operating\">\n" +
-                 "                    <div class=\"goods-operating\">\n" +
-                 "                    <p><a href=\"javascript:;\" class=\"list-del\">删除</a></p>\n" +
-                 "                <p><a href=\"javascript:;\" class=\"move-collect\">移入我的收藏</a></p>\n" +
-                 "                </div>\n" +
-                 "                </div>"
-
-                $("#shoopingx").html(jmh);
-            }
-
+    //单删
+    function deleteA(id){
+        alert(id);
+    $.ajax({
+        url: 'http://192.168.1.111:8089/shopping/deleteA',
+        type: 'post',
+        data:{id:id},
+        success: function () {
+            location.reload();
         }
     })
+}
 
+    //查询
+    $(function () {
+        query();
+        sumA();
     })
+
+    function query() {
+        $.ajax({
+            url: 'http://192.168.1.111:8089/shopping/query',
+            type: 'get',
+            success: function (data) {
+                var sum = 0;
+                for (var i = 0; i < data.length; i++) {
+                    sum = data[i].goods_unit_price * data[i].goods_num;
+                    $("#pric").html(sum);
+                }
+                for (var i = 0; i < data.length; i++) {
+                    jmh="<div class=\"cart-tbody\">\n" +
+                        "                <div class=\"cart-list-wrap\">\n" +
+                        "                    <div class=\"p-type\" proid=\"\">\n" +
+                        "                        <div class=\"cart-list select-bg \" itemid=\"item-3360\" proid=\"3360\">\n" +
+                        "                            <div class=\"clearfix\" >" +
+                        "<div class=\"cTab-tr \">\n" +
+                        "                    <i class=\"cartIcon\"></i><input\n" +
+                        "                value="+data[i].car_id+"\" name=\"itemCheckbox\" type=\"checkbox\" ></div>\n" +
+                        "                <div class=\"cTab-tr cart-goods\">\n" +
+                        "                    <div class=\"goods-info\">\n" +
+                        "                    <div class=\"goods-img\">\n" +
+                        "                    <a href=\"http://www.jiuxian.com/goods-3360.html\" target=\"_blank\"><img\n" +
+                        "                src="+data[i].goods_img+"\n" +
+                        "                width=\"80\" height=\"80\"></a>\n" +
+                        "                    </div>\n" +
+                        "                    <div class=\"goods-right\">\n" +
+                        "                    <div class=\"goods-name\">\n" +
+                        "                    <a href=\"http://www.jiuxian.com/goods-3360.html\" target=\"_blank\">"+data[i].goods_name+"</a>\n" +
+                        "                </div>\n" +
+                        "                <div class=\"cart-tag\">\n" +
+                        "                    <span>买得</span>\n" +
+                        "                    </div>\n" +
+                        "                    </div>\n" +
+                        "                    </div>\n" +
+                        "                    </div>\n" +
+                        "                    <div class=\"cTab-tr cart-price\">\n" +
+                        "                    <div class=\"goods-price\">￥"+data[i].goods_unit_price+".00</div>\n" +
+                        "                </div>\n" +
+                        "                <div class=\"cTab-tr cart-gold\">\n" +
+                        "                    <div class=\"goods-gold\">"+data[i].goods_coin+"金币</div>\n" +
+                        "                </div>\n" +
+                        "                <div class=\"cTab-tr \">\n" +
+                        "                    <div class=\"goods-num\">\n" +
+                        "                    <p><i class=\" cut\"onclick='bbb()'>-</i></p>\n" +
+                        "                <input name=\"\" type=\"text\" class=\"num\" value="+data[i].goods_num+" id='price' onblur= \"ccc(this.value)\">\n" +
+                        "                    <p><i class=\" add \" onclick='aaa()'>+</i></p>\n" +
+                        "                </div>\n" +
+                        "                </div>\n" +
+                        "                <div class=\"cTab-tr cart-subtotal\">\n" +
+                        "                    <div class=\"goods-total-price\">￥"+data[i].goods_unit_price+".00</div>\n" +
+                        "                </div>\n" +
+                        "                <div class=\"cTab-tr cart-operating\">\n" +
+                        "                    <div class=\"goods-operating\">\n" +
+                        "                    <p><a href=\"javascript:;\" class=\"list-del\">删除</a></p>\n" +
+                        "                <p><a href=\"javascript:;\" class=\"move-collect\">移入我的收藏</a></p>\n" +
+                        "                </div>\n" +
+                        "                </div>" +
+                        "                 </div>\n" +
+                        "                        </div>\n" +
+                        "                    </div>\n" +
+                        "                </div>\n" +
+                        "            </div>"
+
+                    $("#shoppingcar").append(jmh);
+                }
+
+            }
+        })
+    }
+
 </script>
 </body>
 </html>

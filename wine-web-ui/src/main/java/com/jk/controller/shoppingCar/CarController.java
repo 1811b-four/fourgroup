@@ -17,4 +17,5 @@ public class CarController {
     public String toindex(){
         return "shoppingCar/index";
     }
+
 }

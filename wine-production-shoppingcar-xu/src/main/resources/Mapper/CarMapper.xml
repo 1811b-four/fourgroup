@@ -5,4 +5,40 @@
 <select id="query" resultType="com.jk.model.shoppingcar">
     select * from t_shopping_car
 </select>
+
+    <update id="addNum">
+        update t_shopping_car t set goods_num = goods_num+1 where  car_id =#{id}
+    </update>
+
+    <update id="subNum">
+        update t_shopping_car t set goods_num = goods_num-1 where  car_id =#{id}
+    </update>
+
+    <update id="subLostNum">
+        update t_shopping_car t set goods_num = 1 where  car_id =#{id}
+    </update>
+
+    <update id="sddLostNum">
+        update t_shopping_car t set goods_num = 99 where  car_id =#{id}
+    </update>
+
+    <update id="LostNum">
+        update t_shopping_car t set goods_num = #{sum} where  car_id =#{id}
+    </update>
+
+    <delete id="del" parameterType="int">
+        delete from t_shopping_car where car_id in
+        <foreach collection="split" index="index" item="item" open="("
+                 close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+
+    <delete id="deleteA">
+        delete from t_shopping_car where car_id = #{id}
+    </delete>
+
+    <select id="sumA" resultType="int">
+         select count(1) from t_shopping_car
+    </select>
 </mapper>
