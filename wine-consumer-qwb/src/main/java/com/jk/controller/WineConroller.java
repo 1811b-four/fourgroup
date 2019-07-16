@@ -24,11 +24,7 @@ public class WineConroller {
         return goodsServiceFeign.findGoods(start,pageSize);
     }
 
-    @RequestMapping("findaddDialog")
-    public String findaddDialog(){
 
-        return  "addDialog";
-    }
 
     @PostMapping("addGoods")
     @ResponseBody
