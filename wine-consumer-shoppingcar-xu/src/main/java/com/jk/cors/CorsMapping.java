@@ -25,7 +25,6 @@ public class CorsMapping implements WebMvcConfigurer {
           .allowCredentials(false)
                 //设置预检存活时间
         .maxAge(3600);
-        System.out.println("贾梦涵大傻逼");
     }
 
 

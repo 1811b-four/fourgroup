@@ -2,6 +2,8 @@ package com.jk.service.shoppingcar;
 
 import com.jk.model.shoppingcar;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -15,4 +17,28 @@ public interface CarServicePublic {
 
     @GetMapping("query")
     List<shoppingcar> query();
+
+    @PostMapping("addNum")
+    void addNum(@RequestParam(value = "id", required = true) Integer id);
+
+    @PostMapping("subNum")
+    void subNum(@RequestParam(value = "id", required = true)Integer id);
+
+    @PostMapping("subLostNum")
+    void subLostNum(@RequestParam(value = "id", required = true)Integer id);
+
+    @PostMapping("sddLostNum")
+    void sddLostNum(@RequestParam(value = "id", required = true)Integer id);
+
+    @PostMapping("LostNum")
+    void LostNum(@RequestParam(value = "id", required = true)Integer id,@RequestParam(value = "sum", required = true)Integer sum);
+
+    @GetMapping("del")
+    void del(@RequestParam(value = "strIds", required = true)Integer[] strIds);
+
+    @PostMapping("deleteA")
+    void deleteA(@RequestParam(value = "id", required = true)Integer id);
+
+    @PostMapping("sumA")
+    Integer sumA();
 }

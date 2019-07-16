@@ -3,9 +3,7 @@ package com.jk.Controller;
 import com.jk.model.shoppingcar;
 import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +24,58 @@ public class CarController1 {
     public List<shoppingcar> query(){
         List<shoppingcar> query = carServicePublic.query();
         return query;
+    }
+
+
+    @PostMapping("addNum")
+    public boolean addNum(@RequestParam(value = "id", required = true) Integer id){
+        carServicePublic.addNum(id);
+        return true;
+    }
+
+    @PostMapping("subNum")
+    public boolean subNum(@RequestParam(value = "id", required = true) Integer id){
+        carServicePublic.subNum(id);
+        return true;
+    }
+
+
+    @PostMapping("sddLostNum")
+    public boolean sddLostNum(@RequestParam(value = "id", required = true) Integer id){
+        carServicePublic.sddLostNum(id);
+        return true;
+    }
+
+    @PostMapping("subLostNum")
+    public boolean subLostNum(@RequestParam(value = "id", required = true) Integer id){
+        carServicePublic.subLostNum(id);
+        return true;
+    }
+
+    @PostMapping("LostNum")
+    public boolean LostNum(@RequestParam(value = "id", required = true) Integer id,@RequestParam(value = "sum", required = true) Integer sum){
+        carServicePublic.LostNum(id,sum);
+        return true;
+    }
+
+
+    @GetMapping("del")
+    public boolean del(@RequestParam(value = "strIds", required = true) Integer[] strIds){
+        carServicePublic.del(strIds);
+        return true;
+    }
+
+
+    @PostMapping("deleteA")
+    public boolean deleteA(@RequestParam(value = "id", required = true) Integer id){
+        carServicePublic.deleteA(id);
+        return true;
+    }
+
+
+    @PostMapping("sumA")
+    public Integer sumA(){
+        Integer integer = carServicePublic.sumA();
+        return integer;
     }
 }
