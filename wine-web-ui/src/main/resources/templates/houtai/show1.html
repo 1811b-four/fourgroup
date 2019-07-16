@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>--</title>
+    <!-- 引入bootstrap的css -->
+    <link  href="js/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <!-- 引入bootstrap-treeview的css -->
+    <link  href="js/treeview/bootstrap-treeview.min.css" rel="stylesheet" >
+    <!-- 引入bootstrap-addTabs的css -->
+    <link  href="js/addTabs/addTabs.css" rel="stylesheet" >
+    <!-- 引入bootstrap-table的css -->
+    <link  href="js/table/bootstrap-table.min.css" rel="stylesheet" >
+    <!-- 引入fileinput的css -->
+    <link type="text/css" rel="stylesheet" href="js/fileinput/css/fileinput.min.css" />
+
+
+
+    <!-- 引入jquery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- 引入my97 -->
+    <script type="text/javascript" src="js/my97/WdatePicker.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="js/treeview/bootstrap-treeview.min.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="js/addTabs/addTabs.js"></script>
+    <!-- 引入bootstrap-table的js-->
+    <script type="text/javascript" src="js/table/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="js/table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <!-- 引入bootbox.js -->
+    <script type="text/javascript" src="js/bootbox/bootbox.js"></script>
+    <!-- 引入fileinput的js -->
+    <script type="text/javascript" src="js/fileinput/js/fileinput.min.js"></script>
+    <!--  引入fileinput的js -->
+    <script type="text/javascript" src="js/fileinput/js/locales/zh.js"></script>
+
+
+
+    <script type="text/javascript" src="js/fileinput/themes/fa/theme.js"></script>
+
+</head>
+<body>
+
+<!--<div id="toolbar">
+    <input type="button" value="全选" class="btn" id="selectAll">
+    <input type="button" value="反选" class="btn" id="reverse">
+    <input type="button" value="清除" class="btn" id="unSelect">
+</div>-->
+<!--  条件查询的 form  表单  -->
+<!-- 表单 -->
+<button type="button" class="btn btn-success" onclick="search1()">搜索</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" class="btn btn-primary" onclick="reset()">重置</button>
+
+<form id="pro_from" class="form-inline">
+    <div class="form-group">
+
+
+        <input type="text" class="form-control" id="name1" placeholder="用户名/出借人姓名/项目名称">
+
+
+       <!-- <select  id="start" class="form-control" onclick="search1()">
+            <option value="0" selected>
+                请选择开户状态</option>
+            <option value="1">已开户</option>
+            <option value="2">未开户</option>
+        </select>-->
+
+
+<!--
+        <input type="text" class="form-control" id="channel" placeholder="注册渠道">
+-->
+
+            <label class="sr-only" for="firststartdate">请选择注册时间</label>
+            <input type="text" class="form-control" id="firststartdate" placeholder="请选择注册时间" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+
+
+
+
+                <label class="sr-only" for="endstartdate">请选择注册时间</label>
+                <input type="text" class="form-control" id="endstartdate" placeholder="请选择注册时间" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+<br/>
+
+
+     <!--   <label >请选择回款时间</label>
+&lt;!&ndash;
+        <input  id="firststartdate" type="date" placeholder="请选择注册时间"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})"/>至
+&ndash;&gt;
+        <input  id="endstartdate" type="date" placeholder="请选择注册时间"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" /><br/>
+-->
+        <input type="text" class="form-control" id="startmoney" placeholder="
+待收总金额起值（元）">-
+        <input type="text" class="form-control" id="endmoney" placeholder="
+待收总金额终值（元）">
+
+
+      <!--  <input type="text" class="form-control" id="startdaishoujine" placeholder="待收额起值">-
+        <input type="text" class="form-control" id="enddaishoujine" placeholder="待收额终值">
+-->
+
+        <!--  <label for="name1">身份</label>
+        <select  id="name1" class="form-control" onchange="search1()">
+            <option value="0" selected>全部</option>
+            <option value="1">医生</option>
+            <option value="2">护士</option>
+            <option value="3">其他</option>
+        </select>-->
+    </div>
+
+   </form>
+<br>
+
+<table id="bootTab"></table>
+<div id="roleDialog"></div>
+
+<div class="modal fade" id="Tip" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>提示</h3>
+            </div>
+            <div class="modal-body" align="center">
+                <h4 id="tipContent">新增成功</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+<script type="text/javascript">
+    $(function (){
+        $("#bootTab").bootstrapTable({
+            url:"http://192.168.1.145:8087/find",
+            method:"get",
+            striped: true,  	// 斑马线效果     默认false
+            //只允许选中一行
+            singleSelect:true,
+            //选中行是不选中复选框或者单选按钮
+            clickToSelect:false,
+            showToggle:true,                    //是否显示详细视图和列表视图的切换按钮
+            cardView: false,                    //是否显示详细视图
+            uniqueId: "id",                 //每一行的唯一标识，一般为主键列
+            showColumns: true,                  //是否显示所有的列
+            showRefresh: true,                  //是否显示刷新按钮
+            minimumCountColumns: 2,     //  最少留两列
+            detailView: false,                  //是否显示父子表
+            //发送到服务器的数据编码类型
+            contentType:'application/x-www-form-urlencoded;charset=UTF-8',   //数据编码纯文本  offset=0&limit=5
+            toolbar:'#toolbar',   //  工具定义位置
+
+            columns:[
+                {field:'id',title:"编号",width:100,
+                },
+            ],
+            //传递参数（*）
+            queryParams: function(params) {
+                var whereParams = {
+                    /*
+                        分页  自定义的参数         默认传 limit（展示几条）    offset（从第几条开始    起始条数）
+                    */
+
+                    "pageSize":params.limit,
+                    "start":params.offset,
+
+
+                }
+                return whereParams;
+            },
+            //前台--排序字段
+            //sortName:'proPrice',
+            //sortOrder:'desc',
+            //前台--搜索框
+            /* search:true,
+             //启动回车键做搜索功能
+             searchOnEnterKey:true,
+             //分页方式   后台请求的分页方式*/
+            sidePagination:'server',
+            pagination: true,                   //是否显示分页（*）
+            pageNum: 1,                       //每页的记录行数（*）
+            pageSize: 2,                       //每页的记录行数（*）
+            pageList: [2,4,6,12],        //可供选择的每页的行数（*）
+        });
+        /* {field:'nameAndSex',title:'姓名',width:100,
+             formatter: function(value,row,index){
+
+             return row.name+'('+row.sex+')';}
+         },*/
+    })
+
+    checkAll = function(obj){
+
+        //获取  全选复选框的checked值
+        var check = $(obj).prop("checked");
+        //获取所有信息前复选框对象 赋值
+        $("input[name='check']").prop("checked",check);
+
+
+    }
+    yanzhengma=function(){
+        alert("发送成功！")
+    }
+    checkOther = function(){
+
+        //获取所有 信息前复选框  循环 遍历  将他与他自己的相反值赋给他自己
+        $("input[name='check']").each(function(){
+
+            $(this).prop("checked", !$(this).prop("checked"));
+        })
+    }
+
+    function search1(){
+
+        $("#bootTab").bootstrapTable("refresh",{
+            "query":{
+                "account":$("#name1").val(),
+                "linshimoney":$("#startmoney").val(),
+                "linshimoney2":$("#endmoney").val(),
+
+                "linshidate":$("#firststartdate").val(),
+                "linshidate2":$("#endstartdate").val(),
+               /* "state":$("#start").val(),
+                "channel":$("#channel").val(),
+                "firststartdate":$("#firststartdate").val(),
+                "endstartdate":$("#endstartdate").val(),
+                "startmoney":$("#startmoney").val(),
+                "endmoney":$("#endmoney").val(),
+                "startdaishoujine":$("#startdaishoujine").val(),
+                "enddaishoujine":$("#enddaishoujine").val(),*/
+
+
+
+                /*   "kaishi":$("#start12").val(),
+                   "end":$("#end2").val(),*/
+
+                /*  "contractName":$("#contractName").val(),
+                  "contractType":$("#contractType").val(),*/
+            }
+        });
+    }
+
+    //全选反选
+    $("#selectAll").click(function () {
+        $("#bootTab input:checkbox").each(function () {
+            $(this).prop('checked', true);//
+        });
+    });
+    $("#unSelect").click(function () {
+        $("#bootTab input:checkbox").removeAttr("checked");
+    });
+
+    $("#reverse").click(function () {
+        $("#bootTab input:checkbox").each(function () {
+            this.checked = !this.checked;
+        });
+    });
+
+    //修改回显+
+    function update1(id){
+        alert(id)
+        dialog2("huixian?id="+id,"updateDemo" );
+        /*  dialog("../huixian?id="+id)*/
+        /* dialog("../contract/updateTiaoZhuan?contractId="+contractId, "../contract/updateContract", "修改");*/
+    }
+    //新增 addTable
+    function addTable(){
+        dialog("http://192.168.1.145:8077/springboot/findBootDialogById","http://192.168.1.145:8077/springboot/saveorupdateGoods");
+    }
+    // ,"saveorupdateGoods","新增"
+    //修改 and 新增的 弹框
+    function  dialog(HTMLurl,submitUrl,title){
+
+        var dialog = bootbox.dialog({
+            title: title,
+            message: getJspHtml(HTMLurl),   //调用方法
+            buttons:{
+                "save":{
+                    label: '保存',
+                    //自定义样式
+                    className: "btn-success",
+                    callback: function() {
+                        $.ajax({
+                            url:submitUrl,
+                            type:'post',
+                            data:$("#Form").serialize(),
+                            success:function(data){
+                                bootbox.alert("保存成功");
+                                $("#bootTab").bootstrapTable('refresh');
+                            },
+                            error:function(){
+                                bootbox.alert("ajax失败");
+                            }
+                        });
+                    }
+                },
+                "unSave":{
+                    label: '取消',
+                    //自定义样式
+                    className: "btn-info",
+                    callback: function() {
+                        // return false;  //dialog不关闭
+                    }
+                }
+            }
+        });
+    }
+
+    function  dialog2(HTMLurl,submitUrl,title){
+
+        var dialog2 = bootbox.dialog({
+            title: title,
+            message: getJspHtml(HTMLurl),   //调用方法
+            buttons:{
+                "save":{
+                    label: '保存',
+                    //自定义样式
+                    className: "btn-success",
+                    callback: function() {
+                        $.ajax({
+                            url:submitUrl,
+                            type:'post',
+                            data:$("#Form2").serialize(),
+                            success:function(data){
+                                bootbox.alert("保存成功");
+                                $("#bootTab").bootstrapTable('refresh');
+                            },
+                            error:function(){
+                                bootbox.alert("ajax失败");
+                            }
+                        });
+                    }
+                },
+                "unSave":{
+                    label: '取消',
+                    //自定义样式
+                    className: "btn-info",
+                    callback: function() {
+                        // return false;  //dialog不关闭
+                    }
+                }
+            }
+        });
+    }
+
+    function getJspHtml(urlStr){
+        var  jspHtml = "";
+        // async  (默认: true) 默认设置下，所有请求均为异步请求。如果需要发送同步请求，请将此选项设置为 false。
+        //注意，同步请求将锁住浏览器，用户其它操作必须等待请求完成才可以执行。
+        $.ajax({
+            url:urlStr,
+            type:'post',
+            //同步的ajax
+            async:false,
+            success:function(data){
+                //alert(data);//data--addProduct.jsp页面内容
+                jspHtml = data;
+            },
+            error:function(){
+                bootbox.alert("ajax失败");
+            }
+        });
+        return jspHtml;
+    }
+
+    function editTable(){
+        var chk=$("[name='chk']:checked");
+        if(chk&&chk.length==1){
+            dialog("<%=request.getContextPath()%>/honor/findBootDialogById.do?honorId="+chk[0].value,"<%=request.getContextPath()%>/honor/saveorupdateGoods.do","修改");
+        }else{
+            alert("请选择一个修改");
+        }
+    }
+    function  search(){
+        $('#bootTab').bootstrapTable('refresh');
+    }
+
+    //单删操作
+    function deleteRole(honorId){
+        bootbox.confirm({//Confirm是确认框,prompt是提示框,bootbox.alert是警告框
+            size: "small",
+            message: "您确定要删除嘛?",
+            callback: function(result){
+                if(result){
+                    $.ajax({
+                        url:'deleteVip',
+                        type:'post',
+                        data:{
+                            ids:honorId
+                        },
+                        dataType:'json',
+                        success:function(){
+
+                            bootbox.alert('删除成功');
+                            search()
+                        },
+                        error:function(){
+                            bootbox.alert('删除成功');
+                            search()
+                        }
+                    })
+                }
+            }
+        })
+    }
+    //     导出表格
+    exportDoctor = function() {
+
+
+        location.href="http://192.168.1.145:8077/springboot/exportDoctor2";
+    }
+    //锁定
+    suoding= function(){
+        alert("锁定成功")
+
+
+
+    }
+
+
+</script>
+</html>
