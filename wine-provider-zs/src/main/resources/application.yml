@@ -10,9 +10,10 @@ spring:
     name: springcloud-pre
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/zs?serverTimezone=Hongkong
+    url: jdbc:mysql://192.168.1.10:3306/wineproject?serverTimezone=Hongkong
     username: root
-    password: root
+    password: 123
 
 mybatis:
-  mapper-locations: mapper/mapper-*.xml
+  mapper-locations: mapper/mapper*.xml
+

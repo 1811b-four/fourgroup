@@ -16,6 +16,7 @@ public class t_commodity {
     private Integer wingpinpaiid;	//酒品牌
     private Integer wineshuxingid;	//酒属性
 
+    private String wineimg;          //商品图片
     private String wineyuanliao;	//原料(水,高粱,小麦)
     private String wingxiangxing;	//香型(酱香型,浓香型)
     private String wingchandi;		//产地(中国,四川)
@@ -24,6 +25,41 @@ public class t_commodity {
     private String wingguige;		//酒规格(6瓶 * 1箱)
     private String winejiuchang;	//酒厂(中国四川仙潭酒厂)
 
+    private  String   winetype;   //类型
+    private  String  wingpinpai;   //品牌
+    private  String  wineshuxing;   //属性
+
+    public String getWinetype() {
+        return winetype;
+    }
+
+    public void setWinetype(String winetype) {
+        this.winetype = winetype;
+    }
+
+    public String getWingpinpai() {
+        return wingpinpai;
+    }
+
+    public void setWingpinpai(String wingpinpai) {
+        this.wingpinpai = wingpinpai;
+    }
+
+    public String getWineshuxing() {
+        return wineshuxing;
+    }
+
+    public void setWineshuxing(String wineshuxing) {
+        this.wineshuxing = wineshuxing;
+    }
+
+    public String getWineimg() {
+        return wineimg;
+    }
+
+    public void setWineimg(String wineimg) {
+        this.wineimg = wineimg;
+    }
 
     public Integer getWineid() {
         return wineid;
