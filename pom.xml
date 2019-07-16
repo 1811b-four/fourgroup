@@ -31,6 +31,9 @@
         <module>wine-consumer-xhs</module>
         <module>wine-provider-xhs</module>
 
+        <module>wine-provider-dfp</module>
+        <module>wine-feign-dfp</module>
+
 
     </modules>
 
