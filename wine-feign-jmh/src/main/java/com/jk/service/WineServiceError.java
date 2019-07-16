@@ -4,6 +4,8 @@ import com.jk.model.User_Coupon;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Map;
+
 /**
  * @Classname WineServiceError
  * @Description TODO
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Component
 public class WineServiceError implements WineServiceFeign {
     @Override
-    public Boolean addReceive(Integer couponId, User_Coupon userCoupon) {
+    public Map<String, Object> addReceive(Integer couponId, User_Coupon userCoupon) {
         return null;
     }
 }

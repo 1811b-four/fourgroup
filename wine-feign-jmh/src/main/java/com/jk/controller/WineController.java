@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Map;
+
 /**
  * @Classname WineController
  * @Description TODO
@@ -22,7 +24,7 @@ public class WineController {
     private WineServiceFeign wineServiceFeign;
 
     @PostMapping("receive")
-    public Boolean addReceive(@RequestParam(value = "couponId",required = true) Integer couponId, User_Coupon userCoupon){
+    public Map<String , Object> addReceive(@RequestParam(value = "couponId",required = true) Integer couponId, User_Coupon userCoupon){
         return wineServiceFeign.addReceive(couponId,userCoupon);
     }
 
