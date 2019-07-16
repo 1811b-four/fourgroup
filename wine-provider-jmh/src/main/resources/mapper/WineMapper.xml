@@ -8,4 +8,8 @@
         values (#{couponId},#{userId},#{couponSerialNumber});
     </insert>
 
+    <select id="queryCoupinById" parameterType="int" resultType="com.jk.model.Coupon">
+      select  * from t_coupon where couponId = #{couponId}
+    </select>
+
 </mapper>

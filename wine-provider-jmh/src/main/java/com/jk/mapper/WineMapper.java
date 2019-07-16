@@ -1,5 +1,6 @@
 package com.jk.mapper;
 
+import com.jk.model.Coupon;
 import com.jk.model.User_Coupon;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -12,5 +13,7 @@ import org.apache.ibatis.annotations.Param;
  */
 @Mapper
 public interface WineMapper {
-    Boolean addReceive(User_Coupon userCoupon);
+    void addReceive(User_Coupon userCoupon);
+
+    Coupon queryCoupinById(@Param("couponId") Integer couponId);
 }

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 /**
  * @Classname WineController
  * @Description TODO
@@ -21,7 +23,7 @@ public class WineController2 implements WineServiceXhsApi {
 
     @Override
     @PostMapping("receive")
-    public Boolean addReceive(@RequestParam(value = "couponId", required = true) Integer couponId, User_Coupon userCoupon) {
+    public Map<String, Object> addReceive(@RequestParam(value = "couponId", required = true) Integer couponId, User_Coupon userCoupon) {
         return wineServiceXhsApi.addReceive(couponId, userCoupon);
     }
 }

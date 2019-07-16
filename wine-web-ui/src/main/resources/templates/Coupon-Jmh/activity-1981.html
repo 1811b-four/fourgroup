@@ -1168,8 +1168,14 @@ $(this).parents(".menuCon-list").find("p").hide().eq(index).show();
             url:"http://192.168.1.110:8088/receive",
             type:"post",
             data:{couponId:couponId},
-            success:function(){
-                alert("领取成功");
+            success:function(result){
+            	if(result.code == 1){
+					alert(result.msg);
+				}else if (result.code == 2){
+					alert(result.msg);
+				}else {
+            		alert(result.msg);
+				}
             }
         })
     }

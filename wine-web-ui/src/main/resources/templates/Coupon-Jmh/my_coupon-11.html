@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html >
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="pragma" content="no-cache">
@@ -1780,102 +1779,27 @@
     <div class="rightBox">
         <div class="rightTit"><h2><i></i>我的优惠券</h2></div>
         <div class="rightCon">
-            <div class="right-content">
-                <div class="inputBox" id="allInput">
-                    <b>优惠券序列号：</b>
-                    <div class="codeNum"><input type="text" name="bonus_sn" id="bonus_sn" autocomplete="off"/>
-                        <p class="valuePopC">请输入优惠券序列号</p></div>
-                    <div class="codeYzm"><input type="text" name="cap" id="cap" autocomplete="off"/>
-                        <p class="valuePopY">验证码</p></div>
-                    <div class="yzmImg"><img id="checkCodeId" src="/purse/getCheckCode.htm"
-                                             onclick="changeCheckCode();"/></div>
-                    <span>看不清？</span>
-                    <a href="javaScript:void(0);" onClick="javascript:changeCheckCode();">换一张</a>
-                    <div id="active" class="codeBtn">激活优惠券</div>
-                </div>
-                <div class="accCode"><span class="accNotic"><i></i><span>请输入优惠券序列号</span></span><span
-                        class="accNotic accNoticCode"><i></i><span>请输入验证码</span></span></div>
-            </div>
             <div class="myRedBox">
                 <div class="myRedTit clearfix">
                     <ul>
-                        <li id="unused" class="reduce" onclick="javascript:document.getElementById('11').click();">未使用
+                        <li id="unused" class="reduce" onclick="notUsed()">未使用
                         </li>
-                        <li id="used" class="reduce" onclick="javascript:document.getElementById('12').click();">已使用
+                        <li id="used" class="reduce" onclick="used()">已使用
                         </li>
-                        <li id="offeffect" class="reduce" onclick="javascript:document.getElementById('13').click();">
+                        <li id="offeffect" class="reduce" onclick="expired()">
                             已过期
                         </li>
                     </ul>
-                    <a id="11" href="/purse/my_coupon-11.htm" display:none></a>
-                    <a id="12" href="/purse/my_coupon-12.htm" display:none></a>
-                    <a id="13" href="/purse/my_coupon-13.htm" display:none></a>
                     <span class="Instruction clearfix"><a href="http://help.jiuxian.com/view-2-114.htm" target="_blank">优惠券使用说明</a><i></i></span>
                 </div>
                 <div class="rightCon-content">
                     <table cellpadding="0" cellspacing="0" border="0"
                            style=" border:1px solid #e4e4e4; border-top:none; width:100%;">
-                        <tr class="rightCon-trth">
-                            <th class="li1">名称</th>
-                            <th class="li2">面值</th>
-                            <th class="li3">类型</th>
-                            <th class="li4">序列号</th>
-                            <th class="li5">有效期</th>
-                            <th class="li6">适用终端</th>
-                        </tr>
-                        <tr class="rightCon-tr">
-                            <td><a href="http://list.jiuxian.com/search.htm?couponId=107974"> 全场可用</span></a></td>
-                            <td class="li2"> ￥45</td>
-                            <td class="li3">满减券</td>
-                            <td class="li4">40fy1dij2moj</td>
-                            <td class="li5">2019-07-05 至<br>2019-07-15</td>
-                            <td class="li6">
-                                <div class="jiaobiao"><img src="/img/coupon/coupon_new.png" width="48" height="34"/>
-                                </div>
-                                移动、PC通用
-                            </td>
-                        </tr>
-                        <tr class="rightCon-tr">
-                            <td><a href="http://list.jiuxian.com/search.htm?couponId=107973"> 全场可用</span></a></td>
-                            <td class="li2"> ￥25</td>
-                            <td class="li3">满减券</td>
-                            <td class="li4">6qmzst1td2j1</td>
-                            <td class="li5">2019-07-05 至<br>2019-07-15</td>
-                            <td class="li6">
-                                <div class="jiaobiao"><img src="/img/coupon/coupon_new.png" width="48" height="34"/>
-                                </div>
-                                移动、PC通用
-                            </td>
-                        </tr>
-                        <tr class="rightCon-tr">
-                            <td><a href="http://list.jiuxian.com/search.htm?couponId=107975"> 全场可用</span></a></td>
-                            <td class="li2"> ￥10</td>
-                            <td class="li3">满减券</td>
-                            <td class="li4">izxxlpibzfrh</td>
-                            <td class="li5">2019-07-05 至<br>2019-07-15</td>
-                            <td class="li6">
-                                <div class="jiaobiao"><img src="/img/coupon/coupon_new.png" width="48" height="34"/>
-                                </div>
-                                移动、PC通用
-                            </td>
-                        </tr>
                     </table>
                 </div>
             </div>
         </div>
-        <div class="uPageBox clearfix">
 
-            <div class="uPageBox clearfix">
-                <div class="uPage clearfix">
-                    <a href="javascript:void(0);" class="uPrevpage">上一页</a>
-
-
-                    <a class="num on">1</a>
-
-                    <a href="javascript:void(0)" class="uNnextpage">下一页</a>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 <!-- 右侧 -->
