@@ -19,4 +19,10 @@ public class ControllerQwb {
         return "qwb/show";
     }
 
+    @RequestMapping("findaddDialog")
+    public String findaddDialog(){
+
+        return  "qwb/addDialog";
+    }
+
 }
