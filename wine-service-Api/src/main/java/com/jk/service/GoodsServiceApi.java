@@ -19,7 +19,8 @@ import java.util.List;
  * @Created by ${jmh}
  */
 public interface GoodsServiceApi {
-    @GetMapping("find")
+
+   @GetMapping("find")
     HashMap<String, Object> findchuizi(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize);
     @PostMapping("add")
     void add(Goods good);
@@ -30,4 +31,5 @@ public interface GoodsServiceApi {
 
 
 /*    List<TreeBean> queryTreeNode(@RequestParam (value = "id") Integer id);*/
+
 }

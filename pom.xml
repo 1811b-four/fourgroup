@@ -27,6 +27,11 @@
 
         <module>wine-provider-jmh</module>
         <module>wine-feign-jmh</module>
+
+        <module>wine-consumer-xhs</module>
+        <module>wine-provider-xhs</module>
+
+
     </modules>
 
 

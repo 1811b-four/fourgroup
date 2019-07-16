@@ -48,7 +48,6 @@
         order:"http://order.jiuxian.com",
         pay:"https://pay.jiuxian.com",
         cart:"http://cart.jiuxian.com",
-        login:"https://login.jiuxian.com",
         member:"http://member.jiuxian.com",
         jifen:"http://jifen.jiuxian.com",
         help:"http://help.jiuxian.com",
@@ -62,14 +61,6 @@
     };
 </script>
 
-<script src="http://misc.jiuxian.com/js/skipmobileweb/skipmobileweb.js"></script>
-<script type="text/javascript">isMobile();</script>
-<script type="text/javascript">
-//获取区域ID并存储到Cookie
-var userArray=getCookie("user_province");userArray=userArray.split("_");if(userArray[0]==""||userArray[0]==undefined){var url_kc=window.jxdomain.pub+"/getOrgionByRequest.htm?t="+new Date().getTime();var proxy_url="/httpProxyAccess.htm?t="+new Date().getTime();jQuery.ajax({type:"POST",url:proxy_url,data:{target:url_kc},dataType:"json",success:function(data){var orgionId="2";if(data){orgionId=data.orgionId}if(orgionId==""){orgionId="2"}userArray[0]=orgionId;setCookie("user_province",orgionId,12);var sa1=returnArrya(1,orgionId);$(".ajax_deli_city").text(sa1[1])}})}else{try{var sa1=returnArrya(1,userArray[0]);$(".ajax_deli_city").text(sa1[1])}catch(e){setCookie("user_province","2",12);$(".ajax_deli_city").text("北京")}};
-var header1200 = ""; var header1000 = "";
-
-</script>
 <div class="topHeader"><div class="topHeaderCon"><div class="topHeaderLeft" name="_new_login_status_panel"><div class="clearfix"><p class="greeting">欢迎来酒仙网！</p>
 <a class="headerLogin" href="https://login.jiuxian.com/login.htm" rel="nofollow">请登录</a>
 <a class="headerReg" href="https://login.jiuxian.com/register.htm" rel="nofollow">免费注册</a>
@@ -1172,6 +1163,7 @@ $(this).parents(".menuCon-list").find("p").hide().eq(index).show();
 </div>
 <script type="text/javascript">
     function receive(couponId){
+    	alert(couponId);
         $.ajax({
             url:"http://192.168.1.110:8088/receive",
             type:"post",

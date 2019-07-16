@@ -24,9 +24,11 @@ public class DsController {
     @Autowired
     private DsService DsService;
 
+
+
     @GetMapping("find")
     public HashMap<String,Object> findNews(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize){
-
+        System.out.println("dawodjkadladkwadkaldkawldakdlakdlawklmk");
         return DsService.findchuizi(start,pageSize);
     }
 
@@ -76,8 +78,5 @@ public class DsController {
     }
 
 
-    @RequestMapping("toTree")
-    public  String  toTree(){
-        return "tree/Bootstrap";
-    }*/
+   */
 }

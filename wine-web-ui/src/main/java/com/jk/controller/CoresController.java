@@ -1,8 +1,7 @@
 package com.jk.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Classname 曹龙启
@@ -10,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @Date 2019/7/9 17:32
  * @Created by ${jmh}
  */
-@Controller
+@RestController
 public class CoresController {
 
     //跳转领券中心
@@ -24,5 +23,13 @@ public class CoresController {
     public String toShow2(){
         return "my_coupon-11";
     }
+
+
+    @RequestMapping("toConfirmOrder")
+    public String toConfirmOrder(){
+        return "xhs/confirmOrder";
+    }
+
+
 
 }

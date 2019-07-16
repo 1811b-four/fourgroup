@@ -9,6 +9,7 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @Date 2019-07-12 19:28
  * @Created by 谷凌杰
  */
-@FeignClient(value = "springcloud-shoppingcar", fallback =CarServiceImpl.class)
+@FeignClient(value = "springcloud-shoppingcar")
 public interface CarService extends CarServicePublic {
+
 }
