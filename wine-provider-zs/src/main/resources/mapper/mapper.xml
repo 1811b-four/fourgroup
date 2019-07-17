@@ -17,15 +17,4 @@
         LIMIT #{start},#{rows}
     </select>
 
-
-<!--删除-->
- <!--  <delete id="del">
-    delete  from xinwen where id=#{id}
-    </delete>-->
-
-
-
-
-
-
 </mapper>
