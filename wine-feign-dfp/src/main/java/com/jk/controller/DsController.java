@@ -28,7 +28,7 @@ public class DsController {
 
     @GetMapping("find")
     public HashMap<String,Object> findNews(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize){
-        System.out.println("dawodjkadladkwadkaldkawldakdlakdlawklmk");
+
         return DsService.findchuizi(start,pageSize);
     }
 
@@ -45,6 +45,13 @@ public class DsController {
         model.addAttribute("news",news);*/
         mv.setViewName("update");
         return mv;
+    }
+
+    @GetMapping("find2")
+    public HashMap<String,Object> findNews2(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize){
+
+        /*return DsService.findchuizi2(start,pageSize);*/
+        return  null;
     }
 
 

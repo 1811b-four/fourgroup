@@ -38,7 +38,7 @@
         </dependency>
 
         <dependency>
-<<<<<<< HEAD
+
             <groupId>com.jk</groupId>
             <artifactId>wine-common-utils</artifactId>
             <version>1.0-SNAPSHOT</version>
@@ -49,11 +49,12 @@
             <artifactId>spring-web</artifactId>
             <version>5.1.8.RELEASE</version>
             <scope>compile</scope>
-=======
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.1.6.RELEASE</version>
->>>>>>> e2e918422d16336b0724d5db9e6013a108ab0a07
+
         </dependency>
 
 
