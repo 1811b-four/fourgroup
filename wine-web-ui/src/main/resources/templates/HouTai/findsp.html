@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <script src="/js/easyui1.5/jquery.min.js"></script>
+    <link rel="stylesheet" href="/js/bootstrap3/css/bootstrap.css">
+    <script src="/js/bootstrap3/js/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="/js/bootstrap-table/bootstrap-table.css">
+    <script src="/js/bootstrap-table/bootstrap-table.js"></script>
+    <script src="/js/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+    <link rel="stylesheet" href="/js/bootstra p-datetimepicker/css/bootstrap-datetimepicker.css">
+    <script src="/js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="/js/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+
+    <script src="/js/bootbox/bootbox.all.min.js"></script>
+
+    <script src="/js/bootstrap-fileinput/js/fileinput.js"></script>
+    <script src="/js/bootstrap-fileinput/js/locales/zh.js"></script>
+    <link rel="stylesheet" href="/js/bootstrap-fileinput/css/fileinput.css">
+</head>
+<body>
+
+<button type='button' class='btn btn-default btn-success' onclick='add()'>新增</button>
+
+<table id="contractTable"></table>
+
+</body>
+<script>
+
+
+    /*页面加载*/
+    $(function () {
+        initContractTable();//商品查询展示
+    });
+    /*查询展示*/
+    function initContractTable() {
+        $("#contractTable").bootstrapTable({
+            url: 'http://192.168.1.146:8084/findshangpin',
+            toolbar: '#toolbar',
+            pagination: true, //是否展示分页
+            pageList: [3, 5, 7, 10, 15],//分页组件
+            pageNumber: 1,
+            pageSize: 3,//默认每页条数
+            //页面修饰
+            showRefresh: true,//是否显示刷新按钮
+            showToggle: true,//是否显示 切换试图（table/card）按钮
+            detailView: true,//设置为 true 可以显示详细页面模式。
+            showColumns: true,//是否显示 内容列下拉框
+            clickToSelect: true, //是否启用点击选中行
+            showPaginationSwitch: true,//是否显示 数据条数选择框
+            //解决条查乱码
+            method: "get",
+            contentType: "application/x-www-form-urlencoded",
+            //传递参数,条件查询,分页传参
+            queryParams: function () {
+                var name = $("#name").val();
+                var shenfen = $("#sf").val();
+                /*var sex = $("input[name='sex']:checked").val();*/
+                var dengji = $("#dengji").val();
+
+                return {
+                    //有分页的固定传值
+                    start: this.pageNumber,
+                    pageSize: this.pageSize,
+                    name:name,
+                    shenfen:shenfen,
+                }
+            },
+            sidePagination: 'server',
+
+            toolbar: '#toolbar1',//全选反选的
+            columns: [
+                {checkbox: true},
+                {field: 'wineid', title: '编号', width: 70},
+                {field: 'winename',title:'名称', width: 100,},
+                {field: 'winetype', title: '类型', width: 100},
+                {field: 'wingpinpai', title: '品牌', width: 100},
+                {field: 'wineshuxing', title: '属性', width: 100},
+                {field: 'wineimg', title: '图片', width: 100},
+                {field: 'wineyuanliao', title: '原料', width: 100},
+                {field: 'wingxiangxing', title: '香型', width: 100},
+                {field: 'wingchandi', title: '产地', width: 100},
+                {field: 'winehanliang', title: '净含量', width: 100},
+                {field: 'winedushu', title: '酒精度', width: 100},
+                {field: 'wingguige', title: '酒规格', width: 100},
+                {field: 'winejiuchang', title: '酒厂', width: 100},
+                {field: 'xxx', title: '操作', width: 100,
+                    formatter: function (value, row, index) {
+                        return "<a href='javascript:openUpdate(&quot;" + row.id + "&quot;)'>修改</a> <a href='javascript:del(&quot;" + row.id + "&quot;)'>删除</a>";
+                    }
+                }
+            ],
+
+        })
+    }
+    //身份条查
+    function  selectIden(obj){
+        $("#sf").val(obj);
+        searchUser();
+    }
+
+
+    //条件查询
+    function searchUser(){
+        $('#contractTable').bootstrapTable("refresh");
+    }
+    //删除
+    function del(id){
+        bootbox.confirm({
+            size: "small",
+            message: "确定删除吗?",
+            callback: function(result){
+                if(result){
+                    $.ajax({
+                        url: "/del?id="+id,
+                        type:'get ',
+                        dataType:'json',
+                        success:function(data){
+                            if(data){
+                                $('#contractTable').bootstrapTable('refresh');
+                            }else{
+                                bootbox.alert({
+                                    size: "small",
+                                    title: "提示",
+                                    message: "删除失败",
+                                });
+                            }
+                        }
+                    })
+                }
+            }
+        })
+    }
+
+    //新增用法
+    var res;
+    function createAddContent(url){
+        $.ajax({
+            url:url,
+            async:false,
+            success:function(data){
+                res = data;
+            }
+        });
+        return res;
+    }
+
+    function add() {
+        var url = "/toadd";
+        bootbox.dialog({
+            title: '添加用户',
+            message: createAddContent(url),
+            closeButton: true,//是否显示关闭按钮
+            buttons: {
+                "success": {
+                    "label": "<i class='icon-ok'></i> 保存",
+                    "className": "btn-sm btn-success",
+                    "callback": function () {
+                        $.ajax({
+                            url: '/adddoctor',
+                            type: 'post',
+                            data: $("#userFrom").serialize(),
+                            success: function () {
+                                $('#contractTable').bootstrapTable('refresh');
+
+                            }
+                        });
+                    }
+                },
+                "cancel": {
+                    "label": "<i class='icon-info'></i> 取消",
+                    "className": "btn-sm btn-danger",
+                    "callback": function () {
+
+                    }
+                }
+
+            }
+        });
+    }
+
+
+
+    //打开修改弹框
+    function openUpdate(id){
+
+        //回显数据
+        $.ajax({
+            url:'/hxdoctor',
+            type:'post',
+
+            data:{id:id},
+            success:function(data){
+
+                $("#id").val(data.id);
+                $("#name").val(data.name);
+                $("#sex").val(data.sex);
+                $("#phone").val(data.phone);
+                $("#shenfen").val(data.shenfen);
+                $("#zhicheng").val(data.zhicheng);
+            }
+        });
+
+
+        //打开弹框
+        bootbox.dialog({
+            title:'修改用户',
+            message: createAddContent("/toupdate"),
+            closeButton: true,//是否显示关闭按钮
+            buttons : {
+                "success" : {
+                    "label" : "<i class='icon-ok'></i> 保存",
+                    "className" : "btn-sm btn-success",
+                    "callback" : function() {
+                        $.ajax({
+                            url:'/updatedoctor',
+                            type:'post',
+                            data:$("#userFrom").serialize(),
+                            success:function(){
+                                $('#contractTable').bootstrapTable('refresh');
+                            }
+                        });
+                    }
+                },
+                "cancel" : {
+                    "label" : "<i class='icon-info'></i> 取消",
+                    "className" : "btn-sm btn-danger",
+                    "callback" : function() {
+
+                    }
+                }
+            }
+
+        });
+
+
+
+    }
+
+
+</script>
+</html>

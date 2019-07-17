@@ -18,6 +18,7 @@ public class TreeServiceImpl {
     public List<MenuTree> getTreeAll() {
         return treeMapper.getTreeAll();
     }
+
     //查询
     public HashMap<String, Object> findxinwen(Integer page, Integer rows) {
         HashMap<String, Object> hashMap = new HashMap<>();

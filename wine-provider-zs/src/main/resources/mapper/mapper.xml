@@ -7,12 +7,18 @@
 <mapper namespace="com.jk.mapper.TreeMapper">
 
 
-    <select id="findRoadTotal" resultType="int" >
-        select count(*) from t_book
+    <select id="findRoadTotal" resultType="java.lang.Integer" >
+       select count(*) from t_commodity c
+	INNER JOIN t_type t on c.winetypeid=t.id
+	INNER JOIN t_pinpai p on c.wingpinpaiid=p.id
+	INNER JOIN t_shuxing s on c.wineshuxingid=s.id
     </select>
 
-    <select id="findRoadPage" resultType="com.jk.model.t_commodity">
-        select * from t_book
+    <select id="findRoadPage" resultType="com.jk.model.t_commodity"  >
+        select * from t_commodity c
+	INNER JOIN t_type t on c.winetypeid=t.id
+	INNER JOIN t_pinpai p on c.wingpinpaiid=p.id
+	INNER JOIN t_shuxing s on c.wineshuxingid=s.id
 
         LIMIT #{start},#{rows}
     </select>
