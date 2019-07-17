@@ -35,6 +35,10 @@
         <module>wine-feign-dfp</module>
 
 
+
+        <module>wine-feign-zs</module>
+         <module>wine-provider-zs</module>
+
     </modules>
 
 
