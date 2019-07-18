@@ -16,4 +16,6 @@ public interface GoodsMapper {
 
 
     void addGoods(Goods goods);
+
+    List<Goods> findGoods2();
 }

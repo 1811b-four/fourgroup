@@ -31,6 +31,11 @@ public class GoodsServiceImpl implements GoodsService{
         goodsMapper.addGoods(goods);
     }
 
+    @Override
+    public List<Goods> findGoods2() {
+        return goodsMapper.findGoods2();
+    }
+
    /* @Override
     public void del(Integer id) {
         newsMapper.del(id);
