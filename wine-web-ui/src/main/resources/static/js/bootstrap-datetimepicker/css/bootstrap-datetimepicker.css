@@ -153,7 +153,7 @@
 
 .table-striped .datetimepicker table tr td,
 .table-striped .datetimepicker table tr th {
-<<<<<<< HEAD
+
 	background-color: transparent;
 }
 
@@ -170,7 +170,7 @@
 .datetimepicker table tr td.day:hover {
 	background: #eeeeee;
 	cursor: pointer;
-=======
+
     background-color: transparent;
 }
 
@@ -187,36 +187,29 @@
 .datetimepicker table tr td.day:hover {
     background: #eeeeee;
     cursor: pointer;
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .datetimepicker table tr td.old,
 .datetimepicker table tr td.new {
-<<<<<<< HEAD
+
 	color: #999999;
-=======
     color: #999999;
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .datetimepicker table tr td.disabled,
 .datetimepicker table tr td.disabled:hover {
-<<<<<<< HEAD
 	background: none;
 	color: #999999;
 	cursor: default;
-=======
     background: none;
     color: #999999;
     cursor: default;
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .datetimepicker table tr td.today,
 .datetimepicker table tr td.today:hover,
 .datetimepicker table tr td.today.disabled,
 .datetimepicker table tr td.today.disabled:hover {
-<<<<<<< HEAD
 	background-color: #fde19a;
 	background-image: -moz-linear-gradient(top, #fdd49a, #fdf59a);
 	background-image: -ms-linear-gradient(top, #fdd49a, #fdf59a);
@@ -229,7 +222,6 @@
 	border-color: #fdf59a #fdf59a #fbed50;
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-=======
     background-color: #fde19a;
     background-image: -moz-linear-gradient(top, #fdd49a, #fdf59a);
     background-image: -ms-linear-gradient(top, #fdd49a, #fdf59a);
@@ -242,7 +234,6 @@
     border-color: #fdf59a #fdf59a #fbed50;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .datetimepicker table tr td.today:hover,
@@ -265,11 +256,8 @@
 .datetimepicker table tr td.today:hover[disabled],
 .datetimepicker table tr td.today.disabled[disabled],
 .datetimepicker table tr td.today.disabled:hover[disabled] {
-<<<<<<< HEAD
 	background-color: #fdf59a;
-=======
     background-color: #fdf59a;
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .datetimepicker table tr td.today:active,
@@ -280,9 +268,7 @@
 .datetimepicker table tr td.today:hover.active,
 .datetimepicker table tr td.today.disabled.active,
 .datetimepicker table tr td.today.disabled:hover.active {
-<<<<<<< HEAD
 	background-color: #fbf069;
-=======
     background-color: #fbf069;
 >>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
@@ -291,7 +277,6 @@
 .datetimepicker table tr td.active:hover,
 .datetimepicker table tr td.active.disabled,
 .datetimepicker table tr td.active.disabled:hover {
-<<<<<<< HEAD
 	background-color: #006dcc;
 	background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
 	background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
@@ -306,7 +291,6 @@
 	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 	color: #ffffff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-=======
     background-color: #006dcc;
     background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
     background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
@@ -321,7 +305,6 @@
     filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .datetimepicker table tr td.active:hover,
@@ -344,11 +327,8 @@
 .datetimepicker table tr td.active:hover[disabled],
 .datetimepicker table tr td.active.disabled[disabled],
 .datetimepicker table tr td.active.disabled:hover[disabled] {
-<<<<<<< HEAD
 	background-color: #0044cc;
-=======
     background-color: #0044cc;
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .datetimepicker table tr td.active:active,
@@ -359,7 +339,6 @@
 .datetimepicker table tr td.active:hover.active,
 .datetimepicker table tr td.active.disabled.active,
 .datetimepicker table tr td.active.disabled:hover.active {
-<<<<<<< HEAD
 	background-color: #003399;
 }
 
@@ -379,7 +358,6 @@
 .datetimepicker .datetimepicker-hours span {
 	height: 26px;
 	line-height: 26px;
-=======
     background-color: #003399;
 }
 
@@ -399,21 +377,16 @@
 .datetimepicker .datetimepicker-hours span {
     height: 26px;
     line-height: 26px;
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .datetimepicker .datetimepicker-hours table tr td span.hour_am,
 .datetimepicker .datetimepicker-hours table tr td span.hour_pm {
-<<<<<<< HEAD
 	width: 14.6%;
-=======
     width: 14.6%;
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .datetimepicker .datetimepicker-hours fieldset legend,
 .datetimepicker .datetimepicker-minutes fieldset legend {
-<<<<<<< HEAD
 	margin-bottom: inherit;
 	line-height: 30px;
 }
@@ -425,7 +398,6 @@
 
 .datetimepicker table tr td span:hover {
 	background: #eeeeee;
-=======
     margin-bottom: inherit;
     line-height: 30px;
 }
@@ -442,22 +414,18 @@
 
 .datetimepicker table tr td span.disabled,
 .datetimepicker table tr td span.disabled:hover {
-<<<<<<< HEAD
 	background: none;
 	color: #999999;
 	cursor: default;
-=======
     background: none;
     color: #999999;
     cursor: default;
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .datetimepicker table tr td span.active,
 .datetimepicker table tr td span.active:hover,
 .datetimepicker table tr td span.active.disabled,
 .datetimepicker table tr td span.active.disabled:hover {
-<<<<<<< HEAD
 	background-color: #006dcc;
 	background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
 	background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
@@ -472,7 +440,6 @@
 	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 	color: #ffffff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-=======
     background-color: #006dcc;
     background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
     background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
@@ -487,7 +454,6 @@
     filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .datetimepicker table tr td span.active:hover,
@@ -510,11 +476,8 @@
 .datetimepicker table tr td span.active:hover[disabled],
 .datetimepicker table tr td span.active.disabled[disabled],
 .datetimepicker table tr td span.active.disabled:hover[disabled] {
-<<<<<<< HEAD
 	background-color: #0044cc;
-=======
     background-color: #0044cc;
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .datetimepicker table tr td span.active:active,
@@ -525,7 +488,6 @@
 .datetimepicker table tr td span.active:hover.active,
 .datetimepicker table tr td span.active.disabled.active,
 .datetimepicker table tr td span.active.disabled:hover.active {
-<<<<<<< HEAD
 	background-color: #003399;
 }
 
@@ -539,7 +501,6 @@
 
 .datetimepicker th span.glyphicon {
 	pointer-events: none;
-=======
     background-color: #003399;
 }
 
@@ -553,37 +514,27 @@
 
 .datetimepicker th span.glyphicon {
     pointer-events: none;
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .datetimepicker thead tr:first-child th,
 .datetimepicker tfoot th {
-<<<<<<< HEAD
 	cursor: pointer;
-=======
     cursor: pointer;
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .datetimepicker thead tr:first-child th:hover,
 .datetimepicker tfoot th:hover {
-<<<<<<< HEAD
 	background: #eeeeee;
-=======
     background: #eeeeee;
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
 
 .input-append.date .add-on i,
 .input-prepend.date .add-on i,
 .input-group.date .input-group-addon span {
-<<<<<<< HEAD
 	cursor: pointer;
 	width: 14px;
 	height: 14px;
-=======
     cursor: pointer;
     width: 14px;
     height: 14px;
->>>>>>> 4c6022bce45539bbdf4b6b2b75556736aca89bfd
 }
