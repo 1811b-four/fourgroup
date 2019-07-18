@@ -33,5 +33,11 @@ public class TreePro implements TreeService {
 
         return treeServiceImpl.findxinwen(start,pageSize);
     }
+    //删除
+    @Override
+    @GetMapping("del")
+    public void del(@RequestParam(value = "id")Integer id) {
+        treeServiceImpl.del(id);
+    }
 
 }

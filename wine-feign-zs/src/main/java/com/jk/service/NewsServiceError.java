@@ -24,4 +24,9 @@ public class NewsServiceError implements ServiceFeign {
         return null;
     }
 
+    @Override
+    public void del(Integer id) {
+
+    }
+
 }

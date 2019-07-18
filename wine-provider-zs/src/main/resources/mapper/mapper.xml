@@ -5,22 +5,32 @@
 
 
 <mapper namespace="com.jk.mapper.TreeMapper">
-
-
+    <!--查询-->
     <select id="findRoadTotal" resultType="java.lang.Integer" >
-       select count(*) from t_commodity c
-	INNER JOIN t_type t on c.winetypeid=t.id
-	INNER JOIN t_pinpai p on c.wingpinpaiid=p.id
-	INNER JOIN t_shuxing s on c.wineshuxingid=s.id
+         select count(*) from t_commodity c
+              INNER JOIN t_type t on c.winetypeid=t.id
+              INNER JOIN t_pinpai p on c.wingpinpaiid=p.id
+              INNER JOIN t_shuxing s on c.winedushuid=s.id
+        /*   错的   and c.wingchandiid=s.id
+              and c.winehanliangid=s.id
+              and c.wingguigeid=s.id*/
+
     </select>
 
     <select id="findRoadPage" resultType="com.jk.model.t_commodity"  >
-        select * from t_commodity c
-	INNER JOIN t_type t on c.winetypeid=t.id
-	INNER JOIN t_pinpai p on c.wingpinpaiid=p.id
-	INNER JOIN t_shuxing s on c.wineshuxingid=s.id
+            select * from t_commodity c
+              INNER JOIN t_type t on c.winetypeid=t.id
+              INNER JOIN t_pinpai p on c.wingpinpaiid=p.id
+              INNER JOIN t_shuxing s on c.winedushuid=s.id
+            /*错的  and c.wingchandiid=s.id
+              and c.winehanliangid=s.id
+              and c.wingguigeid=s.id*/
 
         LIMIT #{start},#{rows}
     </select>
 
+    <!--删除-->
+    <delete id="del">
+        delete from t_commodity where wineid=#{id}
+    </delete>
 </mapper>

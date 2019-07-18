@@ -31,4 +31,8 @@ public class TreeServiceImpl {
         hashMap.put("rows", list);
         return  hashMap;
     }
+    //删除
+    public void del(Integer id) {
+        treeMapper.del(id);
+    }
 }
