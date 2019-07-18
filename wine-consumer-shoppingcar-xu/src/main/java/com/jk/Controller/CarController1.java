@@ -1,5 +1,6 @@
 package com.jk.Controller;
 
+import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
 import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,5 +78,12 @@ public class CarController1 {
     public Integer sumA(){
         Integer integer = carServicePublic.sumA();
         return integer;
+    }
+
+
+    @GetMapping("queryDetails")
+    public List<Goods> queryDetails(){
+        List<Goods> queryDetails = carServicePublic.queryDetails();
+        return queryDetails;
     }
 }

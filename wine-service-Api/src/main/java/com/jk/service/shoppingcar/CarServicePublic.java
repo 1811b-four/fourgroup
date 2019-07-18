@@ -1,5 +1,6 @@
 package com.jk.service.shoppingcar;
 
+import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,4 +42,7 @@ public interface CarServicePublic {
 
     @PostMapping("sumA")
     Integer sumA();
+
+    @GetMapping("queryDetails")
+    List<Goods> queryDetails();
 }

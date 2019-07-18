@@ -536,7 +536,7 @@
 <script>
     function sumA(){
         $.ajax({
-            url: 'http://192.168.1.111:8089/shopping/sumA',
+            url: 'http://192.168.1.117:8089/shopping/sumA',
             type: 'post',
             success: function (data) {
                 $("#sumA").html(data);
@@ -567,7 +567,7 @@
         if (choice == true) {
             $.ajax({
 
-                url:"http://192.168.1.111:8089/shopping/del",
+                url:"http://192.168.1.117:8089/shopping/del",
                 type:"get",
                 data:{strIds:strId},
                 success:function(){
@@ -607,11 +607,11 @@
         /*stock = Number(jQuery)+1;
         $("#price").val(stock);*/
         $.ajax({
-            url: 'http://192.168.1.111:8089/shopping/addNum',
+            url: 'http://192.168.1.117:8089/shopping/addNum',
             type: 'post',
             data:{id:id},
             success: function (data) {
-                query();
+                location.reload();
             }
         })
     }
@@ -627,11 +627,11 @@
        /* stock = Number(jQuery)-1;
         $("#price").val(stock);*/
         $.ajax({
-            url: 'http://192.168.1.111:8089/shopping/subNum',
+            url: 'http://192.168.1.117:8089/shopping/subNum',
             type: 'post',
             data:{id:id},
             success: function (data) {
-                query();
+                location.reload();
             }
         })
     }
@@ -641,11 +641,11 @@
         if(cc>99){
             alert("最多可买99件");
             $.ajax({
-                url: 'http://192.168.1.111:8089/shopping/sddLostNum',
+                url: 'http://192.168.1.117:8089/shopping/sddLostNum',
                 type: 'post',
                 data:{id:id},
                 success: function (data) {
-                    query();
+                    location.reload();
                 }
             })
             /*var jQuery = $("#price").val();
@@ -656,11 +656,11 @@
         if(cc<1){
             alert("最少1件");
             $.ajax({
-                url: 'http://192.168.1.111:8089/shopping/subLostNum',
+                url: 'http://192.168.1.117:8089/shopping/subLostNum',
                 type: 'post',
                 data:{id:id,sum:cc},
                 success: function (data) {
-                    query();
+                    location.reload();
                 }
             })
            /* var jQuery = $("#price").val();
@@ -670,11 +670,11 @@
         }
 
         $.ajax({
-            url: 'http://192.168.1.111:8089/shopping/LostNum',
+            url: 'http://192.168.1.117:8089/shopping/LostNum',
             type: 'post',
             data:{id:id},
             success: function (data) {
-                query();
+                location.reload();
             }
         })
     }
@@ -683,7 +683,7 @@
     function deleteA(id){
         alert(id);
     $.ajax({
-        url: 'http://192.168.1.111:8089/shopping/deleteA',
+        url: 'http://192.168.1.117:8089/shopping/deleteA',
         type: 'post',
         data:{id:id},
         success: function () {
@@ -700,7 +700,7 @@
 
     function query() {
         $.ajax({
-            url: 'http://192.168.1.111:8089/shopping/query',
+            url: 'http://192.168.1.117:8089/shopping/query',
             type: 'get',
             success: function (data) {
                 var sum = 0;
@@ -742,9 +742,9 @@
                         "                </div>\n" +
                         "                <div class=\"cTab-tr \">\n" +
                         "                    <div class=\"goods-num\">\n" +
-                        "                    <p><i class=\" cut\"onclick='bbb()'>-</i></p>\n" +
-                        "                <input name=\"\" type=\"text\" class=\"num\" value="+data[i].goods_num+" id='price' onblur= \"ccc(this.value)\">\n" +
-                        "                    <p><i class=\" add \" onclick='aaa()'>+</i></p>\n" +
+                        "                    <p><i class=\" cut\"onclick='bbb("+data[i].car_id+")'>-</i></p>\n" +
+                        "                <input name=\"\" type=\"text\" class=\"num\" value="+data[i].goods_num+" id='price' onblur= \"ccc(this.value,"+data[i].car_id+")\">\n" +
+                        "                    <p><i class=\" add \" onclick='aaa("+data[i].car_id+")'>+</i></p>\n" +
                         "                </div>\n" +
                         "                </div>\n" +
                         "                <div class=\"cTab-tr cart-subtotal\">\n" +
