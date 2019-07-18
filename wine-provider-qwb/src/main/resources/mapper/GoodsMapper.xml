@@ -16,7 +16,13 @@
         select count(1) from goods
 
     </select>
+<select id="findGoods2" resultType="com.jk.model.Goods">
+ select id,goods_name as goodsName,goods_title as goodsTitle,goods_img as goodsImg,
+        goods_detail as goodsDetail,goods_price as goodsPrice,goods_stock as goodsStock,
+        create_date as createDate,update_date as updateDate
+        from goods
 
+</select>
     <insert id="addGoods" parameterType="com.jk.model.Goods">
 		INSERT INTO goods
 		(goods_name,goods_title,goods_img,goods_detail,goods_price,goods_stock,create_date,update_date)
