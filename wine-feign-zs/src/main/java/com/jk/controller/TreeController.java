@@ -33,5 +33,18 @@ public class TreeController {
 
         return serviceFeign.findxinwen(start,pageSize);
     }
+    //删除
+    @GetMapping("del")
+    @ResponseBody
+    public Boolean del(Integer id) {
+        try {
+            serviceFeign.del(id);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 }
