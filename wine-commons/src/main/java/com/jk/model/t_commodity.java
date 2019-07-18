@@ -1,4 +1,7 @@
 package com.jk.model;
+
+import lombok.Data;
+
 /**
 * @Description:    java类作用描述
 * @Author:         张帅
@@ -33,6 +36,12 @@ public class t_commodity {
     private  String   winetype;   //类型
     private  String  wingpinpai;   //品牌
     private  String  wineshuxing;   //属性
+
+    private  String  wineTishi;
+
+
+
+
 
     public String getWinetype() {
         return winetype;
@@ -89,18 +98,7 @@ public class t_commodity {
     public void setWinetypeid(Integer winetypeid) {
         this.winetypeid = winetypeid;
     }
-    private Integer winejiage;	    //价格
-    private String winejiuchang;	//酒厂(中国四川仙潭酒厂)
-    private String wineimg;          //商品图片
 
-
-    private  String   winetype;   //类型
-    private  String  wingpinpai;   //品牌
-
-    private  String  wingchandi;   //产地(中国,四川)
-    private  Integer  winehanliang;   //净含量
-    private  Integer  winedushu;   //酒精度
-    private  String  wingguige ;   //酒规格(6瓶 * 1箱)
 
     public Integer getWingpinpaiid() {
         return wingpinpaiid;
