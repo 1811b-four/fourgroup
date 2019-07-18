@@ -1,6 +1,7 @@
 package com.jk.Service;
 
 import com.jk.Mapper.CarMapper;
+import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
 import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,5 +63,10 @@ public class CarServiceImpl implements CarServicePublic {
     @Override
     public Integer sumA() {
         return  carMapper.sumA();
+    }
+
+    @Override
+    public List<Goods> queryDetails() {
+        return carMapper.queryDetails();
     }
 }

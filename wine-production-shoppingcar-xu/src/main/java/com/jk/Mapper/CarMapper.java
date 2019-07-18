@@ -1,5 +1,6 @@
 package com.jk.Mapper;
 
+import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
 import org.apache.ibatis.annotations.Param;
 
@@ -29,4 +30,6 @@ public interface CarMapper {
     void deleteA(@Param("id")Integer id);
 
     Integer sumA();
+
+    List<Goods> queryDetails();
 }
