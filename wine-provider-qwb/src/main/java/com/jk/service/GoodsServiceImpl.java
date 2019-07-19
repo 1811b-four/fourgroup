@@ -2,6 +2,7 @@ package com.jk.service;
 
 import com.jk.mapper.GoodsMapper;
 import com.jk.model.Goods;
+import com.jk.model.t_commodity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,11 @@ public class GoodsServiceImpl implements GoodsService{
     @Override
     public List<Goods> findGoods2() {
         return goodsMapper.findGoods2();
+    }
+
+    @Override
+    public List<t_commodity> recommended() {
+        return goodsMapper.recommended();
     }
 
    /* @Override
