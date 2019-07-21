@@ -1,5 +1,6 @@
 package com.jk.controller;
 
+import com.jk.model.WineImg;
 import com.jk.service.TreeService;
 import com.jk.service.TreeServiceImpl;
 import com.jk.utils.MenuTree;
@@ -16,7 +17,8 @@ import java.util.List;
 public class TreePro implements TreeService {
     @Autowired
     private TreeServiceImpl treeServiceImpl;
-//同步树
+
+    //同步树
     @Override
     @RequestMapping("getTreeAll")
     public List<MenuTree> getTreeAll() {
@@ -26,7 +28,7 @@ public class TreePro implements TreeService {
 
     //查询
     @Override
-    @GetMapping("findxinwen")
+    @GetMapping("findshangpin")
     public HashMap<String,Object> findxinwen(@RequestParam(value = "start") Integer start, @RequestParam(value = "pageSize") Integer pageSize){
 
         return treeServiceImpl.findxinwen(start,pageSize);
