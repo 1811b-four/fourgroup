@@ -1,5 +1,6 @@
 package com.jk.service;
 
+<<<<<<< .merge_file_a11624
 import com.jk.model.EchaBean;
 import com.jk.model.Goods;
 import com.jk.model.ParamBean;
@@ -11,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.List;
+=======
+import com.jk.model.Goods;
+import org.springframework.web.bind.annotation.GetMapping;
+>>>>>>> .merge_file_a16924
 
 /**
  * @Classname 曹龙启
@@ -20,6 +25,7 @@ import java.util.List;
  */
 public interface GoodsServiceApi {
 
+<<<<<<< .merge_file_a11624
    @GetMapping("find")
     HashMap<String, Object> findchuizi(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize);
     @PostMapping("add")
@@ -32,4 +38,9 @@ public interface GoodsServiceApi {
 
 /*    List<TreeBean> queryTreeNode(@RequestParam (value = "id") Integer id);*/
 
+=======
+
+    @GetMapping("findGood")
+    Goods findGood();
+>>>>>>> .merge_file_a16924
 }
