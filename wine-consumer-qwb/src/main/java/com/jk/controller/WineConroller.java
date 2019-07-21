@@ -54,6 +54,14 @@ public class WineConroller {
         return "list2.html";
 
     }
+    //年中榜单
+    @GetMapping("list3")
+    public String list3(Model model){
+        List<t_commodity> recommended= goodsServiceFeign.list3();
+        model.addAttribute("goodsList",recommended);
+        return "list2.html";
+
+    }
 
 
 }

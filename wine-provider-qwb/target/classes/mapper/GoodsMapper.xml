@@ -32,5 +32,10 @@
     <select id="recommended" resultType="com.jk.model.t_commodity">
      select * from t_commodity limit 0,8
 
-</select>
+    </select>
+
+    <select id="list3" resultType="com.jk.model.t_commodity">
+     select * from t_commodity limit 8,16
+
+    </select>
 </mapper>

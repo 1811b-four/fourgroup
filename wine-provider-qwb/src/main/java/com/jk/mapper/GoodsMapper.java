@@ -21,4 +21,6 @@ public interface GoodsMapper {
     List<Goods> findGoods2();
 
     List<t_commodity> recommended();
+
+    List<t_commodity> list3();
 }

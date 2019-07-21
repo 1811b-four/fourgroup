@@ -42,6 +42,11 @@ public class GoodsServiceImpl implements GoodsService{
         return goodsMapper.recommended();
     }
 
+    @Override
+    public List<t_commodity> list3() {
+        return goodsMapper.list3();
+    }
+
    /* @Override
     public void del(Integer id) {
         newsMapper.del(id);

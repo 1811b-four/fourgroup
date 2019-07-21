@@ -18,4 +18,6 @@ public interface GoodsService {
     List<Goods> findGoods2();
     @GetMapping("recommended")
     List<t_commodity> recommended();
+    @GetMapping("list3")
+    List<t_commodity> list3();
 }

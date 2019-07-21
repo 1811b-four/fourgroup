@@ -45,5 +45,10 @@ public class GoodsController implements GoodsService {
         return goodsService.recommended();
     }
 
+    @Override
+    public List<t_commodity> list3() {
+        return goodsService.list3();
+    }
+
 
 }
