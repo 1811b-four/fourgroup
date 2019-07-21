@@ -53,13 +53,7 @@ public class t_commodity {
         this.wingpinpai = wingpinpai;
     }
 
-    public String getWineshuxing() {
-        return wineshuxing;
-    }
 
-    public void setWineshuxing(String wineshuxing) {
-        this.wineshuxing = wineshuxing;
-    }
 
     public String getWineimg() {
         return wineimg;
@@ -101,13 +95,7 @@ public class t_commodity {
         this.wingpinpaiid = wingpinpaiid;
     }
 
-    public Integer getWineshuxingid() {
-        return wineshuxingid;
-    }
 
-    public void setWineshuxingid(Integer wineshuxingid) {
-        this.wineshuxingid = wineshuxingid;
-    }
 
     public String getWineyuanliao() {
         return wineyuanliao;
