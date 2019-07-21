@@ -47,12 +47,13 @@ public class DsController {
         return mv;
     }
 
-    @GetMapping("find2")
+    @GetMapping("find21")
     public HashMap<String,Object> findNews2(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize){
 
-        /*return DsService.findchuizi2(start,pageSize);*/
         return  null;
     }
+
+
 
 
 
@@ -63,7 +64,7 @@ public class DsController {
         return list;
     }*/
 
-   /* //同步树
+   /* /
     @RequestMapping("getTree")
     @ResponseBody
     public List<TreeBean> getTree(){
