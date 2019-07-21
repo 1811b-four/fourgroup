@@ -207,38 +207,7 @@
 
             <script>
 
-                var defaultKey = '';
 
-                $(function() {
-                    //搜索框默认值
-                    function searchback(data) {
-                        if (data == null || data == undefined) {
-                            return;
-                        }
-                        var key = $("#wd").val();
-                        if (key == '') {
-                            if (data && data != null && data != '') {
-                                $("#wd").val(data);
-                                //搜索页底部搜索框
-                                $("#bottomKeys").val(data);
-                                defaultKey = data;
-                            }
-                        }
-                    }
-
-                    setTimeout(function() {
-
-                        jQuery.get("http://list.jiuxian.com" + "/selectSearchDefaultKey.htm?t=" + new Date().getTime(),
-                            { "name" : "searchBoxDefaultKey" },
-                            function(d) {
-                                if (d == undefined){
-                                    return;
-                                }
-                                searchback(d.defaultSearchKey);
-                            }, "json");
-                    }, 1000);
-
-                });
             </script>
         </div><div class="headerProtect"><a  rel="nofollow"></a><a   rel="nofollow"></a><a rel="nofollow"></a></div></div></div>
 <!--页头end--><!--导航-->

@@ -22,15 +22,12 @@
     </properties>
 
     <dependencies>
-
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>com.jk</groupId>
             <artifactId>wine-commons</artifactId>
@@ -38,49 +35,26 @@
         </dependency>
 
         <dependency>
-
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 615b07f02090e1f947cac7157f7ab0bd192a990c
-
             <groupId>com.jk</groupId>
             <artifactId>wine-common-utils</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.1.6.RELEASE</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>5.1.8.RELEASE</version>
             <scope>compile</scope>
-<<<<<<<<< Temporary merge branch 1
-=========
-
->>>>>>>>> Temporary merge branch 2
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.1.6.RELEASE</version>
-
-<<<<<<<<< Temporary merge branch 1
-=========
-
-
->>>>>>>>> Temporary merge branch 2
         </dependency>
-
-
-
     </dependencies>
 
     <build>
