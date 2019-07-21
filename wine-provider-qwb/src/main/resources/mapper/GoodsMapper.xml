@@ -20,7 +20,7 @@
  select id,goods_name as goodsName,goods_title as goodsTitle,goods_img as goodsImg,
         goods_detail as goodsDetail,goods_price as goodsPrice,goods_stock as goodsStock,
         create_date as createDate,update_date as updateDate
-        from goods
+        from goods limit 0,8
 
 </select>
     <insert id="addGoods" parameterType="com.jk.model.Goods">
@@ -29,5 +29,13 @@
 		values(#{goodsName},#{goodsTitle},#{goodsImg},#{goodsDetail},#{goodsPrice},#{goodsStock},#{createDate},#{updateDate})
 	</insert>
 
+    <select id="recommended" resultType="com.jk.model.t_commodity">
+     select * from t_commodity limit 0,8
 
+    </select>
+
+    <select id="list3" resultType="com.jk.model.t_commodity">
+     select * from t_commodity limit 8,16
+
+    </select>
 </mapper>

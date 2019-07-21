@@ -1,6 +1,7 @@
 package com.jk.controller;
 
 import com.jk.model.Goods;
+import com.jk.model.t_commodity;
 import com.jk.service.GoodsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,17 @@ public class GoodsController implements GoodsService {
     @GetMapping("findGoods2")
     public List<Goods> findGoods2() {
         return goodsService.findGoods2();
+    }
+
+    @Override
+    @GetMapping("recommended")
+    public List<t_commodity> recommended() {
+        return goodsService.recommended();
+    }
+
+    @Override
+    public List<t_commodity> list3() {
+        return goodsService.list3();
     }
 
 
