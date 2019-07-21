@@ -45,4 +45,8 @@
     <select id="queryDetails" resultType="com.jk.model.Goods">
         select * from goods
     </select>
+
+    <select id="queryListDetails" resultType="com.jk.model.Goods">
+        select goods_name as goodsName,goods_img as goodsImg from goods where id=#{id}
+    </select>
 </mapper>

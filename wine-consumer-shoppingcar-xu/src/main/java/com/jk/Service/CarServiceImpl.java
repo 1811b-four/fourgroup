@@ -65,4 +65,11 @@ public class CarServiceImpl implements CarService {
     public List<Goods> queryDetails() {
         return null;
     }
+
+    @Override
+    public Goods queryListDetails(Integer id) {
+        return null;
+    }
+
+
 }

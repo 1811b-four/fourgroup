@@ -45,4 +45,7 @@ public interface CarServicePublic {
 
     @GetMapping("queryDetails")
     List<Goods> queryDetails();
+
+    @GetMapping("queryListDetails")
+    Goods queryListDetails(@RequestParam(value = "id", required = true)Integer id);
 }

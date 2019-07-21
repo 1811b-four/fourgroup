@@ -69,4 +69,10 @@ public class CarServiceImpl implements CarServicePublic {
     public List<Goods> queryDetails() {
         return carMapper.queryDetails();
     }
+
+    @Override
+    public Goods queryListDetails(Integer id) {
+
+        return carMapper.queryListDetails(id);
+    }
 }

@@ -4,6 +4,7 @@ import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
 import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -86,4 +87,6 @@ public class CarController1 {
         List<Goods> queryDetails = carServicePublic.queryDetails();
         return queryDetails;
     }
+
+
 }

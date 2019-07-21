@@ -82,5 +82,11 @@ public class CarController2 implements CarServicePublic {
         return carServicePublic.queryDetails();
     }
 
+    @Override
+    @GetMapping("queryListDetails")
+    public Goods queryListDetails(@RequestParam(value = "id", required = true)Integer id) {
+        return carServicePublic.queryListDetails(id);
+    }
+
 
 }

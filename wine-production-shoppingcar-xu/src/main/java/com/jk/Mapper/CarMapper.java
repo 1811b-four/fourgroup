@@ -32,4 +32,6 @@ public interface CarMapper {
     Integer sumA();
 
     List<Goods> queryDetails();
+
+    Goods queryListDetails(@Param("id")Integer id);
 }
