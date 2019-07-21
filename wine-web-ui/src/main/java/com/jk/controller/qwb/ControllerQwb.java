@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class ControllerQwb {
+    public class ControllerQwb {
 
 
-    @RequestMapping("toindex2")
+        @RequestMapping("toindex2")
     public String toindex(){
 
         return "qwb/index";
@@ -21,7 +21,6 @@ public class ControllerQwb {
 
     @RequestMapping("findaddDialog")
     public String findaddDialog(){
-
         return  "qwb/addDialog";
     }
 

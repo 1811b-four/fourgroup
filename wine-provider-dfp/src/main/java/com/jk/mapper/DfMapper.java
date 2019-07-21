@@ -24,6 +24,8 @@ public interface DfMapper {
 
     void addReceive(Goods good);
 
+    List<LinkedHashMap<String, Object>> findNews2(@Param("start") Integer start,@Param("rows")Integer rows);
+
 /*    List<EchaBean> queryDataList(ParamBean paramBean);
 
     List<TreeBean> queryTreeNode(@Param("id") Integer id, @Param("pid") int pid);*/

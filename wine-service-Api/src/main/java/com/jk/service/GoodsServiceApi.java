@@ -24,6 +24,8 @@ public interface GoodsServiceApi {
     HashMap<String, Object> findchuizi(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize);
     @PostMapping("add")
     void add(Goods good);
+    @GetMapping("find2")
+    HashMap<String, Object> findchuizi2(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize);
 /*
     @RequestMapping("queryDataList")
     List<EchaBean> queryDataList(ParamBean paramBean);

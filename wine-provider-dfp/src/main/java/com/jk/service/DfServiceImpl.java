@@ -37,6 +37,16 @@ public class DfServiceImpl  implements  GoodsServiceApi{
     public void add(Goods good) {
         newsMapper.addReceive(good);
     }
+
+    @Override
+    public HashMap<String, Object> findchuizi2(Integer start, Integer rows) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        Integer  total = newsMapper.queryNewsCount();
+        List<LinkedHashMap<String,Object>> find = newsMapper.findNews2(start,rows);
+        hashMap.put("total",total);
+        hashMap.put("rows",find);
+        return hashMap;
+    }
 /*
     @Override
     public List<EchaBean> queryDataList(ParamBean paramBean) {

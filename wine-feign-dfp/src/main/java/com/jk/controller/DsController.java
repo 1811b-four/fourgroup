@@ -47,14 +47,14 @@ public class DsController {
         return mv;
     }
 
-    @GetMapping("find21")
+
+
+
+    @GetMapping("find2")
     public HashMap<String,Object> findNews2(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize){
 
-        return  null;
+        return DsService.findchuizi2(start,pageSize);
     }
-
-
-
 
 
   /*  @RequestMapping("queryDataList")

@@ -35,6 +35,11 @@ public class DfController implements GoodsServiceApi {
         newsService.add(good);
     }
 
+    @Override
+    @GetMapping("find2")
+    public HashMap<String, Object> findchuizi2(@RequestParam(value = "start") Integer start, @RequestParam(value = "pageSize") Integer pageSize) {
+        return newsService.findchuizi2(start, pageSize);
+    }
 /*
 
     @RequestMapping("queryDataList")
@@ -56,4 +61,4 @@ public class DfController implements GoodsServiceApi {
 
     }*/
 
-}
+    }

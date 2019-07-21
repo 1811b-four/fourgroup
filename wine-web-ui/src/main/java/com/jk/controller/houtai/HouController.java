@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HouController {
     @RequestMapping("show")
     public String toindex(){
-        return "houtai/show1";
+       return "houtai/show1";
+}
+    @RequestMapping("show2")
+    public String toindex2(){
+        return "houtai/show2";
     }
 }

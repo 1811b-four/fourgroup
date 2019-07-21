@@ -8,6 +8,11 @@
 
         LIMIT #{start},#{rows}
     </select>
+    <select id="findNews2" resultType="com.jk.model.Order" parameterType="Integer" >
+        select * from t_order t where start =2
+
+        LIMIT #{start},#{rows}
+    </select>
 
 
     <select id="queryNewsCount" resultType="Integer" >

@@ -42,16 +42,8 @@
 
 </head>
 <body>
-
-<!--<div id="toolbar">
-    <input type="button" value="全选" class="btn" id="selectAll">
-    <input type="button" value="反选" class="btn" id="reverse">
-    <input type="button" value="清除" class="btn" id="unSelect">
-</div>-->
-<!--  条件查询的 form  表单  -->
-<!-- 表单 -->
-<button type="button" class="btn btn-success" onclick="two()">未付款</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button type="button" class="btn btn-primary" onclick="one()">已付款</button>
+<button type="button" class="btn btn-success" onclick="one()">未付款</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" class="btn btn-primary" onclick="two()">已付款</button>
 
 
 <br>
@@ -81,7 +73,7 @@
 <script type="text/javascript">
     $(function (){
         $("#bootTab").bootstrapTable({
-            url:"http://192.168.1.145:8087/find",
+            url:"http://192.168.1.145:8087/find2",
             method:"get",
             striped: true,  	// 斑马线效果     默认false
             //只允许选中一行
@@ -114,8 +106,6 @@
                 },
                 {field:'goodsPrice',title:"商品单价",width:100,
                 },
-
-
                 {field:'goodsNum',title:"商品数量",width:100,
                 },
                 {field:'totalPrice',title:"商品总价",width:100,
@@ -227,11 +217,8 @@
             this.checked = !this.checked;
         });
     });
-
-
-
     function one(){
-        location.href="http://localhost:8099/show2";
+        location.href="http://localhost:8099/show";
 
 
     }
