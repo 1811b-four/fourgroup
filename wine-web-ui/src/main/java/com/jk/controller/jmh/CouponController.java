@@ -23,4 +23,34 @@ public class CouponController {
     public String toShow2(){
         return "Coupon-Jmh/my_coupon-11";
     }
+
+    @RequestMapping("toTop")
+    public String toTop(){
+        return "Coupon-Jmh/frame/top";
+    }
+
+    @RequestMapping("toLeft")
+    public String toLeft(){
+        return "Coupon-Jmh/frame/left";
+    }
+
+    @RequestMapping("toMain")
+    public String toMain(){
+        return "Coupon-Jmh/frame/main";
+    }
+
+    @RequestMapping("toRight")
+    public String toRight(){
+        return "Coupon-Jmh/frame/right";
+    }
+
+    @RequestMapping("toUsed")
+    public String toUsed(){
+        return "Coupon-Jmh/Used";
+    }
+
+    @RequestMapping("toExpired")
+    public String toExpired(){
+        return "Coupon-Jmh/Expired";
+    }
 }

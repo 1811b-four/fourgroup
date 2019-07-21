@@ -12,6 +12,7 @@ public class User_Coupon {
     private Integer couponId;   //优惠券ID
     private Integer userId; //用户ID
     private String couponSerialNumber;  //序列号
+    private Integer status; //优惠券状态     1.未使用    2.已使用    3.已过期
 
     public Integer getId() {
         return id;
@@ -43,5 +44,13 @@ public class User_Coupon {
 
     public void setCouponSerialNumber(String couponSerialNumber) {
         this.couponSerialNumber = couponSerialNumber;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

@@ -7,10 +7,7 @@ import com.jk.model.User_Coupon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @Classname WineServiceImpl
@@ -76,5 +73,69 @@ public class WineServiceImpl implements WineServiceXhsApi {
             map.put("msg", "请仔细阅读优惠券规则！！！");
             return map;
         }
+    }
+
+    @Override
+    public HashMap<String, Object> getCouponNotUsed(Integer start, Integer pageSize) {
+
+        //获取当前登录用户ID
+        /*Jedis jedis = new Jedis("192.168.1.137",6379);
+        jedis.auth("123");
+        String name = "jmh";
+        String s = jedis.get(name);
+        int i = Integer.parseInt(s);*/
+        int i = 1;
+
+        HashMap<String, Object> hash = new HashMap<>();
+        //查询总条数
+        int count = wineMapper.findCouponCount(i);
+        //将查询出来的总条数放到总返回体中--2
+        hash.put("total",count);
+        //查询分页列表
+        List<Coupon> coupon= wineMapper.getCouponList(start,pageSize,i);
+        hash.put("rows",coupon);
+        return hash;
+    }
+
+    @Override
+    public HashMap<String, Object> getCouponUsed(Integer start, Integer pageSize) {
+        //获取当前登录用户ID
+        /*Jedis jedis = new Jedis("192.168.1.137",6379);
+        jedis.auth("123");
+        String name = "jmh";
+        String s = jedis.get(name);
+        int i = Integer.parseInt(s);*/
+        int i = 1;
+
+        HashMap<String, Object> hash = new HashMap<>();
+        //查询总条数
+        int count = wineMapper.findCouponCount2(i);
+        //将查询出来的总条数放到总返回体中--2
+        hash.put("total",count);
+        //查询分页列表
+        List<Coupon> coupon= wineMapper.getCouponList2(start,pageSize,i);
+        hash.put("rows",coupon);
+        return hash;
+    }
+
+    @Override
+    public HashMap<String, Object> getCouponExpired(Integer start, Integer pageSize) {
+        //获取当前登录用户ID
+        /*Jedis jedis = new Jedis("192.168.1.137",6379);
+        jedis.auth("123");
+        String name = "jmh";
+        String s = jedis.get(name);
+        int i = Integer.parseInt(s);*/
+        int i = 1;
+
+        HashMap<String, Object> hash = new HashMap<>();
+        //查询总条数
+        int count = wineMapper.findCouponCount3(i);
+        //将查询出来的总条数放到总返回体中--2
+        hash.put("total",count);
+        //查询分页列表
+        List<Coupon> coupon= wineMapper.getCouponList3(start,pageSize,i);
+        hash.put("rows",coupon);
+        return hash;
     }
 }

@@ -16,4 +16,57 @@
       select count(1) from user_coupon where couponId = #{couponId}
     </select>
 
+    <!--未使用-->
+    <select id="findCouponCount" parameterType="int" resultType="int">
+      select count(1) from user_coupon u
+        left join t_coupon c on c.couponId = u.couponId
+        and c.couponStartDate &lt;= now()
+        and now() >= c.couponEndDate
+        and u.userId = #{userId}
+    </select>
+
+    <select id="getCouponList" parameterType="int" resultType="com.jk.model.Coupon">
+      select * from user_coupon u
+        left join t_coupon c on c.couponId = u.couponId
+        and u.userId = #{userId}
+        and c.couponStartDate &lt;= now()
+        and now() &gt;= c.couponEndDate
+        left join coupon_type t on c.couponTypeId = t.couponId
+        limit #{start},#{pageSize}
+    </select>
+
+    <!--已使用-->
+    <select id="findCouponCount2" parameterType="int" resultType="int">
+      select count(1) from user_coupon u
+        left join t_coupon c on c.couponId = u.couponId
+        and u.userId = #{userId}
+        and u.status = 2
+    </select>
+
+    <select id="getCouponList2" parameterType="int" resultType="com.jk.model.Coupon">
+      select * from user_coupon u
+        left join t_coupon c on c.couponId = u.couponId
+        and u.userId = #{userId}
+        and u.status = 2
+        left join coupon_type t on c.couponTypeId = t.couponId
+        limit #{start},#{pageSize}
+    </select>
+
+    <!--已过期-->
+    <select id="findCouponCount3" parameterType="int" resultType="int">
+      select count(1) from user_coupon u
+        left join t_coupon c on c.couponId = u.couponId
+        and now() >= c.couponEndDate
+        and u.userId = #{userId}
+    </select>
+
+    <select id="getCouponList3" parameterType="int" resultType="com.jk.model.Coupon">
+      select * from user_coupon u
+        left join t_coupon c on c.couponId = u.couponId
+        and u.userId = #{userId}
+        and now() &gt;= c.couponEndDate
+        left join coupon_type t on c.couponTypeId = t.couponId
+        limit #{start},#{pageSize}
+    </select>
+
 </mapper>

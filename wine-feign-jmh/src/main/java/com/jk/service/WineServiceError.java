@@ -4,6 +4,7 @@ import com.jk.model.User_Coupon;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -19,4 +20,21 @@ public class WineServiceError implements WineServiceFeign {
     public Map<String, Object> addReceive(Integer couponId, User_Coupon userCoupon) {
         return null;
     }
+
+    @Override
+    public HashMap<String, Object> getCouponNotUsed(Integer start, Integer pageSize) {
+        return null;
+    }
+
+    @Override
+    public HashMap<String, Object> getCouponUsed(Integer start, Integer pageSize) {
+        return null;
+    }
+
+    @Override
+    public HashMap<String, Object> getCouponExpired(Integer start, Integer pageSize) {
+        return null;
+    }
+
+
 }
