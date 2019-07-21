@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>商品列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- jquery -->
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+    <script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/goods.css}"/>
+
+</head>
+<body>
+<div class="seckill_content">
+    <!--<div class="title"><h2>秒杀商品列表</h2></div>-->
+    <div class="all_seckill_goods">
+        <div class="seckill_goods" th:each="goods,goodsStat : ${goodsList}" style="width: 177px;height: 200px">
+            <!--<h3 th:text="${goods.goodsName}"></h3>-->
+            <img th:src="@{${goods.wineimg}}" style="width: 150px;height: 100px"/>
+            <br/>
+            <div class="seckill_price">
+                <p th:text="${goods.winename}"></p>
+                <p>
+                   <!-- <span class="price1" th:text="${goods.seckillPrice}+'元  '"></span>-->
+                    <span class="price2" th:text="${goods.winejiage}+'元'"></span>
+                </p>
+                <a th:href="'/goods/goods_detail?goodsId='+${goods.wineid}" target="_blank">
+                    <button class="btn btn-default" >进入详情页...</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- jquery-validator -->
+<script type="text/javascript" th:src="@{/jquery-validation/jquery.validate.min.js}"></script>
+<script type="text/javascript" th:src="@{/jquery-validation/localization/messages_zh.min.js}"></script>
+<!-- layer -->
+<script type="text/javascript" th:src="@{/layer/layer.js}"></script>
+<!-- md5.js -->
+<script type="text/javascript" th:src="@{/js/md5.min.js}"></script>
+<!-- common.js -->
+<!--<script type="text/javascript" th:src="@{/js/common.js}"></script>-->
+
+</html>

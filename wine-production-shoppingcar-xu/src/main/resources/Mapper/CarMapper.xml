@@ -41,4 +41,8 @@
     <select id="sumA" resultType="int">
          select count(1) from t_shopping_car
     </select>
+
+    <select id="queryDetails" resultType="com.jk.model.Goods">
+        select * from goods
+    </select>
 </mapper>

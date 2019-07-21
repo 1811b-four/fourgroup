@@ -18,4 +18,9 @@ public class CarController {
         return "shoppingCar/index";
     }
 
+    @RequestMapping("todetails")
+    public String todetails(){
+        return "shoppingCar/details";
+    }
+
 }

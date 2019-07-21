@@ -1,5 +1,6 @@
 package com.jk.Service;
 
+import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,6 +58,11 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Integer sumA() {
+        return null;
+    }
+
+    @Override
+    public List<Goods> queryDetails() {
         return null;
     }
 }

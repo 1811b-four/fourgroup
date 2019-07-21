@@ -1,12 +1,11 @@
 package com.jk.service;
 
 import com.jk.model.Goods;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.jk.model.t_commodity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 
 public interface GoodsService {
 
@@ -15,4 +14,10 @@ public interface GoodsService {
 
     @PostMapping("addGoods")
     void addGoods(@RequestBody Goods goods);
+    @GetMapping("findGoods2")
+    List<Goods> findGoods2();
+    @GetMapping("recommended")
+    List<t_commodity> recommended();
+    @GetMapping("list3")
+    List<t_commodity> list3();
 }

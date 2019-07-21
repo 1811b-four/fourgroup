@@ -28,7 +28,7 @@ public class DsController {
 
     @GetMapping("find")
     public HashMap<String,Object> findNews(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize){
-        System.out.println("dawodjkadladkwadkaldkawldakdlakdlawklmk");
+
         return DsService.findchuizi(start,pageSize);
     }
 
@@ -47,6 +47,14 @@ public class DsController {
         return mv;
     }
 
+    @GetMapping("find21")
+    public HashMap<String,Object> findNews2(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize){
+
+        return  null;
+    }
+
+
+
 
 
   /*  @RequestMapping("queryDataList")
@@ -56,7 +64,7 @@ public class DsController {
         return list;
     }*/
 
-   /* //同步树
+   /* /
     @RequestMapping("getTree")
     @ResponseBody
     public List<TreeBean> getTree(){

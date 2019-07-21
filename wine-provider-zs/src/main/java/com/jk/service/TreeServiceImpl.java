@@ -18,6 +18,7 @@ public class TreeServiceImpl {
     public List<MenuTree> getTreeAll() {
         return treeMapper.getTreeAll();
     }
+
     //查询
     public HashMap<String, Object> findxinwen(Integer page, Integer rows) {
         HashMap<String, Object> hashMap = new HashMap<>();
@@ -29,5 +30,9 @@ public class TreeServiceImpl {
         hashMap.put("total", total);
         hashMap.put("rows", list);
         return  hashMap;
+    }
+    //删除
+    public void del(Integer id) {
+        treeMapper.del(id);
     }
 }

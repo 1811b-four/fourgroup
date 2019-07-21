@@ -1,5 +1,6 @@
 package com.jk.Controller;
 
+import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
 import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,6 +74,12 @@ public class CarController2 implements CarServicePublic {
     @PostMapping("sumA")
     public Integer sumA() {
         return carServicePublic.sumA();
+    }
+
+    @Override
+    @GetMapping("queryDetails")
+    public List<Goods> queryDetails() {
+        return carServicePublic.queryDetails();
     }
 
 

@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @Controller
+@RequestMapping
 public class TreeController {
     @Autowired
     private ServiceFeign serviceFeign;
@@ -26,11 +27,24 @@ public class TreeController {
     }
 
     //查询
-    @GetMapping("findxinwen")
+    @GetMapping("findshangpin")
     @ResponseBody
     public HashMap<String,Object> findxinwen(@RequestParam(value = "start") Integer start, @RequestParam(value = "pageSize") Integer pageSize){
 
         return serviceFeign.findxinwen(start,pageSize);
     }
+    //删除
+    @GetMapping("del")
+    @ResponseBody
+    public Boolean del(Integer id) {
+        try {
+            serviceFeign.del(id);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 }
