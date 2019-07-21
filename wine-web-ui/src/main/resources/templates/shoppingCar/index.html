@@ -77,8 +77,8 @@
                         class="total">总价：<font size="4" color="red">￥<em id="pric"></em></font></span></div>
                 <div class="cart-count-offer"><span>赠送金币：<em id="Number"></em>个</span></div>
             </div>
-            <div class="cart-gopay-btn"><a href="javascript:;" class="done" style="display:inherit">去结算</a><a
-                    href="javascript:;" class="done">提交中...</a></div>
+            <div class="cart-gopay-btn"><a href="javascript:toConfirmOrder()" class="done" style="display:inherit">去结算</a><a
+                    href="javascript:" class="done">提交中...</a></div>
         </div>
         <div class="cart-confirm-bg cart-confirm-deliver">
             <input type="hidden" id="noStockGiftsIds" value="">
@@ -406,7 +406,34 @@
             }
         })
     }
+    //去支付
+    function toConfirmOrder() {
+        // 返回一个 复选框对象数组
+        var arrObj = $("[name='itemCheckbox']");
+        var strId = "";
+        arrObj.each(function (){
 
+            if($(this).prop("checked")==true){
+                alert($(this).prop("value"))
+                strId += $(this).prop("value") + ","
+            }
+        })
+        //截取逗号
+        strId = strId.substring(0, strId.length-1);
+        if (choice == true) {
+            $.ajax({
+                url:"http://192.168.1.133:8083/order/toConfirmOrder",
+                type:"get",
+                data:{strIds:strId},
+                success:function(){
+                    location.reload();
+                },
+                error:function(){
+                    alert("错误，请重试！");
+                }
+            })
+        }
+    }
     //批删
     function deleteAll(){
 
