@@ -16,4 +16,6 @@ public interface WineMapper {
     void addReceive(User_Coupon userCoupon);
 
     Coupon queryCoupinById(@Param("couponId") Integer couponId);
+
+    Integer queryCouponCount(@Param("couponId") Integer couponId);
 }
