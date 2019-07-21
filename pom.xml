@@ -36,8 +36,11 @@
 
 
 
-        <module>wine-feign-zs</module>
+         <module>wine-feign-zs</module>
          <module>wine-provider-zs</module>
+
+        <module>wine-consumer-wy</module>
+        <module>wine-provider-wy</module>
 
     </modules>
 
