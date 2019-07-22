@@ -47,6 +47,16 @@
     </select>
 
     <select id="queryListDetails" resultType="com.jk.model.Goods">
-        select goods_name as goodsName,goods_img as goodsImg from goods where id=#{id}
+        select
+        id as id,
+        goods_title as goodsTitle,
+        goods_name as goodsName,
+        goods_img as goodsImg,
+        goods_detail as goodsDetail,
+        goods_price as goodsPrice,
+        goods_stock as goodsStock,
+        create_date as createDate,
+        update_date as updateDate
+        from goods where id=#{id}
     </select>
 </mapper>

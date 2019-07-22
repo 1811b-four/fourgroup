@@ -11,6 +11,7 @@
 
     <link href="http://misc.jiuxian.com/css/??newIndexCss/base.min.css,newIndexCss/header.min.css,newIndexCss/footer.min.css,detail_v2.0/jquery.fancybox-1.3.4.min.css,detail_v2.0/detail.css,detail_v2.0/top2.min.css,index_1200.min.css?version=20181024"
           rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
     <style type="text/css">a.bshareDiv, #bsPanel, #bsMorePanel, #bshareF {
         border: none;
         background: none;
@@ -9103,33 +9104,7 @@
             <!-- 下面接视频 -->
             <div class="show-pic">
 
-                <img src="http://img06.jiuxian.com/2017/0921/874eebac01c3456e96091cb99e36c1175.jpg"
-                     jqimg="http://img10.jiuxian.com/2017/0921/874eebac01c3456e96091cb99e36c1176.jpg"
-                     alt="【空运直送 当天生产】青岛啤酒4.1°原浆啤酒生啤原液麦芽汁12° (整箱1Lx6罐)鲜啤">
-            </div>
-            <!--图片-->
-            <div class="show-list clearfix">
-                <a class="show-list-prev" href="javascript:;"><i class="dIcon"></i></a>
-                <div class="show-list-con">
-                    <ul class="clearfix">
-                        <li class="on"><a href="javascript:;"><img
-                                src="${c.goodsImg}"
-                                width="54" height="54" onmouseover="showLN(0)"></a></li>
-                        <li><a href="javascript:;"><img
-                                src="http://img08.jiuxian.com/2018/0408/595a9b2fff104951a99a7b6d19c190431.jpg"
-                                width="54" height="54" onmouseover="showLN(1)"></a></li>
-                        <li><a href="javascript:;"><img
-                                src="http://img10.jiuxian.com/2017/0921/c67e0e0935de4f52b70d9513a3f72f7a1.jpg"
-                                width="54" height="54" onmouseover="showLN(2)"></a></li>
-                        <li><a href="javascript:;"><img
-                                src="http://img10.jiuxian.com/2017/0921/78c14d6b800a4ba285bb95e622c591c61.jpg"
-                                width="54" height="54" onmouseover="showLN(3)"></a></li>
-                        <li><a href="javascript:;"><img
-                                src="http://img10.jiuxian.com/2017/0921/0efd71db1f2a468882556073778060351.jpg"
-                                width="54" height="54" onmouseover="showLN(4)"></a></li>
-                    </ul>
-                </div>
-                <a class="show-list-next" href="javascript:;"><i class="dIcon"></i></a>
+                <img th:src="${c.goodsImg}">
             </div>
         </div>
 <!--右侧-->
@@ -9143,7 +9118,7 @@
                 <div class="infoItems priceBox">
                     <div class="infoTit">促销价</div>
                     <div class="infoCon infoPri" id="nowPrice"><span
-                            class="pri"><em>￥</em><strong>428.00</strong></span>
+                            class="pri"><em>￥</em><input style="border:none;font-size:20px;color: red;" th:value="${c.goodsPrice}"></span>
                 </div>
 
                 </div>
@@ -9173,7 +9148,10 @@
                     <div class="infoItems bayNumBox">
                         <div class="infoTit">数　量</div>
                         <div class="infoCon infoBuyNum">
-                            <div class="buyNum"><input type="text" id="_nub" value="1" onkeyup="gv_renum();"><a href="javascript:;" class="dIcon buyNum-btn buyNum-add"></a><a href="javascript:;" class="dIcon buyNum-btn buyNum-reduce"></a></div>
+                            <div class="buyNum"><input type="text" id="price" value="1" onblur="ccc(this.value)" style="width: 40px">
+                                <a href="javascript:aaa();" class="dIcon buyNum-btn buyNum-add"></a>
+                                <a href="javascript:bbb();" class="dIcon buyNum-btn buyNum-reduce"></a></div>
+                            <div class="buyPro"></div>
                         </div>
                     </div>
                     <!-- 跳转新疆专区区域 end-->
@@ -9412,6 +9390,43 @@
 
 </body>
 <script>
+    function aaa(){
+        var jQuery = $("#price").val();
+        if(jQuery>=99){
+            alert("最多可买99件");
+            return false;
+        }
+        $("#price").val(Number(jQuery)+1);
+    }
 
+    //数量减
+    function bbb(){
+
+        var jQuery = $("#price").val();
+        if(jQuery<=1){
+            alert("最少1件");
+            return false;
+        }
+         $("#price").val(Number(jQuery)-1);
+
+    }
+
+
+    function ccc(cc){
+        if(cc>99){
+            alert("最多可买99件");
+            var jQuery = $("#price").val();
+            $("#price").val(99);
+            return false;
+        }
+        if(cc<1){
+            alert("最少1件");
+             var jQuery = $("#price").val();
+             $("#price").val(1);
+             return false;
+        }
+        var jQuery = $("#price").val();
+        $("#price").val(cc);
+    }
 </script>
 </html>

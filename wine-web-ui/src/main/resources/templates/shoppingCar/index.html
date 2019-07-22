@@ -547,7 +547,7 @@
             $.ajax({
                 url: 'http://192.168.1.117:8089/shopping/subLostNum',
                 type: 'post',
-                data:{id:id,sum:cc},
+                data:{id:id},
                 success: function (data) {
                     location.reload();
                 }
@@ -561,7 +561,7 @@
         $.ajax({
             url: 'http://192.168.1.117:8089/shopping/LostNum',
             type: 'post',
-            data:{id:id},
+            data:{id:id,sum:cc},
             success: function (data) {
                 location.reload();
             }
