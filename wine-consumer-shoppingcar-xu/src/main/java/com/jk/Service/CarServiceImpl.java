@@ -1,7 +1,7 @@
 package com.jk.Service;
 
-import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
+import com.jk.model.t_commodity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -62,12 +62,12 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<Goods> queryDetails() {
+    public List<t_commodity> queryDetails() {
         return null;
     }
 
     @Override
-    public Goods queryListDetails(Integer id) {
+    public t_commodity queryListDetails(Integer id) {
         return null;
     }
 

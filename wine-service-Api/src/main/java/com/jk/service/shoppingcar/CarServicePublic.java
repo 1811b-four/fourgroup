@@ -1,7 +1,7 @@
 package com.jk.service.shoppingcar;
 
-import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
+import com.jk.model.t_commodity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,8 +44,8 @@ public interface CarServicePublic {
     Integer sumA();
 
     @GetMapping("queryDetails")
-    List<Goods> queryDetails();
+    List<t_commodity> queryDetails();
 
     @GetMapping("queryListDetails")
-    Goods queryListDetails(@RequestParam(value = "id", required = true)Integer id);
+    t_commodity queryListDetails(@RequestParam(value = "id", required = true)Integer id);
 }

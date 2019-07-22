@@ -2,6 +2,7 @@ package com.jk.Controller;
 
 import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
+import com.jk.model.t_commodity;
 import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -83,8 +84,8 @@ public class CarController1 {
 
 
     @GetMapping("queryDetails")
-    public List<Goods> queryDetails(){
-        List<Goods> queryDetails = carServicePublic.queryDetails();
+    public List<t_commodity> queryDetails(){
+        List<t_commodity> queryDetails = carServicePublic.queryDetails();
         return queryDetails;
     }
 

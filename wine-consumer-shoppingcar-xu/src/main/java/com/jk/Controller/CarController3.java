@@ -1,6 +1,7 @@
 package com.jk.Controller;
 
 import com.jk.model.Goods;
+import com.jk.model.t_commodity;
 import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -21,7 +22,7 @@ public class CarController3 {
 
     @GetMapping("queryListDetails")
     public ModelAndView queryListDetails(@RequestParam(value = "id", required = true)Integer id, Model model,ModelAndView mv){
-        Goods goods = carServicePublic.queryListDetails(id);
+        t_commodity goods = carServicePublic.queryListDetails(id);
         //PageModel list=carServicePublic.queryListDetails(id);
         model.addAttribute("c",goods);
         mv.setViewName("shoppingCar/details");
