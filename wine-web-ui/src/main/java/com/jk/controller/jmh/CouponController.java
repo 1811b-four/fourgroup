@@ -24,25 +24,25 @@ public class CouponController {
         return "Coupon-Jmh/my_coupon-11";
     }
 
-    @RequestMapping("toTop")
+   /* @RequestMapping("toTop")
     public String toTop(){
         return "Coupon-Jmh/frame/top";
-    }
+    }*/
 
-    @RequestMapping("toLeft")
+    @RequestMapping("toPage2")
     public String toLeft(){
-        return "Coupon-Jmh/frame/left";
+        return "Coupon-Jmh/page2";
     }
 
-    @RequestMapping("toMain")
+    @RequestMapping("toPage3")
     public String toMain(){
-        return "Coupon-Jmh/frame/main";
+        return "Coupon-Jmh/page3";
     }
 
-    @RequestMapping("toRight")
+   /* @RequestMapping("toRight")
     public String toRight(){
         return "Coupon-Jmh/frame/right";
-    }
+    }*/
 
     @RequestMapping("toUsed")
     public String toUsed(){

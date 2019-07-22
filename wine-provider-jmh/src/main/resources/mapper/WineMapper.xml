@@ -26,7 +26,7 @@
     </select>
 
     <select id="getCouponList" parameterType="int" resultType="com.jk.model.Coupon">
-      select * from user_coupon u
+      select c.couponName,c.couponFaceValue,t.couponTypeName,u.couponSerialNumber,c.couponTerminal,c.couponStartDate,c.couponEndDate from user_coupon u
         left join t_coupon c on c.couponId = u.couponId
         and u.userId = #{userId}
         and c.couponStartDate &lt;= now()
@@ -44,7 +44,7 @@
     </select>
 
     <select id="getCouponList2" parameterType="int" resultType="com.jk.model.Coupon">
-      select * from user_coupon u
+      select c.couponName,c.couponFaceValue,t.couponTypeName,u.couponSerialNumber,c.couponTerminal,c.couponStartDate,c.couponEndDate from user_coupon u
         left join t_coupon c on c.couponId = u.couponId
         and u.userId = #{userId}
         and u.status = 2
@@ -61,11 +61,12 @@
     </select>
 
     <select id="getCouponList3" parameterType="int" resultType="com.jk.model.Coupon">
-      select * from user_coupon u
+      select c.couponName,c.couponFaceValue,t.couponTypeName,u.couponSerialNumber,c.couponTerminal,c.couponStartDate,c.couponEndDate
+        from user_coupon u
         left join t_coupon c on c.couponId = u.couponId
-        and u.userId = #{userId}
-        and now() &gt;= c.couponEndDate
         left join coupon_type t on c.couponTypeId = t.couponId
+        and u.userId = #{userId}
+        and now() >= c.couponEndDate
         limit #{start},#{pageSize}
     </select>
 

@@ -1681,18 +1681,7 @@
                     <span class="Instruction clearfix"><a href="http://help.jiuxian.com/view-2-114.htm" target="_blank">优惠券使用说明</a><i></i></span>
                 </div>
                 <div id="bootTab" class="rightCon-content">
-                    <!--<div id="page1" style="display:none">-->
-                        <object style="border:1px solid #e4e4e4; border-top:none; width:100%;" type="text/x-scriptlet" data="http://192.168.1.110:8099/toRight" width="100%" height="600px"></object>
-                    <!--</div>-->
-
-                   <!-- <div id="page2" style="display:none">
-                        <object style="border:1px solid #e4e4e4; border-top:none; width:100%;" type="text/x-scriptlet" data="http://192.168.1.110:8099/toUsed" width="100%" height="600px"></object>
-                    </div>
-
-                    <div id="page3" style="display:block">
-                        <object style="border:1px solid #e4e4e4; border-top:none; width:100%;" type="text/x-scriptlet" data="http://192.168.1.110:8099/toExpired" width="100%" height="600px"></object>
-                    </div>-->
-
+                   <object style="border:1px solid #e4e4e4; border-top:none; width:100%;" type="text/x-scriptlet" data="http://192.168.1.110:8099/toUsed" width="100%" height="600px"></object>
                 </div>
             </div>
         </div>
@@ -1700,29 +1689,12 @@
 </div>
 <script type="text/javascript">
     function notUsed(){
-        /* $('#bootTab').load('http://192.168.1.110:8099/toRight');*/
-        /*$('#bootTab').document.write(page1.import.body.innerHTML);*/
-        /*$("#page3").css("display","none");
-        $("#page1").css("display","block");
-        alert(1)*/
         location.href = "http://192.168.1.110:8099/toShow2";
     }
     function isUsed(){
-        /*$('#bootTab').load('http://192.168.1.110:8099/toUsed');*/
-        /*$('#bootTab').document.write(page2.import.body.innerHTML);*/
-        //document.getElementById("page2").style.display="block";
-        /*$("#page1").css("display","none");
-        $("#page2").css("display","block");
-        alert(2)*/
         location.href = "http://192.168.1.110:8099/toPage2";
     }
     function expired(){
-        /*$('#bootTab').load('http://192.168.1.110:8099/toExpired');*/
-        /*$('#bootTab').document.write(page3.import.body.innerHTML);*/
-        //document.getElementById("page3").style.display="block";
-        /*$("#page2").css("display","none");
-        $("#page3").css("display","block");
-        alert(3)*/
         location.href = "http://192.168.1.110:8099/toPage3";
     }
 </script>
