@@ -1,9 +1,17 @@
 
 server:
   port: 8085
+
+
 spring:
   application:
     name: wine-consumer-wy
+  data:
+    elasticsearch:
+      cluster-name: my-application
+      cluster-nodes: localhost:9300
+
+
 eureka:
   client:
     service-url:

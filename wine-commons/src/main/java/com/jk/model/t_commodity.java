@@ -54,6 +54,7 @@ public class t_commodity {
     }
 
 
+
     public String getWineimg() {
         return wineimg;
     }
@@ -93,6 +94,7 @@ public class t_commodity {
     public void setWingpinpaiid(Integer wingpinpaiid) {
         this.wingpinpaiid = wingpinpaiid;
     }
+
 
 
     public String getWineyuanliao() {
@@ -150,5 +152,4 @@ public class t_commodity {
     public void setWinejiuchang(String winejiuchang) {
         this.winejiuchang = winejiuchang;
     }
-
 }
