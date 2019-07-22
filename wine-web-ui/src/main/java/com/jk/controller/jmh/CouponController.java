@@ -39,10 +39,10 @@ public class CouponController {
         return "Coupon-Jmh/page3";
     }
 
-   /* @RequestMapping("toRight")
+    @RequestMapping("toRight")
     public String toRight(){
         return "Coupon-Jmh/frame/right";
-    }*/
+    }
 
     @RequestMapping("toUsed")
     public String toUsed(){

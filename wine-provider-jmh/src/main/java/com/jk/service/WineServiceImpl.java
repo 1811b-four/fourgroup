@@ -7,6 +7,7 @@ import com.jk.model.User_Coupon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -26,7 +27,10 @@ public class WineServiceImpl implements WineServiceXhsApi {
 
         HashMap<String, Object> map = new HashMap<String, Object>();
 
-        String date = new Date().toLocaleString();
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String format = dateFormat.format(date);
+
         Coupon coupon = wineMapper.queryCoupinById(couponId);
         String start = coupon.getCouponStartDate();
         String end = coupon.getCouponEndDate();
@@ -35,11 +39,11 @@ public class WineServiceImpl implements WineServiceXhsApi {
         Integer count = wineMapper.queryCouponCount(couponId);
 
         //start > date
-        if (start.compareTo(date) > 0) {
+        if (start.compareTo(format) > 0) {
             map.put("code", 1);
             map.put("msg", "Sorry！ 当前时间还不能领取哟，亲！");
             return map;
-        }else if(start.compareTo(date) <= 0 & end.compareTo(date) >= 0 & count < 2){    //date = start  或者 date = end
+        }else if(start.compareTo(format) <= 0 & end.compareTo(format) >= 0 & count < 2){    //date = start  或者 date = end
                 //优惠券序列号
                 final int ACTIVATECODENUM = 1;
                 Random random = new Random();
@@ -63,6 +67,7 @@ public class WineServiceImpl implements WineServiceXhsApi {
                 int i = 1;
                 userCoupon.setUserId(i);
                 userCoupon.setCouponId(couponId);
+                userCoupon.setStatus(1);
                 wineMapper.addReceive(userCoupon);
 
                 map.put("code", 2);
@@ -92,7 +97,7 @@ public class WineServiceImpl implements WineServiceXhsApi {
         //将查询出来的总条数放到总返回体中--2
         hash.put("total",count);
         //查询分页列表
-        List<Coupon> coupon= wineMapper.getCouponList(start,pageSize,i);
+        List<User_Coupon> coupon= wineMapper.getCouponList(start,pageSize,i);
         hash.put("rows",coupon);
         return hash;
     }
@@ -113,7 +118,7 @@ public class WineServiceImpl implements WineServiceXhsApi {
         //将查询出来的总条数放到总返回体中--2
         hash.put("total",count);
         //查询分页列表
-        List<Coupon> coupon= wineMapper.getCouponList2(start,pageSize,i);
+        List<User_Coupon> coupon= wineMapper.getCouponList2(start,pageSize,i);
         hash.put("rows",coupon);
         return hash;
     }
@@ -134,7 +139,7 @@ public class WineServiceImpl implements WineServiceXhsApi {
         //将查询出来的总条数放到总返回体中--2
         hash.put("total",count);
         //查询分页列表
-        List<Coupon> coupon= wineMapper.getCouponList3(start,pageSize,i);
+        List<User_Coupon> coupon= wineMapper.getCouponList3(start,pageSize,i);
         hash.put("rows",coupon);
         return hash;
     }

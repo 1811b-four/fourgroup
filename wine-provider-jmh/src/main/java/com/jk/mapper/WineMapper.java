@@ -23,13 +23,13 @@ public interface WineMapper {
 
     int findCouponCount(@Param("userId") int i);
 
-    List<Coupon> getCouponList(@Param("userId") Integer i, @Param("start") Integer start, @Param("pageSize") Integer pageSize);
+    List<User_Coupon> getCouponList(@Param("start") Integer start, @Param("pageSize") Integer pageSize,@Param("userId") int i);
 
     int findCouponCount2(@Param("userId")int i);
 
-    List<Coupon> getCouponList2(@Param("start")Integer start,@Param("pageSize") Integer pageSize,@Param("userId") int i);
+    List<User_Coupon> getCouponList2(@Param("start")Integer start,@Param("pageSize") Integer pageSize,@Param("userId") int i);
 
     int findCouponCount3(@Param("userId")int i);
 
-    List<Coupon> getCouponList3(@Param("start")Integer start,@Param("pageSize") Integer pageSize,@Param("userId") int i);
+    List<User_Coupon> getCouponList3(@Param("start")Integer start,@Param("pageSize") Integer pageSize,@Param("userId") int i);
 }
