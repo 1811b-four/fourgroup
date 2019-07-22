@@ -12,10 +12,7 @@ import java.util.List;
 @Component
 public class NewsServiceError implements ServiceFeign {
 
-    @Override
-    public void addNews2(WineImg jiu) {
 
-    }
 
     @Override
     public List<MenuTree> getTreeAll() {
@@ -25,6 +22,11 @@ public class NewsServiceError implements ServiceFeign {
     @Override
     public HashMap<String, Object> findxinwen(Integer start, Integer pageSize) {
         return null;
+    }
+
+    @Override
+    public void del(Integer id) {
+
     }
 
 }

@@ -25,4 +25,15 @@ public class ControllerQwb {
         return  "qwb/addDialog";
     }
 
+    @RequestMapping("search")
+    public String search(){
+
+        return  "qwb/search";
+    }
+    @RequestMapping("list")
+    public String list(){
+
+        return  "qwb/list.html";
+    }
+
 }
