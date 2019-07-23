@@ -36,4 +36,6 @@ public interface CarMapper {
     List<t_commodity> queryDetails();
 
     t_commodity queryListDetails(@Param("id")Integer id);
+
+    void addFrom(shoppingcar s);
 }

@@ -9095,42 +9095,38 @@
     </div>
 </div>
 
-
 <div class="w1200">
 
     <div class="dIntro clearfix" id="details">
         <!--左侧-->
         <div class="introShow">
-            <!-- 下面接视频 -->
-            <!--<div class="show-pic">
-
-                <img th:src="${c.wineimg}">
-            </div>-->
-
-            <div id="demo">
-                <div id="small-box">
-                    <div id="mark"></div>
-                    <div id="float-box"></div>
-                    <img th:src="${c.wineimg}"/>
-                </div>
-                <div id="big-box">
-                    <img th:src="${c.wineimg}"/>
-                </div>
+           <div id="demo">
+            <div id="small-box">
+                <div id="mark"></div>
+                <div id="float-box"></div>
+                <img th:src="${c.wineimg}"/>
+            </div>
+            <div id="big-box">
+                <img th:src="${c.wineimg}"/>
             </div>
         </div>
+        </div>
+
+
 
 <!--右侧-->
         <div class="introInfo">
             <div class="comName">
                 <h1>
                     <input style="border:none;font-size:30px;color: #0C0C0C;" th:value="${c.winename}">
+                    <input type="hidden" id="carId" th:value="${c.wineid}">
                 </h1>
                 <p>航空运输、下单即刻生产，保质期7天</p></div>
             <div class="infoWrap comSummary clearfix" id="price_and_promo">
                 <div class="infoItems priceBox">
                     <div class="infoTit">促销价</div>
                     <div class="infoCon infoPri" id="nowPrice"><span
-                            class="pri"><em>￥</em><input style="border:none;font-size:20px;color: red;" th:value="${c.winejiage}"></span>
+                            class="pri"><em>￥</em><input style="border:none;font-size:20px;color: red;" th:value="${c.winejiage}" ></span>
                 </div>
 
                 </div>
@@ -9174,9 +9170,10 @@
                         </div>
                     </div>
                     <!-- 跳转新疆专区区域 end-->
-                    <div class="infoItems bayBtnBox">
-                        <div class="infoCon infoBuy">
-                            <a name="detail_jiarugouwuche" id="addToCartForDetail" href="javascript:;" class="buyBtn buyBtn-cart">加入购物车</a>
+                    <div class=" bayBtnBox">
+                        <div class=" infoBuy">
+                            <a  onclick="addForm()" class="buyBtn buyBtn-cart">加入购物车</a>
+
                         </div>
                     </div>
                 </div>
@@ -9188,7 +9185,27 @@
     </div>
 
 </div>
-
+<script>
+    function addForm(){
+        var jQuery = $("#price").val();
+        var val = $("#carId").val();
+        alert(val)
+        debugger;
+        $.ajax({
+            url:"http://192.168.1.122:8089/shopping/addFrom",
+            type:'post',
+            data:{id:val,sum:jQuery},
+            success:function(data){
+                alert("加入成功");
+                location.reload();
+            },
+            error:function(){
+                bootbox.alert("网络不佳，请稍后再试");
+                location.reload();
+            }
+        });
+    }
+</script>
 <!--页脚-->
 <div class="footer">
     <div class="footerTopBox">
@@ -9418,6 +9435,7 @@
         $("#price").val(Number(jQuery)+1);
     }
 
+
     //数量减
     function bbb(){
 
@@ -9447,6 +9465,8 @@
         var jQuery = $("#price").val();
         $("#price").val(cc);
     }
+
+
 </script>
 
 <style>

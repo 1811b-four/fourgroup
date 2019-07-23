@@ -71,5 +71,10 @@ public class CarServiceImpl implements CarService {
         return null;
     }
 
+    @Override
+    public void addFrom(Integer id, Integer sum) {
+
+    }
+
 
 }

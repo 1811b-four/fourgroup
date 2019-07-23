@@ -89,5 +89,9 @@ public class CarController1 {
         return queryDetails;
     }
 
+    @PostMapping("addFrom")
+    public void addFrom(@RequestParam(value = "id", required = true)Integer id,@RequestParam(value = "sum", required = true)Integer sum){
+        carServicePublic.addFrom(id,sum);
+    }
 
 }

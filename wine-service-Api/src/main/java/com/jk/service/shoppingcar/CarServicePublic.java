@@ -48,4 +48,8 @@ public interface CarServicePublic {
 
     @GetMapping("queryListDetails")
     t_commodity queryListDetails(@RequestParam(value = "id", required = true)Integer id);
+
+    @PostMapping("addFrom")
+    void addFrom(@RequestParam(value = "id", required = true)Integer id,@RequestParam(value = "sum", required = true)Integer sum);
+
 }
