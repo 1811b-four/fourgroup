@@ -23,4 +23,6 @@ public interface GoodsMapper {
     List<t_commodity> recommended();
 
     List<t_commodity> list3();
+
+    List<LinkedHashMap<String, Object>> findlunbo();
 }

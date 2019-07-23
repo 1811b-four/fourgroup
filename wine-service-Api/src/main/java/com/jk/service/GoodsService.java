@@ -5,6 +5,7 @@ import com.jk.model.t_commodity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public interface GoodsService {
@@ -20,4 +21,6 @@ public interface GoodsService {
     List<t_commodity> recommended();
     @GetMapping("list3")
     List<t_commodity> list3();
+    @RequestMapping("findlunbo")
+    List<LinkedHashMap<String, Object>> findlunbo();
 }
