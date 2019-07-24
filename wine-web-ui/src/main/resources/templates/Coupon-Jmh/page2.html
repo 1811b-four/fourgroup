@@ -1578,10 +1578,7 @@
                     <p class="clubBuy"><a href="/clubUser/index.htm">立享CLUB会员<span>></span></a></p>
                 </div>
             </div>
-            <p class="cost">累计消费金额：<a href="http://jifen.jiuxian.com/memberintro.htm?expense=2" title="已入账消费金额"
-                                      target="_blank">0.00</a></p>
-            <p class="cost">待确认消费金额：<a href="http://jifen.jiuxian.com/memberintro.htm?expense=3" title="待确认消费金额"
-                                       id="uc_unrecorded" target="_blank">0.00</a></p></div>
+            </div>
         <script type="text/javascript">jQuery.ajax({
             type: "POST",
             url: "/getUserAnrecordedAmount.htm?t=" + new Date().getTime(),
@@ -1603,7 +1600,7 @@
                 <a class="item" href="/trademanage/deal_arrNotice.htm" title=""><span>到货通知</span><i></i></a>
             </div>
             <div class="func func2 clearfix"><p class="title"><i></i><span>酒仙钱包</span></p>
-                <a class="item" href="/purse/my_coupon-11.htm" title=""><span>我的优惠券</span><i></i></a>
+                <a class="item" href="http://192.168.1.110:8099/toShow2" title=""><span>我的优惠券</span><i></i></a>
                 <a class="item" href="/purse/allowance.htm" title=""><span>我的津贴</span><i></i></a>
                 <a class="item" href="/purse/my_gold_coin-1.htm" title=""><span>我的金币</span><i></i></a>
                 <a class="item" href="/purse/my_surplus-1.htm" title=""><span>我的余额</span><i></i></a>
@@ -1700,42 +1697,6 @@
 </script>
 <!-- 右侧 -->
 </div>
-<!--底部商品列表开始-->
-<div class="userBotW">
-    <div class="userBotBox clearfix">
-        <div id="_userviewhis">
-            <div class="uBotHistory">
-                <div class="ubHisTitBox clearfix">
-                    <div class="ubHisTit">浏览记录</div>
-                    <div class="ubHisPage">
-                        <a class="ubHis-Prev" href="javascript:;"></a>
-                        <span><b>1</b>/<em>1</em></span>
-                        <a class="ubHis-Next" href="javascript:;"></a>
-                    </div>
-                </div>
-                <div class="history">
-                    <ul class="ubHisCon">
-                        <li>正在加载，请稍后...</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">$("#_userviewhis").load("/getViewHisInfo.htm");</script>
-        <div id="_userguess">
-            <div class="uBotRecommend">
-                <div class="ubRemTit">猜您喜欢</div>
-                <div class="ubRemCon clearfix"><a title="上一页" href="javascript:;" class="ubRem-Prev prev"></a>
-                    <div class="ubRemList" id='recomm_direct_101'></div>
-                    <a title="下一页" href="javascript:;" class="ubRem-Next next"></a></div>
-            </div>
-            <script type="text/javascript">var recommend_99_Args = {
-                'pageName': 'userBottom',
-                'productIds': ['-']
-            };</script>
-        </div>
-    </div>
-</div>
-<!-- 商品底部列表结束 -->
 <!--页脚-->
 <div class="footer">
     <div class="footerTopBox">

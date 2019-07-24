@@ -42,7 +42,7 @@
 <script type="text/javascript">
     $(function(){
         $("#bootTab").bootstrapTable({
-            url:"http://192.168.1.110:8078/getCouponUsed",
+            url:"http://192.168.1.110:8078/getCouponExpired",
             method:"post",
             striped: true,  	// 斑马线效果     默认false
             //只允许选中一行
@@ -60,15 +60,15 @@
             contentType:'application/x-www-form-urlencoded;charset=UTF-8',   //数据编码纯文本  offset=0&limit=5
             toolbar:'#tabToolBar',   //  工具定义位置
             columns:[
-                {field:'couponName',title:"名称",width:100},
-                {field:'couponFaceValue',title:'面值',width:100,
+                {field:'goodsName',title:"商品名称",width:100},
+                {field:'userName',title:'收货人',width:100,
                     formatter: function (value,row,index){
                         return "￥"+value;
                     }
                 },      //  列    field   代表是 后台  传过来的值
-                {field:'couponTypeName',title:'类型',width:100},
-                {field:'couponSerialNumber',title:'序列号',width:100},
-                {field:'xxx',title:'有效期',width:100,
+                {field:'totalPrice',title:'实付金额',width:100},
+                {field:'orderStatus',title:'订单状态',width:100},
+                {field:'xxx',title:'操作',width:100,
                     formatter: function (value,row,index){
                         return row.couponStartDate+"至"+row.couponEndDate;
                     }

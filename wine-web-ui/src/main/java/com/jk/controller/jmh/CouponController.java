@@ -53,4 +53,9 @@ public class CouponController {
     public String toExpired(){
         return "Coupon-Jmh/Expired";
     }
+
+    @RequestMapping("toOrder")
+    public String toOrder(){
+        return "Coupon-Jmh/OrderTable";
+    }
 }
