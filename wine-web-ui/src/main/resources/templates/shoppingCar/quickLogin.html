@@ -3973,7 +3973,7 @@
             return false;
         }
         $.ajax({
-            url:"http://192.168.1.110:8080/login/gainMessgerCode",
+            url:"http://192.168.1.122:8089/shopping/gainMessgerCode",
             type:"post",
             data:{phone:phone},
             success:function(data){
@@ -3994,17 +3994,14 @@
             return false;
         } else {
             $.ajax({
-                url: 'http://192.168.1.110:8080/login/denlu',
+                url: 'http://192.168.1.122:8089/shopping/login/messageLogin',
                 data: from,
                 type: "post",
                 success: function (data) {
-                    if (data.code == 2) {
+                    if (data.code == 1) {
                         alert(data.msg);
-                        location.href = "toIntdex";
-                    } else if (data.code == 1) {
-                        alert(data.msg);
-                        location.href = "toTree";
-                    } else {
+                        location.href = "toindex";
+                    }  else {
                         alert(data.msg);
                         return false;
                     }

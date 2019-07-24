@@ -3933,7 +3933,7 @@
             <div class="title">爱亲，欢迎您</div>
             <div class="text">请输入正确的账号密码登录用户中心</div>
             <form id="addform"  method="post" >
-            <input type="text" name="account" id="aaa" required placeholder="请输入手机号码" autocomplete="off" class="input"  >
+            <input type="text" name="phone" id="aaa" required placeholder="请输入手机号码" autocomplete="off" class="input"  >
             <input type="password" name="password" id="bbb" required placeholder="请输入正确的密码" autocomplete="off" class="input">
             <input type="button" class="button2" value="登   录" onclick="submitTest()">
             </form>
@@ -3976,16 +3976,13 @@
             alert("请输入账号或密码");
         } else {
             $.ajax({
-                url: 'http://192.168.1.110:8080/login/denlu',
+                url: 'http://192.168.1.122:8089/shopping/denlu',
                 data: from,
                 type: "post",
                 success: function (data) {
-                    if (data.code == 2) {
+                    if (data.code == 1) {
                         alert(data.msg);
-                        location.href = "toIntdex";
-                    } else if (data.code == 1) {
-                        alert(data.msg);
-                        location.href = "toTree";
+                        location.href = "http://192.168.1.122:8099/shoppingCar/toindex";
                     } else {
                         alert(data.msg);
                         return false;
