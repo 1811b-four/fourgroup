@@ -2,6 +2,7 @@ package com.jk.Controller;
 
 import com.jk.model.shoppingcar;
 import com.jk.model.t_commodity;
+import com.jk.model.userBean;
 import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -89,6 +90,24 @@ public class CarController2 implements CarServicePublic {
     @PostMapping("addFrom")
     public void addFrom(Integer id, Integer sum) {
         carServicePublic.addFrom(id,sum);
+    }
+
+    @Override
+    @PostMapping("queryaccount")
+    public userBean queryaccount(String user_name) {
+        return carServicePublic.queryaccount(user_name);
+    }
+
+    @Override
+    @PostMapping("findUserByLoginNumber")
+    public userBean findUserByLoginNumber(String phone) {
+        return carServicePublic.findUserByLoginNumber(phone);
+    }
+
+    @Override
+    @PostMapping("Registration")
+    public void Registration(@RequestBody userBean account) {
+        carServicePublic.Registration(account);
     }
 
 }

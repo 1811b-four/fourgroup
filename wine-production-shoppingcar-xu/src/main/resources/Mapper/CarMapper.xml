@@ -55,4 +55,16 @@
     <insert id="addFrom" parameterType="com.jk.model.shoppingcar">
        INSERT INTO t_shopping_car(goods_name,goods_num,goods_unit_price,goods_img) value(#{goods_name},#{goods_num},#{goods_unit_price},#{goods_img})
     </insert>
+
+    <select id="queryaccount" parameterType="String" resultType="com.jk.model.userBean">
+		select * from user where phone = #{user_name}
+	</select>
+
+    <insert id="Registration" parameterType="com.jk.model.userBean">
+		 insert into user(user_name,phone,password,pid) values(#{user_name},#{phone},#{password},#{pid})
+	</insert>
+
+    <select id="findUserByLoginNumber" resultType="com.jk.model.userBean">
+		select * from user where phone = #{phone}
+	</select>
 </mapper>
