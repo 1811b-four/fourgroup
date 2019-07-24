@@ -1,54 +1,32 @@
 package com.jk.model;
 
+import lombok.*;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
-/**
- * @Classname 曹龙启
- * @Description TODO
- * @Date 2019/7/8 21:22
- * @Created by ${jmh}
- */
+@Setter
+@Getter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Goods implements Serializable {
+    private Long id;
 
+    private String goodsName;
 
-          private  Integer  goodId;
+    private String goodsTitle;
 
-          private  String   goodName;
+    private String goodsImg;
 
-          private   String  goodDate;
+    private BigDecimal goodsPrice;
 
-          private   BigDecimal  goodPrice;
+    private Integer goodsStock;
 
-    public Integer getGoodId() {
-        return goodId;
-    }
+    private Date createDate;
 
-    public void setGoodId(Integer goodId) {
-        this.goodId = goodId;
-    }
+    private Date updateDate;
 
-    public String getGoodName() {
-        return goodName;
-    }
-
-    public void setGoodName(String goodName) {
-        this.goodName = goodName;
-    }
-
-    public String getGoodDate() {
-        return goodDate;
-    }
-
-    public void setGoodDate(String goodDate) {
-        this.goodDate = goodDate;
-    }
-
-    public BigDecimal getGoodPrice() {
-        return goodPrice;
-    }
-
-    public void setGoodPrice(BigDecimal goodPrice) {
-        this.goodPrice = goodPrice;
-    }
+    private String goodsDetail;
 }
