@@ -560,9 +560,11 @@
                 var userNameSp = $("#userNameSp").text();
                 var userAddSp = $("#userAddSp").text();
                 var goodsName = data[0].goods_name+"等";
+                var oneTotalPrice = 0;
                 for (var i = 0; i < data.length; i++) {
                     goodsCountInfo += data[i].goods_num;
                     totalPriceInfo += data[i].goods_unit_price * data[i].goods_num;
+                    oneTotalPrice = data[i].goods_unit_price * data[i].goods_num;
                     shopInfos+='<div class="oTr">\n' +
                         '            <div class="mainProduct ">\n' +
                         '                <div class="oTd item-1">\n' +
@@ -574,7 +576,7 @@
                         '                <div class="oTd item-2">'+data[i].goods_unit_price+'.00</div>\n' +
                         '                <div class="oTd item-3">'+data[i].goods_num+'</div>\n' +
                         '                <div class="oTd item-4">有货</div>\n' +
-                        '                <div class="oTd item-5">'+data[i].goods_total_price+'.00</div></div>\n' +
+                        '                <div class="oTd item-5">'+oneTotalPrice+'.00</div></div>\n' +
                         '        </div>'
                     $("#infoHtml").append(shopInfos);
                 }
