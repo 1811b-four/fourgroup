@@ -1,9 +1,10 @@
 package com.jk.controller;
 
+import com.jk.model.Order;
+import com.jk.model.shoppingcar;
 import com.jk.service.OrderServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class OrderController implements OrderServiceApi {
@@ -15,5 +16,23 @@ public class OrderController implements OrderServiceApi {
     @GetMapping("add")
     public void add() {
         orderServiceApi.add();
+    }
+
+    @Override
+    @GetMapping("queryList")
+    public shoppingcar queryList(@RequestParam(value = "arr")String arr) {
+        return orderServiceApi.queryList(arr);
+    }
+
+    @Override
+    @PostMapping("addOrders")
+    public void addOrders(@RequestBody Order order) {
+        orderServiceApi.addOrders(order);
+    }
+
+    @Override
+    @PostMapping("updStatus")
+    public void updStatus(@RequestParam(value = "outTradeNo")String outTradeNo) {
+        orderServiceApi.updStatus(outTradeNo);
     }
 }

@@ -15,6 +15,24 @@ public class Order {
     private BigDecimal totalPrice;
     private String shopName;
     private String createTime;
+    private Integer orderStatus;
+    private Integer userId;
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(Integer orderStatus) {
+        this.orderStatus = orderStatus;
+    }
 
     private Integer orderStatus;    //订单状态（1，已支付；2，未支付）
 
