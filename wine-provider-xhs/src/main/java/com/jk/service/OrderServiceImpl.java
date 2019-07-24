@@ -27,4 +27,9 @@ public class OrderServiceImpl implements OrderServiceApi {
     public void addOrders(Order order) {
         orderMapper.addOrders(order);
     }
+
+    @Override
+    public void updStatus(String outTradeNo) {
+        orderMapper.updStatus(outTradeNo);
+    }
 }

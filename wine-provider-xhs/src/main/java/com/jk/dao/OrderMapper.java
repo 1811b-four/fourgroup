@@ -9,4 +9,6 @@ public interface OrderMapper {
     shoppingcar queryList(String id);
 
     void addOrders(Order order);
+
+    void updStatus(String outTradeNo);
 }

@@ -226,7 +226,8 @@
                     </div>
                     <div class="submitBtnBox">
                         <a  href="javascript:toShoppingCar()">返回购物车</a><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        <a id="submitOrder" href="javascript:submitOrders()" class="submitBtn">提交订单</a>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                        <a href="javascript:submitOrders()">提交订单</a>
                     </div>
                 </div>
             </div>
@@ -508,7 +509,8 @@
         </div>
     </div>
 </div>
-
+<input type="hidden" id="price"/>
+<input type="outTradeNo" id="outTradeNo"/>
 <style type="text/css">
     .footerBotLeft .footerInfo {
         margin-left: -8px;
@@ -587,12 +589,14 @@
 
     }
     function addOrders(goodsCountInfo,totalPriceInfo,userAddSp,userNameSp,goodsName) {
+        $("#price").val(totalPriceInfo);
         var outTradeNo="";  //订单号
         for(var i=0;i<6;i++) //6位随机数，用以加在时间戳后面。
         {
             outTradeNo += Math.floor(Math.random()*10);
         }
         outTradeNo = new Date().getTime() + outTradeNo;  //时间戳，用来生成订单号。
+        $("#outTradeNo").val(outTradeNo);
         $.ajax({
             url: 'http://192.168.1.111:8066/order/addOrders',
             type: 'post',
@@ -615,13 +619,10 @@
 
 
     function submitOrders() {
-        var money = $("#totlePrice").text();
-        $.ajax({
-            url: 'http://192.168.1.111:8066/order/aliAddmoney?price='+money,
-            type: 'get',
-            success:function () {
-            },
-        });
+        var price = $("#price").val();
+        var outTradeNo = $("#outTradeNo").val();
+
+        location.href='http://192.168.1.111:8066/order/goAlipay?price='+price+'&outTradeNo='+outTradeNo;
     }
     
     function toShoppingCar() {

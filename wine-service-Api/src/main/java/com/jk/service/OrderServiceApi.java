@@ -16,4 +16,6 @@ public interface OrderServiceApi {
     shoppingcar queryList(@RequestParam(value = "arr") String arr);
     @PostMapping("addOrders")
     void addOrders(@RequestBody Order order);
+    @PostMapping("updStatus")
+    void updStatus(@RequestParam(value = "outTradeNo") String outTradeNo);
 }

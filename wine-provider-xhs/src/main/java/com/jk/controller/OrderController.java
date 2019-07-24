@@ -29,4 +29,10 @@ public class OrderController implements OrderServiceApi {
     public void addOrders(@RequestBody Order order) {
         orderServiceApi.addOrders(order);
     }
+
+    @Override
+    @PostMapping("updStatus")
+    public void updStatus(@RequestParam(value = "outTradeNo")String outTradeNo) {
+        orderServiceApi.updStatus(outTradeNo);
+    }
 }

@@ -16,6 +16,15 @@ public class Order {
     private String shopName;
     private String createTime;
     private Integer orderStatus;
+    private Integer userId;
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
     public Integer getOrderStatus() {
         return orderStatus;
