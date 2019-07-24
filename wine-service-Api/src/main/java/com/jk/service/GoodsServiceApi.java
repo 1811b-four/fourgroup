@@ -1,13 +1,7 @@
 package com.jk.service;
 
-import com.jk.model.EchaBean;
-import com.jk.model.Goods;
-import com.jk.model.ParamBean;
-import com.jk.model.TreeBean;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.jk.model.*;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,12 +14,12 @@ import java.util.List;
  */
 public interface GoodsServiceApi {
 
-   @GetMapping("find")
+   @PostMapping("find")
     HashMap<String, Object> findchuizi(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize);
-    @PostMapping("add")
+ @PostMapping("add")
     void add(Goods good);
     @GetMapping("find2")
-    HashMap<String, Object> findchuizi2(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize);
+    HashMap<String, Object> findchuizi2(  @RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize")  Integer pageSize);
 /*
     @RequestMapping("queryDataList")
     List<EchaBean> queryDataList(ParamBean paramBean);

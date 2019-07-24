@@ -1,9 +1,6 @@
 package com.jk.controller;
 
-import com.jk.model.EchaBean;
-import com.jk.model.Goods;
-import com.jk.model.ParamBean;
-import com.jk.model.TreeBean;
+import com.jk.model.*;
 import com.jk.service.DfServiceImpl;
 import com.jk.service.GoodsServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +21,8 @@ public class DfController implements GoodsServiceApi {
     private DfServiceImpl newsService;
 
     @Override
-    @GetMapping("find")
-    public HashMap<String, Object> findchuizi(@RequestParam(value = "start") Integer start, @RequestParam(value = "pageSize") Integer pageSize) {
+    @PostMapping("find")
+    public HashMap<String, Object> findchuizi(@RequestParam(value = "start") Integer start, @RequestParam(value = "pageSize") Integer pageSize ) {
         return newsService.findchuizi(start, pageSize);
     }
 
@@ -37,8 +34,8 @@ public class DfController implements GoodsServiceApi {
 
     @Override
     @GetMapping("find2")
-    public HashMap<String, Object> findchuizi2(@RequestParam(value = "start") Integer start, @RequestParam(value = "pageSize") Integer pageSize) {
-        return newsService.findchuizi2(start, pageSize);
+    public HashMap<String, Object> findchuizi2(  @RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize")  Integer pageSize) {
+        return newsService.findchuizi2(  start, pageSize);
     }
 /*
 

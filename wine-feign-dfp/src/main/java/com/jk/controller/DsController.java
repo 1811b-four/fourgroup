@@ -1,9 +1,6 @@
 package com.jk.controller;
 
-import com.jk.model.EchaBean;
-import com.jk.model.Goods;
-import com.jk.model.ParamBean;
-import com.jk.model.TreeBean;
+import com.jk.model.*;
 import com.jk.service.DsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -25,8 +22,7 @@ public class DsController {
     private DsService DsService;
 
 
-
-    @GetMapping("find")
+    @PostMapping("find")
     public HashMap<String,Object> findNews(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize){
 
         return DsService.findchuizi(start,pageSize);
@@ -51,9 +47,9 @@ public class DsController {
 
 
     @GetMapping("find2")
-    public HashMap<String,Object> findNews2(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize){
+    public HashMap<String,Object> findNews2( @RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize){
 
-        return DsService.findchuizi2(start,pageSize);
+        return DsService.findchuizi2( start,pageSize);
     }
 
 

@@ -42,7 +42,17 @@
 
 </head>
 <body>
-
+<div class="col-md-4">
+    <label >下单时间</label>
+    <select  id="dateStatus" class="form-control">
+        <option value="0" selected>所有</option>
+        <option value="1">最近24小时</option>
+        <option value="2">最近3天</option>
+        <option value="3">最近7天</option>
+        <option value="4">最近一个月</option>
+        <!--<option value="5">最近24小时</option>-->
+    </select>
+</div>
 <!--<div id="toolbar">
     <input type="button" value="全选" class="btn" id="selectAll">
     <input type="button" value="反选" class="btn" id="reverse">
@@ -81,8 +91,8 @@
 <script type="text/javascript">
     $(function (){
         $("#bootTab").bootstrapTable({
-            url:"http://192.168.1.145:8087/find",
-            method:"get",
+            url:"http://192.168.1.145:8017/find",
+            method:"post",
             striped: true,  	// 斑马线效果     默认false
             //只允许选中一行
             singleSelect:true,
@@ -100,8 +110,8 @@
             toolbar:'#toolbar',   //  工具定义位置
 
             columns:[
-                {field:'id',title:"编号",width:100,
-                },
+               /* {field:'id',title:"编号",width:100,
+                },*/
                 {field:'orderNum',title:"订单号",width:100,
                 },
                 {field:'userName',title:"用户姓名",width:100,
@@ -186,12 +196,8 @@
 
         $("#bootTab").bootstrapTable("refresh",{
             "query":{
-                "account":$("#name1").val(),
-                "linshimoney":$("#startmoney").val(),
-                "linshimoney2":$("#endmoney").val(),
+               /* "dateStatus":$("#dateStatus").val(),*/
 
-                "linshidate":$("#firststartdate").val(),
-                "linshidate2":$("#endstartdate").val(),
                /* "state":$("#start").val(),
                 "channel":$("#channel").val(),
                 "firststartdate":$("#firststartdate").val(),
