@@ -25,17 +25,6 @@ public class Order {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
-
-    public Integer getOrderStatus() {
-        return orderStatus;
-    }
-
-    public void setOrderStatus(Integer orderStatus) {
-        this.orderStatus = orderStatus;
-    }
-
-    private Integer orderStatus;    //订单状态（1，已支付；2，未支付）
-
     public Integer getId() {
         return id;
     }
