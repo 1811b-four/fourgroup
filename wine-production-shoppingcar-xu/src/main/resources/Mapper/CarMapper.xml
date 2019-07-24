@@ -45,4 +45,14 @@
     <select id="queryDetails" resultType="com.jk.model.Goods">
         select * from goods
     </select>
+
+    <select id="queryListDetails" resultType="com.jk.model.t_commodity">
+        select
+        *
+        from t_commodity where wineid=#{id}
+    </select>
+
+    <insert id="addFrom" parameterType="com.jk.model.shoppingcar">
+       INSERT INTO t_shopping_car(goods_name,goods_num,goods_unit_price,goods_img) value(#{goods_name},#{goods_num},#{goods_unit_price},#{goods_img})
+    </insert>
 </mapper>

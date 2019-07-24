@@ -2,8 +2,10 @@ package com.jk.Controller;
 
 import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
+import com.jk.model.t_commodity;
 import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -82,8 +84,14 @@ public class CarController1 {
 
 
     @GetMapping("queryDetails")
-    public List<Goods> queryDetails(){
-        List<Goods> queryDetails = carServicePublic.queryDetails();
+    public List<t_commodity> queryDetails(){
+        List<t_commodity> queryDetails = carServicePublic.queryDetails();
         return queryDetails;
     }
+
+    @PostMapping("addFrom")
+    public void addFrom(@RequestParam(value = "id", required = true)Integer id,@RequestParam(value = "sum", required = true)Integer sum){
+        carServicePublic.addFrom(id,sum);
+    }
+
 }

@@ -1,13 +1,10 @@
 package com.jk.Controller;
 
-import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
+import com.jk.model.t_commodity;
 import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -78,9 +75,20 @@ public class CarController2 implements CarServicePublic {
 
     @Override
     @GetMapping("queryDetails")
-    public List<Goods> queryDetails() {
+    public List<t_commodity> queryDetails() {
         return carServicePublic.queryDetails();
     }
 
+    @Override
+    @GetMapping("queryListDetails")
+    public t_commodity queryListDetails(@RequestParam(value = "id", required = true)Integer id) {
+        return carServicePublic.queryListDetails(id);
+    }
+
+    @Override
+    @PostMapping("addFrom")
+    public void addFrom(Integer id, Integer sum) {
+        carServicePublic.addFrom(id,sum);
+    }
 
 }

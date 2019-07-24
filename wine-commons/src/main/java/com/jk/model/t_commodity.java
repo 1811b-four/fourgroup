@@ -37,6 +37,46 @@ public class t_commodity {
     private  Integer  winedushu;   //酒精度
     private  String  wingguige ;   //酒规格(6瓶 * 1箱)
 
+    public Integer getWinedushuid() {
+        return winedushuid;
+    }
+
+    public void setWinedushuid(Integer winedushuid) {
+        this.winedushuid = winedushuid;
+    }
+
+    public Integer getWingchandiid() {
+        return wingchandiid;
+    }
+
+    public void setWingchandiid(Integer wingchandiid) {
+        this.wingchandiid = wingchandiid;
+    }
+
+    public Integer getWinehanliangid() {
+        return winehanliangid;
+    }
+
+    public void setWinehanliangid(Integer winehanliangid) {
+        this.winehanliangid = winehanliangid;
+    }
+
+    public Integer getWingguigeid() {
+        return wingguigeid;
+    }
+
+    public void setWingguigeid(Integer wingguigeid) {
+        this.wingguigeid = wingguigeid;
+    }
+
+    public Integer getWinejiage() {
+        return winejiage;
+    }
+
+    public void setWinejiage(Integer winejiage) {
+        this.winejiage = winejiage;
+    }
+
     public String getWinetype() {
         return winetype;
     }

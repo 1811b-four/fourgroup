@@ -1,12 +1,13 @@
 package com.jk.Service;
 
 import com.jk.Mapper.CarMapper;
-import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
+import com.jk.model.t_commodity;
 import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -66,7 +67,27 @@ public class CarServiceImpl implements CarServicePublic {
     }
 
     @Override
-    public List<Goods> queryDetails() {
+    public List<t_commodity> queryDetails() {
         return carMapper.queryDetails();
     }
+
+    @Override
+    public t_commodity queryListDetails(Integer id) {
+
+        return carMapper.queryListDetails(id);
+    }
+
+    @Override
+    public void addFrom(Integer id, Integer sum) {
+        t_commodity t = carMapper.queryListDetails(id);
+        shoppingcar s = new shoppingcar();
+        s.setGoods_img(t.getWineimg());
+        s.setGoods_name(t.getWinename());
+        s.setGoods_num(sum);
+        BigDecimal big2 = new BigDecimal(t.getWinejiage().toString());
+        s.setGoods_unit_price(big2);
+        carMapper.addFrom(s);
+    }
+
+
 }
