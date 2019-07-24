@@ -41,5 +41,9 @@ public class WineController {
         return wineServiceFeign.getCouponExpired(start,pageSize);
     }
 
+    @PostMapping("getOrder")
+    public HashMap<String,Object> getOrder(@RequestParam(value = "start",required = true) Integer start, @RequestParam(value = "pageSize",required = true) Integer pageSize){
+        return wineServiceFeign.getOrder(start,pageSize);
+    }
 
 }

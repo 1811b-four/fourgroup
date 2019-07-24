@@ -1,8 +1,10 @@
 package com.jk.service;
 
+import com.jk.model.Order;
 import com.jk.model.User_Coupon;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
@@ -21,4 +23,7 @@ public interface WineServiceXhsApi {
 
     @PostMapping("getCouponExpired")
     HashMap<String, Object> getCouponExpired(@RequestParam(value = "start",required = true) Integer start, @RequestParam(value = "pageSize",required = true) Integer pageSize);
+
+    @PostMapping("getOrder")
+    HashMap<String, Object> getOrder(@RequestParam(value = "start",required = true) Integer start, @RequestParam(value = "pageSize",required = true) Integer pageSize);
 }
