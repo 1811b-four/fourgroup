@@ -38,4 +38,9 @@
      select * from t_commodity limit 8,16
 
     </select>
+
+    <select id="findlunbo" resultType="java.util.LinkedHashMap">
+    select id,path,title,url from t_lunbo order by orders
+   </select>
+
 </mapper>

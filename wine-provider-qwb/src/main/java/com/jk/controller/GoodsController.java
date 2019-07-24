@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @RestController
@@ -48,6 +49,12 @@ public class GoodsController implements GoodsService {
     @Override
     public List<t_commodity> list3() {
         return goodsService.list3();
+    }
+
+    @Override
+    @RequestMapping("findlunbo")
+    public List<LinkedHashMap<String, Object>> findlunbo() {
+        return goodsService.findlunbo();
     }
 
 

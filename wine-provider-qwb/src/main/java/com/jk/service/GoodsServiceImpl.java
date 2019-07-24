@@ -47,6 +47,13 @@ public class GoodsServiceImpl implements GoodsService{
         return goodsMapper.list3();
     }
 
+    @Override
+    public List<LinkedHashMap<String, Object>> findlunbo() {
+        List<LinkedHashMap<String, Object>> list=  goodsMapper.findlunbo();
+        System.out.println("从数据库查询");
+        return list;
+    }
+
    /* @Override
     public void del(Integer id) {
         newsMapper.del(id);

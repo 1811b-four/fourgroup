@@ -1,6 +1,5 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title> 酒仙网-白酒、红酒、洋酒、保健酒、黄酒、酒具官方旗舰店 </title>
@@ -16,6 +15,8 @@
     <script src="/js/public.js?version=20170427" type="text/javascript"></script>
     <script src="/js/region.js?version=20170427" type="text/javascript"></script>
     <script src="/js/product_price.js?version=20180716" type="text/javascript"></script>
+    <!-- 引入jquery -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
     <style type="text/css">
         *{margin:0;padding:0;}
         body,ul,li,ol,dl,dd,p,h1,h2,h3,h4,h5,h6{ margin:0;}
@@ -41,6 +42,20 @@
 
     </style>
     <script type="text/javascript" src='http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js'></script>
+
+
+
+    <link href="/shop/images/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="/shop/jslides/jslides.css" rel="stylesheet" type="text/css" />
+    <link href="/shop/css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="/shop/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="/shop/css/index.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/shop/js/jquery.js"></script>
+    <script type="text/javascript" src="/shop/js/jquery.tools.js"></script>
+    <script type="text/javascript" src="/shop/js/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="/shop/jslides/jslides.js"></script>
+    <script type="text/javascript" src="/shop/js/common.js"></script>
+    <script type="text/javascript" src="/shop/js/vue.js"></script>
 </head>
 <body>
 
@@ -205,7 +220,53 @@
             --></div>
 
             <script>
+                function search() {
+                    var key = $("#wd").val();
+                    //alert(key);
+                    location.href='http://192.168.1.10:8085/queryAllWines'
+                }
 
+                function findHots(){
+                    $.ajax({
+                        url:"http://192.168.1.116:8083/findlunbo",
+                        type:"post",
+                        // data:{type:2},
+                        async:false,
+                        success:function (data) {
+                            var str="";
+                           /* var str2="";*/
+                            for (var i=0;i<data.length;i++){
+                                str+="<li><a href='"+data[i].url+"'><img src='"+data[i].path+"' alt='"+data[i].title+"' title='"+data[i].title+"'></a></li>";
+
+                        /*     str2+= '<li _src="url('+data[i].path+')" style="background:  center 0 no-repeat;">'+
+                                    '<div class="ban_cter">'+
+                                    '<a class="focusArea" target="_blank" href=""></a>'+
+                                    '<div class="mav">'+
+                                    '<a name="home_you1" style="background:url(http://img07.jiuxian.com/bill/2019/0321/f15aa385f3874125bb4bdbef7537f353.png) no-repeat;"   class="smallImg" rel="nofollow"></a>'+
+                                    '<span class="mask1" style="display: none;"></span>'+
+                                    '<a name="home_you2" style="background:url(http://img09.jiuxian.com/bill/2018/1116/8a3fd6160dbe4d0fa38c4f31cd5ee2b8.png) no-repeat;"   class="smallImg" rel="nofollow"></a>'+
+                                    '<span class="mask2" style="display: none;"></span>'+
+                                    '<a name="home_you3" style="background:url(http://img06.jiuxian.com/bill/2018/1218/8ec83ea5c90943f99f0b4c54395374d5.png) no-repeat;"   class="smallImg" rel="nofollow"></a>'+
+                                    '<span class="mask3" style="display: none;"></span>'+
+                                    '</div>'+
+                                    '</div>'+
+                                    '</li>'*/
+
+
+
+
+                          // alert("ss");
+                            }
+                            $("#slides").html(str);
+                        },error:function () {
+
+                        }
+                    });
+                }
+                $(function () {
+                    findHots();
+
+                });
 
             </script>
         </div><div class="headerProtect"><a  rel="nofollow"></a><a   rel="nofollow"></a><a rel="nofollow"></a></div></div></div>
@@ -1104,8 +1165,19 @@
 .menuBox{ left:190px; }</style>
 <div class="homeMainbody">
     <!--轮播start-->
+
     <div class="mainBanner" name="__home_shoutonglan">
+        <div class="containerIndex index">
+            <div id="full-screen-slider">
+                <ul id="slides" >
+
+                </ul>
+            </div>
+        </div>
+
+
         <div class="bigImg">
+
             <ul class="bigUl" style="position: relative; width: 1423px; height: 470px;">
                 <li _src="url(/image/bg.jpg)" style="background:  center 0 no-repeat;">
                     <div class="ban_cter">
@@ -1188,13 +1260,13 @@
                 <li _src="url(http://img06.jiuxian.com/bill/2019/0704/b9d1d31e858b4c0eb949b09b0575eb37.jpg)" style="background:  center 0 no-repeat;">
                     <div class="ban_cter">
                         <a class="focusArea" target="_blank" href=""></a>
-                        <div class="mav">
-                            <a name="home_you19" style="background:url(http://img06.jiuxian.com/bill/2018/1116/24197e05a3764c2db008c26abe0114d7.png) no-repeat;"   class="smallImg" rel="nofollow"></a>
-                            <span class="mask1" style="display: none;"></span>
-                            <a name="home_you20" style="background:url(http://img10.jiuxian.com/bill/2018/1116/346d814337904b869cf90a820d03cbe9.png) no-repeat;"   class="smallImg" rel="nofollow"></a>
-                            <span class="mask2" style="display: none;"></span>
-                            <a name="home_you21" style="background:url(http://img06.jiuxian.com/bill/2018/1116/39737c63796d46299f6d41a1b4499969.png) no-repeat;"   class="smallImg" rel="nofollow"></a>
-                            <span class="mask3" style="display: none;"></span>
+                            <div class="mav">
+                                <a name="home_you19" style="background:url(http://img06.jiuxian.com/bill/2018/1116/24197e05a3764c2db008c26abe0114d7.png) no-repeat;"   class="smallImg" rel="nofollow"></a>
+                                <span class="mask1" style="display: none;"></span>
+                                <a name="home_you20" style="background:url(http://img10.jiuxian.com/bill/2018/1116/346d814337904b869cf90a820d03cbe9.png) no-repeat;"   class="smallImg" rel="nofollow"></a>
+                                <span class="mask2" style="display: none;"></span>
+                                <a name="home_you21" style="background:url(http://img06.jiuxian.com/bill/2018/1116/39737c63796d46299f6d41a1b4499969.png) no-repeat;"   class="smallImg" rel="nofollow"></a>
+                                <span class="mask3" style="display: none;"></span>
                         </div>
                     </div>
                 </li>
@@ -1210,7 +1282,7 @@
                             <span class="mask3" style="display: none;"></span>
                         </div>
                     </div>
-                </li>
+                </li>-->
             </ul></div><div class="smallBtn"><ul class="smallUl"></ul></div></div><!--轮播end-->
     <div class="mainWrap"><div class="mainBox"><!--两侧背景图start
         <div class="bgLeft"><a name="home_cead"  href="http://shop.jiuxian.com/brand-382/activity-3682.htm" target="_blank"  style=" background:url(http://img09.jiuxian.com/bill/2019/0705/39ec18440c004f44a0a6a0c61a797530.png) no-repeat right top; "></a></div>
@@ -1513,7 +1585,8 @@
 <em >2</em>
 <em >3</em>
 </span></div></div></div></div>
-
+        <!--疯狂抢购end--><div class="loadFirst" style="height:1159px; overflow:hidden;"></div><div class="loadSecond" style="height:700px; overflow:hidden;"></div><div class="loadThird" style="height:1076px; overflow:hidden;"></div><div class="loadFourth" style="height:1081px; overflow:hidden;"></div>
+    </div></div></div><div class="loadFifth" style="height:490px;"></div>
 <script type="text/javascript">
     MallPcPrice.getPrices('crazySale');
 </script>
@@ -1535,12 +1608,12 @@
 
     //banner
     !function(){
-        var $picLi = $('#banner .pic ul li');
-        var $tabLi = $('#banner .tab ul li');
-        var $pic = $('#banner .pic');
-        var $btn = $('#banner .btn');
-        var $btnDiv = $('#banner .btn div');
-        var $banner = $('#banner');
+        var $picLi = $('#full-screen-slider .pic ul li');
+        var $tabLi = $('#full-screen-slider .tab ul li');
+        var $pic = $('#full-screen-slider .pic');
+        var $btn = $('#full-screen-slider .btn');
+        var $btnDiv = $('#full-screen-slider .btn div');
+        var $banner = $('#full-screen-slider');
         var index = 0;
         var timer = null;
 
