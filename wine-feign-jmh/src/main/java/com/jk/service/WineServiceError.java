@@ -1,5 +1,6 @@
 package com.jk.service;
 
+import com.jk.model.Order;
 import com.jk.model.User_Coupon;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +34,11 @@ public class WineServiceError implements WineServiceFeign {
 
     @Override
     public HashMap<String, Object> getCouponExpired(Integer start, Integer pageSize) {
+        return null;
+    }
+
+    @Override
+    public HashMap<String, Object> getOrder(Integer start, Integer pageSize) {
         return null;
     }
 

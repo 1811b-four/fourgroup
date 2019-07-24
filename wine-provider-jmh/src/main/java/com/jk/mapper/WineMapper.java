@@ -1,6 +1,7 @@
 package com.jk.mapper;
 
 import com.jk.model.Coupon;
+import com.jk.model.Order;
 import com.jk.model.User_Coupon;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -32,4 +33,8 @@ public interface WineMapper {
     int findCouponCount3(@Param("userId")int i);
 
     List<User_Coupon> getCouponList3(@Param("start")Integer start,@Param("pageSize") Integer pageSize,@Param("userId") int i);
+
+    int findOrderCount(@Param("userId")int i);
+
+    List<Order> getOrderList(@Param("start")Integer start, @Param("pageSize") Integer pageSize, @Param("userId") int i);
 }

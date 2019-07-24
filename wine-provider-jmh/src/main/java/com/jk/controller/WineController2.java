@@ -46,4 +46,10 @@ public class WineController2 implements WineServiceXhsApi {
     public HashMap<String, Object> getCouponExpired(@RequestParam(value = "start",required = true) Integer start, @RequestParam(value = "pageSize",required = true) Integer pageSize) {
         return wineServiceXhsApi.getCouponExpired(start,pageSize);
     }
+
+    @Override
+    @PostMapping("getOrder")
+    public HashMap<String, Object> getOrder(@RequestParam(value = "start",required = true) Integer start, @RequestParam(value = "pageSize",required = true) Integer pageSize) {
+        return wineServiceXhsApi.getOrder(start,pageSize);
+    }
 }

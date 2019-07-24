@@ -56,6 +56,11 @@ public class CouponController {
 
     @RequestMapping("toOrder")
     public String toOrder(){
+        return "Coupon-Jmh/Order";
+    }
+
+    @RequestMapping("toOrderTable")
+    public String toOrderTable(){
         return "Coupon-Jmh/OrderTable";
     }
 }

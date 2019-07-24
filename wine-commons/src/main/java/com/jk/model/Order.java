@@ -16,15 +16,7 @@ public class Order {
     private String shopName;
     private String createTime;
 
-    private  Integer dateStatus;
-
-    public Integer getDateStatus() {
-        return dateStatus;
-    }
-
-    public void setDateStatus(Integer dateStatus) {
-        this.dateStatus = dateStatus;
-    }
+    private Integer orderStatus;    //订单状态（1，已支付；2，未支付）
 
     public Integer getId() {
         return id;
@@ -113,4 +105,13 @@ public class Order {
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
+
+    public Integer getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(Integer orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
 }

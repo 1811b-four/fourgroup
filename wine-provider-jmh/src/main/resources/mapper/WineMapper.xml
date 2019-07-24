@@ -77,4 +77,13 @@
         limit #{start},#{pageSize}
     </select>
 
+
+    <select id="findOrderCount" parameterType="int" resultType="int">
+        select count(1) from t_order o where o.userId = #{userId}
+    </select>
+
+    <select id="getOrderList" parameterType="int" resultType="com.jk.model.Order">
+      select * from t_order o where o.userId = #{userId}
+      limit #{start},#{pageSize}
+    </select>
 </mapper>

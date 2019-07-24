@@ -37,12 +37,12 @@
     <script type="text/javascript" src="js/fileinput/themes/fa/theme.js"></script>
 </head>
 <body>
-<table id="bootTab" style=" border:1px solid #e4e4e4; border-top:none; width:100%;"></table>
+    <table id="bootTab" style=" border:1px solid #e4e4e4; border-top:none; width:100%;"></table>
 </body>
 <script type="text/javascript">
     $(function(){
         $("#bootTab").bootstrapTable({
-            url:"http://192.168.1.110:8078/getCouponExpired",
+            url:"http://192.168.1.110:8078/getOrder",
             method:"post",
             striped: true,  	// 斑马线效果     默认false
             //只允许选中一行
@@ -60,20 +60,30 @@
             contentType:'application/x-www-form-urlencoded;charset=UTF-8',   //数据编码纯文本  offset=0&limit=5
             toolbar:'#tabToolBar',   //  工具定义位置
             columns:[
+                {field:'orderNum',title:"订单号",width:100},
                 {field:'goodsName',title:"商品名称",width:100},
-                {field:'userName',title:'收货人',width:100,
+                {field:'userName',title:'收货人',width:100,},      //  列    field   代表是 后台  传过来的值
+                {field:'totalPrice',title:'实付金额',width:100,
                     formatter: function (value,row,index){
                         return "￥"+value;
                     }
-                },      //  列    field   代表是 后台  传过来的值
-                {field:'totalPrice',title:'实付金额',width:100},
-                {field:'orderStatus',title:'订单状态',width:100},
-                {field:'xxx',title:'操作',width:100,
+                },
+                {field:'orderStatus',title:'订单状态',width:100,
                     formatter: function (value,row,index){
-                        return row.couponStartDate+"至"+row.couponEndDate;
+                        if(value == 1){
+                            return "<font color='green'>已支付</font>";
+                        }else {
+                            return "<font color='red'>未支付</font>";
+                        }
                     }
                 },
-                {field:'couponTerminal',title:'适用终端',width:100},
+                {field:'xxx',title:'操作',width:100,
+                    formatter: function (value,row,index){
+                        if(row.orderStatus != 1){
+                            return "<a href='javascript:toPay("+row.orderNum & row.totalPrice+")'>去支付</a>";
+                        }
+                    }
+                },
             ],
             //传递参数（*）
             queryParams: function(params) {
@@ -102,8 +112,9 @@
         });
     })
 
-    /* function used(){
+    function toPay(orderNum,totalPrice){
+        location.href='http://192.168.1.111:8066/order/goAlipay?price='+totalPrice+'&outTradeNo='+orderNum;
+    }
 
-     }*/
 </script>
 </html>

@@ -3,6 +3,7 @@ package com.jk.service;
 
 import com.jk.mapper.WineMapper;
 import com.jk.model.Coupon;
+import com.jk.model.Order;
 import com.jk.model.User_Coupon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -140,6 +141,27 @@ public class WineServiceImpl implements WineServiceXhsApi {
         hash.put("total",count);
         //查询分页列表
         List<User_Coupon> coupon= wineMapper.getCouponList3(start,pageSize,i);
+        hash.put("rows",coupon);
+        return hash;
+    }
+
+    @Override
+    public HashMap<String, Object> getOrder(Integer start, Integer pageSize) {
+        //获取当前登录用户ID
+        /*Jedis jedis = new Jedis("192.168.1.137",6379);
+        jedis.auth("123");
+        String name = "jmh";
+        String s = jedis.get(name);
+        int i = Integer.parseInt(s);*/
+        int i = 1;
+
+        HashMap<String, Object> hash = new HashMap<>();
+        //查询总条数
+        int count = wineMapper.findOrderCount(i);
+        //将查询出来的总条数放到总返回体中--2
+        hash.put("total",count);
+        //查询分页列表
+        List<Order> coupon= wineMapper.getOrderList(start,pageSize,i);
         hash.put("rows",coupon);
         return hash;
     }
