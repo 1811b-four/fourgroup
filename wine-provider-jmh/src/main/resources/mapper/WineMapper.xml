@@ -4,8 +4,8 @@
 
 
     <insert id="addReceive" parameterType="com.jk.model.User_Coupon">
-        insert into user_coupon (couponId,userId,couponSerialNumber)
-        values (#{couponId},#{userId},#{couponSerialNumber});
+        insert into user_coupon (couponId,userId,couponSerialNumber,status)
+        values (#{couponId},#{userId},#{couponSerialNumber},#{status});
     </insert>
 
     <select id="queryCoupinById" parameterType="int" resultType="com.jk.model.Coupon">
@@ -14,6 +14,67 @@
 
     <select id="queryCouponCount" parameterType="int" resultType="int">
       select count(1) from user_coupon where couponId = #{couponId}
+    </select>
+
+    <!--未使用-->
+    <select id="findCouponCount" parameterType="int" resultType="int">
+        select count(1) from user_coupon u
+        left join t_coupon c on c.couponId = u.couponId
+        LEFT JOIN user r on u.userId = r.id
+        WHERE c.couponStartDate &lt;= now()
+        and now() &lt;= c.couponEndDate
+        and u.userId = #{userId}
+        and u.status = 2
+    </select>
+
+    <select id="getCouponList" parameterType="int" resultType="com.jk.model.User_Coupon">
+        select * from user_coupon u
+        left join t_coupon c on c.couponId = u.couponId
+        left join user r on u.userId = r.id
+        left join coupon_type t on c.couponTypeId = t.couponId
+        WHERE r.id = #{userId}
+        and u.status = 1
+        and c.couponStartDate &lt;= now()
+        and now() &lt;= c.couponEndDate
+        limit #{start},#{pageSize}
+    </select>
+
+    <!--已使用-->
+    <select id="findCouponCount2" parameterType="int" resultType="int">
+      select count(1) from user_coupon u
+        left join t_coupon c on c.couponId = u.couponId
+		LEFT JOIN user r on u.userId = r.id
+        where u.userId = #{userId}
+        and u.status = 2
+    </select>
+
+    <select id="getCouponList2" parameterType="int" resultType="com.jk.model.User_Coupon">
+      select * from user_coupon u
+        left join t_coupon c on c.couponId = u.couponId
+        LEFT JOIN user r on u.userId = r.id
+        left join coupon_type t on c.couponTypeId = t.couponId
+        where r.id = #{userId} and  u.status =2
+        limit #{start},#{pageSize}
+    </select>
+
+    <!--已过期-->
+    <select id="findCouponCount3" parameterType="int" resultType="int">
+        select count(1) from user_coupon u
+        left join t_coupon c on c.couponId = u.couponId
+		LEFT JOIN user r on u.userId = r.id
+        WHERE now() >= c.couponEndDate
+        and u.userId = #{userId}
+    </select>
+
+    <select id="getCouponList3" parameterType="int" resultType="com.jk.model.User_Coupon">
+      select c.couponName,c.couponFaceValue,t.couponTypeName,u.couponSerialNumber,c.couponTerminal,c.couponStartDate,c.couponEndDate
+        from user_coupon u
+        left join t_coupon c on c.couponId = u.couponId
+        left join coupon_type t on c.couponTypeId = t.couponId
+        left join user r on u.userId = r.id
+        where u.userId = #{userId}
+        and now() >= c.couponEndDate
+        limit #{start},#{pageSize}
     </select>
 
 </mapper>

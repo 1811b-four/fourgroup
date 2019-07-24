@@ -3,12 +3,10 @@ package com.jk.controller;
 import com.jk.model.User_Coupon;
 import com.jk.service.WineServiceFeign;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -26,6 +24,21 @@ public class WineController {
     @PostMapping("receive")
     public Map<String , Object> addReceive(@RequestParam(value = "couponId",required = true) Integer couponId, User_Coupon userCoupon){
         return wineServiceFeign.addReceive(couponId,userCoupon);
+    }
+
+    @PostMapping("getCouponNotUsed")
+    public HashMap<String,Object> getCouponNotUsed(@RequestParam(value = "start",required = true) Integer start, @RequestParam(value = "pageSize",required = true) Integer pageSize){
+        return wineServiceFeign.getCouponNotUsed(start,pageSize);
+    }
+
+    @PostMapping("getCouponUsed")
+    public HashMap<String,Object> getCouponUsed(@RequestParam(value = "start",required = true) Integer start, @RequestParam(value = "pageSize",required = true) Integer pageSize){
+        return wineServiceFeign.getCouponUsed(start,pageSize);
+    }
+
+    @PostMapping("getCouponExpired")
+    public HashMap<String,Object> getCouponExpired(@RequestParam(value = "start",required = true) Integer start, @RequestParam(value = "pageSize",required = true) Integer pageSize){
+        return wineServiceFeign.getCouponExpired(start,pageSize);
     }
 
 
