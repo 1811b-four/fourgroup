@@ -1,0 +1,15 @@
+
+
+
+
+spring:
+  application:
+    name: wine-provider-goods
+  cloud:
+    config:
+      lable: master
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: wine-config-server
+      uri: http://localhost:8090

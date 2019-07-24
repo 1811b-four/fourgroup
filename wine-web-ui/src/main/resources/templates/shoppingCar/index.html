@@ -412,7 +412,6 @@
         var arrObj = $("[name='itemCheckbox']");
         var strId = "";
         arrObj.each(function (){
-
             if($(this).prop("checked")==true){
                 alert($(this).prop("value"))
                 strId += $(this).prop("value") + ","
@@ -420,19 +419,15 @@
         })
         //截取逗号
         strId = strId.substring(0, strId.length-1);
-        if (choice == true) {
-            $.ajax({
-                url:"http://192.168.1.133:8083/order/toConfirmOrder",
-                type:"get",
-                data:{strIds:strId},
-                success:function(){
-                    location.reload();
-                },
-                error:function(){
-                    alert("错误，请重试！");
-                }
-            })
-        }
+        $.ajax({
+            url:"http://localhost:8099/order/toConfirmOrder?strIds="+strId,
+            type:"get",
+            success:function(){
+            },
+            error:function(){
+                alert("错误，请重试！");
+            }
+        })
     }
     //批删
     function deleteAll(){

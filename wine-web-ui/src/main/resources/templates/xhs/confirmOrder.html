@@ -156,6 +156,19 @@
                     </li>
                 </ul>
             </div>
+            <div class="addressMoreBox">
+                <div class="addressMore" flag="off" style="display: none;"><a href="javascript:;"><span>展开收货地址</span><i class="orderIcon"></i></a></div>
+                <div class="addressAdd"><a href="javascript:;"><i class="orderIcon"></i><span>新增收货地址</span></a></div>
+            </div>
+            <script>
+                //地址列表少于等于3个隐藏展开按钮
+                var addrListLen = $('.addressList').find('li').length;
+                if(addrListLen <= 3){
+                    $('.addressMore').hide();
+                }else{
+                    $('.addressMore').show();
+                }
+            </script>
         </div>
         <!-- 支付方式信息 -->
         <div class="pubWrap">
@@ -242,9 +255,74 @@
         </div>
     </div>
 </div>
+<!--半透明遮罩层-->
+<div class="maskLayer"></div>
+<div class="pubPop pop-1">
+    <div class="pubInside">
+        <input id="addaddressid" type="hidden" value="">
+        <div class="pubInsideTitle">
+            <span id="addressTitleDiv">新增收货地址</span>
+            <i class="orderIcon pubClose"></i>
+        </div>
+        <div name="addAddressDiv" class="pubInsideBody">
+            <div class="defaultAddr">
+                <div id="addAddressRegion" class="d-item clearfix wrong">
+                    <div class="title"><em>*</em><span>所在地区</span></div>
+                    <div class="d-item-right">
+                        <div class="addrSelect">
+                            <div class="areaBox" id="_shdz"><a href="javascript:;" class="selectArea"><b>请选择省市区</b><b></b><b></b><i class="orderIcon"></i></a>
+                                <div class="areaDetail">
+                                    <div class="selectedBox">
+                                        <a href="javascript:;"  pid="1" class=""><em>请选择省</em></a><!-- 省 -->
+                                        <a href="javascript:;" class="selectCity"><em>请选择市</em></a><!-- 市 -->
+                                        <a href="javascript:;" class="selectCounty"><em>请选择县/区</em></a><!-- 县 -->
+                                    </div>
+                                    <!-- 省列表 -->
+                                    <div class="areaList provinceList" style="display:none;"><ul class="clearfix"></ul></div>
+                                    <!-- 省名 -->
+                                    <div class="areaList cityList" style="display: none;"><ul class="clearfix"></ul></div>
+                                    <!-- 省会名 -->
+                                    <div class="areaList countyList" style="display: none;"><ul class="clearfix"></ul></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pubPrompt" id="addrAreaPrompt"><i class="orderIcon"></i><span>请选择省市区</span></div>
+                    </div>
+                </div>
+                <div class="d-item clearfix" id="addAddressDetail">
+                    <div class="title"><em>*</em><span>详细地址</span></div>
+                    <div class="d-item-right">
+                        <textarea maxlength="52" id="addrTextarea" name="" cols="" rows="" class="form-2 nonEmpty" placeholder="请填写详细地址，无需重复填写省市区"></textarea>
+                        <div class="pubPrompt" id="addrDetailPrompt"><i class="orderIcon"></i><span>请填写详细地址，不得少于5个字</span></div>
+                    </div>
+                </div>
+                <div class="d-item clearfix" id="addAddressConsignee">
+                    <div class="title"><em>*</em><span>收货人姓名</span></div>
+                    <div class="d-item-right">
+                        <input maxlength="10" id="addressconsignee" name="" type="text" class="form-1 nonEmpty" placeholder="请填写收货人姓名" />
+                        <div class="pubPrompt" id="addrNamePrompt"><i class="orderIcon"></i><span>请填写收货人姓名</span></div>
+                    </div>
+                </div>
+                <div class="d-item clearfix" id="addAddressMobile">
+                    <div class="title"><em>*</em><span>手机</span></div>
+                    <div class="d-item-right">
+                        <input maxlength="11" id="addressmobile" name="" type="text" class="form-1 nonEmpty" placeholder="请填写手机号码" />
+                        <div class="pubPrompt" id="addrPhonePrompt"><i class="orderIcon"></i><span>请填写收货人手机号</span></div>
+                    </div>
+                </div>
+                <div class="d-item clearfix" id="addAddressPhone">
+                    <div class="title"><span>固定电话</span></div>
+                    <div class="d-item-right">
+                        <input id="addressphone" name="" type="text" class="form-3" placeholder="区号" /><em class="bor">-</em><input id="addressPhoneAfter" name="" type="text" class="form-4" placeholder="固定电话号码" /><div class="pubPrompt"><i class="orderIcon"></i><span>请选择省市区</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="addrBtn"><a href="javascript:;" name="saveAddress">保存并使用</a><a href="javascript:;" class="cancel">取消</a></div>
+        </div>
+    </div>
+</div>
+<!--新增收货地址 end-->
 
-
-<!--删除地址列表comfirm-->
 <div class="pubPop pop-4">
     <div class="pubInside">
         <div class="pubInsideTitle">

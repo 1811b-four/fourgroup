@@ -11,7 +11,7 @@ spring:
       server:
         git:
           uri: https://github.com/1811b-four/springcloud-wine-config.git
-          search-paths:  /
+          search-paths: /
           username: qilong666
           password: long931010
       label: master

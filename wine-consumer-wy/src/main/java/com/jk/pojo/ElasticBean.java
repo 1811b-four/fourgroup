@@ -2,6 +2,8 @@ package com.jk.pojo;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Mapping;
+import org.springframework.data.elasticsearch.annotations.Setting;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -13,10 +15,14 @@ import java.math.BigDecimal;
  * @Created by ${jmh}
  */
 @Document(indexName = "wine",type = "wineInfo")
+@Setting
+@Mapping
 public class ElasticBean implements Serializable {
 
 
     private static final long serialVersionUID = -6204976569917205778L;
+
+
          @Id
          private  Integer   id;
 

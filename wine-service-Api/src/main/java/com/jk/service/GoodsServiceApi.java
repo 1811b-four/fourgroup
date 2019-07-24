@@ -1,10 +1,12 @@
 package com.jk.service;
 
+
 import com.jk.model.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
+
 
 /**
  * @Classname 曹龙启
@@ -14,9 +16,10 @@ import java.util.List;
  */
 public interface GoodsServiceApi {
 
-   @PostMapping("find")
+
+    @PostMapping("find")
     HashMap<String, Object> findchuizi(@RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize") Integer pageSize);
- @PostMapping("add")
+    @PostMapping("add")
     void add(Goods good);
     @GetMapping("find2")
     HashMap<String, Object> findchuizi2(  @RequestParam (value = "start") Integer start, @RequestParam (value = "pageSize")  Integer pageSize);
