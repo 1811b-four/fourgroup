@@ -1,6 +1,6 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="Expires" CONTENT="0">
@@ -96,8 +96,8 @@
         </div>
     </div>
 </div>
-<input id="strIds" type="hidden" th:value="${strIds}">
 <!--页头end-->    <input id="userMobile" type="hidden" value="16619833191">
+<input id="liststr" type="hidden" th:value="${liststr}">
 <input id="cartStockoutGifts" type="hidden" value="">
 <input id="stockoutGifts" type="hidden" value="">
 <input id="selectAddressId" type="hidden" value="0">
@@ -143,13 +143,13 @@
             <div class="addressList">
                 <ul class="clearfix">
                     <li data-addrid="111538178" rgnregionid="2545" defaultaddress="true" supporteinv="true" addressconsignee="薛涵少" addressmore="货源街园丁公寓" addressmobile="166****3191" zipcode="" addressphone="" addressname="山西省 吕梁市 离石区" class="default"> <i class="orderIcon"></i>
-                        <div class="addressListTop"><span>薛涵少</span><span>收</span>
+                        <div class="addressListTop"><span id="userNameSp">薛涵少</span><span>收</span>
                             <a href="javascript:;" class="defaultLit setDefault" style="display: block;">  默认地址 </a>
                         </div>
                         <div class="addressListBottom">
-                            <div class="address">山西省 吕梁市 离石区货源街园丁公寓</div>
+                            <div class="address"><span id="userAddSp">山西省 吕梁市 离石区货源街园丁公寓</span></div>
                             <div class="phoneNum">
-                                166****3191
+                                <span id="userPhoneSp">166****3191</span>
                             </div>
                             <div class="operatingBtn" style="display: none;"><a href="javascript:;" class="addr">修改</a><a href="javascript:;" class="delete">删除</a></div>
                         </div>
@@ -195,35 +195,14 @@
                     <div class="oTd item-4">状态</div>
                     <div class="oTd item-5">小计</div>
                 </div>
-                <div id="shopInfos"></div>
+                <div id="shopInfos">
+                    <div class="tBody">
+                        <div class="tMain">
+                            <div id="infoHtml"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <!-- 发票信息 -->
-        <div class="pubWrap">
-            <div class="pubTitle">
-                <h3>发票信息</h3>
-                <div class="pubFloat" id="invoiceInfoTitle" style="display: none;"><i class="orderIcon"></i><span>开企业抬头发票需填写纳税人识别号，以免影响报销</span><em class="orderIcon"></em></div>
-            </div>
-            <div class="redioBox" id="invoiceInfo">
-                <label class=""><i class="orderIcon"></i><span>需要发票</span></label>
-            </div>
-            <div class="redioHidden">
-                <div class="invoiceField"><span>纸质发票</span><span>明细-个人</span></div>
-                <a href="javascript:;" class="modify invBtn">修改</a>
-            </div>
-        </div>
-        <!-- 礼品订单信息 -->
-        <div class="pubWrap">
-            <div class="pubTitle">
-                <h3>礼品订单</h3>
-                <div class="pubFloat"><i class="orderIcon"></i><span>礼品订单不支持发票、不支持货到付款，商品清单不显示价格</span><em class="orderIcon"></em></div>
-            </div>
-            <div class="redioBox" id="giftOrderInfo">
-                <label class=""><i class="orderIcon"></i><span>这是一个礼品订单</span></label>
-            </div>
-            <div class="redioHidden">
-                <div class="giftField"><span></span><span></span><span></span></div>
-                <a href="javascript:;" class="modify giftBtn">修改</a> </div>
         </div>
 
 
@@ -236,20 +215,19 @@
                     <div class="message"><span>留言信息</span><input id="orderPS" name="" type="text" placeholder="请勿填写有关支付、发票、物流配送等信息。谢谢！"  maxlength="45" class="form-5" /></div>
                     <div class="comTotalBox">
                         <div class="totalList"><span><em id="goodsCountInfo"></em>件商品，商品金额：</span><span class="comTotalSum" id="totalPriceInfo"></span></div>
-                        <div class="totalList" id="settlDiscountPrice" style="display: none;"><span>活动优惠：</span><span class="comTotalSum" id="discountPriceInfo">-￥0.00</span></div>
-                        <div class="totalList" id="settlConponPrice" style="display: none;"><span>优惠券：</span><span class="comTotalSum" id="couponPriceInfo">-￥0.00</span></div>
-                        <div class="totalList" id="settlJintiePrice" style="display: none;"><span>津贴：</span><span class="comTotalSum" id="jintiePriceInfo">-￥0.00</span></div>
-                        <div class="totalList" id="settlBackPrice" style="display: none;"><span>返现：</span><span class="comTotalSum" id="backPriceInfo">-￥0.00</span></div>
-                        <div class="totalList" id="settlGiftCardPrice" style="display: none;"><span>礼品卡金额：</span><span class="comTotalSum" id="giftCardPriceInfo">-￥0.00</span></div>
+                    </div>
                     </div>
                 </div>
                 <div class="settlementBox settlementBg">
                     <div class="settlementAmount">
-                        <p><span>应付总金额：</span><em class="totleNum">￥0</em></p>
+                        <p><span>应付总金额：</span><em class="totleNum" id="totlePrice">￥0</em></p>
                         <p id="settlAddress"><span>寄送至：</span><em id="settlAddressInfo"></em></p>
                         <p id="settlConsignee"><span>收货人：</span><em id="settlConsigneeInfo"></em><em class="phoneNunber" id="settlMobleInfo"></em></p>
                     </div>
-                    <div class="submitBtnBox"><a id="backCart" href="http://cart.jiuxian.com">返回购物车</a><a id="submitOrder" href="javascript:;" class="submitBtn">提交订单</a></div>
+                    <div class="submitBtnBox">
+                        <a  href="javascript:toShoppingCar()">返回购物车</a><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <a id="submitOrder" href="javascript:submitOrders()" class="submitBtn">提交订单</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -323,6 +301,7 @@
 </div>
 <!--新增收货地址 end-->
 
+<!--删除地址列表comfirm-->
 <div class="pubPop pop-4">
     <div class="pubInside">
         <div class="pubInsideTitle">
@@ -336,121 +315,6 @@
     </div>
 </div>
 <!--删除地址列表comfirm end-->
-<!--发票信息-->
-<div class="pubPop pop-2">
-    <div class="pubInside">
-        <div class="pubInsideTitle">
-            <span>发票信息</span>
-            <i class="orderIcon pubClose" type="invoice"></i>
-        </div>
-        <div class="pubInsideBody">
-            <div class="defaultAddr">
-                <div class="d-item clearfix">
-                    <div class="title"><span>发票类型</span></div>
-                    <div class="d-item-right">
-                        <div class="invoiceTab" id="invoiceKindsDiv">
-                            <div class="item cur" id="zzfp"><span>纸质发票</span><s class="orderIcon"></s></div>
-                            <div class="item " id="dzfp"><span>电子发票</span><i class="orderIcon" style="display: none;"></i><s class="orderIcon"></s><div class="payPrompt">所选商品或所在地区不支持电子发票<em class="orderIcon"></em></div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-item clearfix">
-                    <div class="title"><span>发票抬头</span></div>
-                    <div class="d-item-right">
-                        <div class="invoiceTab">
-                            <div class="item cur" id="gr"><span>个人</span><s class="orderIcon"></s></div>
-                            <div class="item" id="dw"><span>单位</span><s class="orderIcon"></s></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-item clearfix" style="display:none;" id="unit">
-                    <div class="title"><em>*</em><span>单位名称</span></div>
-                    <div class="d-item-right" style=" z-index:20">
-                        <input name="" type="text" class="form-1" placeholder="请填写单位名称" id="invoiceUnit" maxlength="50"/>
-                        <div class="invTitleBox">
-                            <ul>
-                            </ul>
-                        </div>
-                        <div class="pubPrompt" id="invoiceUnitPrompt" ><i class="orderIcon"></i><span>请填写单位名称</span></div>
-                    </div>
-                </div>
-                <div class="d-item clearfix" style="display:none;" id="taxesNum">
-                    <div class="title"><span>纳税人识别号</span></div>
-                    <div class="d-item-right">
-                        <input name="" type="text" class="form-1" maxlength="20" placeholder="纳税人识别号一般为15至20位，部分含英文字母" id="invoiceTaxesNum"/>
-                        <div class="pubPrompt" id="invoiceTaxesNumPrompt"><i class="orderIcon"></i><span>请填写纳税人识别号</span></div>
-                    </div>
-                </div>
-                <div class="d-item clearfix">
-                    <div class="title"><span>发票内容</span></div>
-                    <div class="d-item-right">
-                        <div class="invoiceTab" id="contextTypeDiv">
-                            <div class="item cur"><span>酒水</span><s class="orderIcon"></s></div>
-                            <div class="item"><span>明细</span><s class="orderIcon"></s></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-item clearfix" style="display:none;" id="invPhone">
-                    <div class="title"><em>*</em><span>收票人手机</span></div>
-                    <div class="d-item-right">
-                        <input name="" type="text" class="form-1" maxlength="11" placeholder="请填写收货人手机号" id="invoicePhoneNum" />
-                        <div class="pubPrompt" id="invoicePhoneNumPrompt"><i class="orderIcon"></i><span>请填写收货人手机号</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="warmProp" style="display:none;">温馨提示：据“国税总局【2017】16号公告”自2017年7月1日起，购买方为企业的，索取增值税普通发票时，应向销售方提供纳税人识别号或统一社会信用代码；销售方为其开具增值税普通发票时，应在“购买方纳税人识别号”栏填写购买方的纳税人识别号或统一社会信用代码。不符合规定的发票，不得作为税收凭证。</div>
-            <div class="description"><i class="orderIcon"></i><span>使用优惠券、礼品卡、返现、兑换码支付的金额不开具发票。</span><a href="http://help.jiuxian.com/view-1-113.htm" target="_blank">查看发票说明></a></div>
-            <div class="addrBtn"><a href="javascript:;" id="invoiceBtn">保存</a><a href="javascript:;" class="cancel" type="invoice">取消</a></div>
-        </div>
-
-    </div>
-</div>
-<!--发票信息 end-->
-
-<!--礼品订单-->
-<div class="pubPop pop-3">
-    <div class="pubInside">
-        <div class="pubInsideTitle">
-            <span>礼品订单</span>
-            <i class="orderIcon pubClose" type="gift"></i>
-        </div>
-        <div class="pubInsideBody">
-            <div class="defaultAddr">
-                <div class="d-item clearfix">
-                    <div class="title"><em>*</em><span>收礼人称呼</span></div>
-                    <div class="d-item-right">
-                        <input name="" maxlength="16" type="text" class="form-1" placeholder="请输入收礼人姓名或昵称" id="giftName"/>
-                        <div class="pubPrompt" id="giftNamePrompt"><i class="orderIcon"></i><span>请输入收礼人姓名或昵称</span></div>
-                    </div>
-                </div>
-                <div class="d-item clearfix">
-                    <div class="title"><em>*</em><span>送礼人</span></div>
-                    <div class="d-item-right">
-                        <input name="" maxlength="16" type="text" class="form-1" placeholder="请输入送礼人姓名或昵称" id="giftsName" />
-                        <div class="pubPrompt" id="giftsNamePrompt"><i class="orderIcon"></i><span>请输入送礼人姓名或昵称</span></div>
-                    </div>
-                </div>
-                <div class="d-item clearfix">
-                    <div class="title"><em>*</em><span>送礼人电话</span></div>
-                    <div class="d-item-right">
-                        <input name="" maxlength="11" type="text" class="form-1" max="11" placeholder="请填写送礼人手机号" id="giftPhoneNum" />
-                        <div class="pubPrompt" id="giftPhoneNumPrompt"><i class="orderIcon"></i><span>请输入正确的11位手机号</span></div>
-                    </div>
-                </div>
-                <div class="d-item clearfix">
-                    <div class="title"><span>留言</span></div>
-                    <div class="d-item-right">
-                        <textarea maxlength="120" id="giftMessageInfo" name="" cols="" rows="" class="form-2" placeholder="想要对TA说点什么？"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="addrBtn"><a href="javascript:;" id="giftsBtn">保存</a><a href="javascript:;" class="cancel" type="gift">取消</a></div>
-        </div>
-
-    </div>
-</div>
-<!--礼品订单-->
-
 
 
 <!--提交订单失败提框-->
@@ -461,7 +325,7 @@
             <i class="orderIcon pubClose" type="orderError"></i>
         </div>
         <div class="pubInsideBody">
-            <div id="activateFailures" class="warningText failureText"><i class="orderIcon"></i><span>提交失败</span></div>
+            <div id="activateFailure" class="warningText failureText"><i class="orderIcon"></i><span>提交失败</span></div>
             <div class="pubText"></div>
             <div class="addrBtn"><a href="javascript:;" class="sure">我知道了</a></div>
         </div>
@@ -532,7 +396,13 @@
                         <i class="publicIcon"></i><span>支付方式</span>
                     </h3>
                     <p>
+                        <a href="http://help.jiuxian.com/view-4-120.htm#pay_1" target="_blank" rel="nofollow">货到付款</a>
+                    </p>
+                    <p>
                         <a href="http://help.jiuxian.com/view-4-121.htm#pay_2" target="_blank" rel="nofollow">在线支付</a>
+                    </p>
+                    <p>
+                        <a href="http://help.jiuxian.com/view-4-122.htm#pay_3" target="_blank" rel="nofollow">线下支付</a>
                     </p>
                 </li>
                 <li class="servicesItme05">
@@ -595,7 +465,7 @@
                         href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">京ICP备17043395号</a>&nbsp;&nbsp;&nbsp;京公网安备1101050188221
                 </p>
                 <p class="footerAddr" style="color: #999; line-height: 22px; padding-top: 5px;">
-                    <span>统一社会信用代码&nbsp;&nbsp;91110302306646672B&nbsp;&nbsp;&nbsp;食品流通许可证编号&nbsp;&nbsp;JY11131010328793&nbsp;&nbsp;&nbsp;</span>
+                    <span>统一社会信用代码&nbsp;&nbsp;91110302306646672B&nbsp;&nbsp;&nbsp;食品流通许可证编号&nbsp;&nbsp;JY11131010328793&nbsp;&nbsp;&nbsp;京食药网食备201910019&nbsp;&nbsp;&nbsp;</span>
                 </p>
                 <p class="footerAddr" style="color: #999; line-height: 22px; padding-bottom: 7px;">
                     <span>地址：北京市北京经济技术开发区经海五路58号院8幢4层</span>
@@ -609,7 +479,8 @@
                             _kxs.async = true;
                             _kxs.setAttribute('cid', 'kx_verify');
                             _kxs.src = ('https:' == document.location.protocol
-                                ? 'https://ss.knet.cn' : 'http://rr.knet.cn');
+                                ? 'https://ss.knet.cn' : 'http://rr.knet.cn')
+                                + '/static/js/icon3.js?sn=2011040600100007749&tp=icon3';
                             _kxs.setAttribute('size', 0);
                             var _kx = document.getElementById('kx_verify');
                             _kx.parentNode.insertBefore(_kxs, _kx);
@@ -656,174 +527,128 @@
     }
 </style>
 <!--页脚end-->
-
-<!-- 邮件订阅  start-->
-<script type="text/javascript">
-    jQuery(function() {
-        jQuery("#subscribe_but")
-            .bind(
-                "click",
-                function() {
-                    var subscribeEmail = jQuery("#subscribe_email").val();
-                    if (subscribeEmail == "" || subscribeEmail == "请输入您的邮箱") {
-                        alert("请输入您的邮箱！")
-                    } else {
-                        var regemail = /^[\w\-\.]+?@[\w\-]+?(\.\w+?)+?$/;
-                        if (subscribeEmail.length > 30) {
-                            alert("请输入正确的邮箱")
-                        } else {
-                            if (!subscribeEmail.match(regemail)) {
-                                alert("请输入正确的邮箱")
-                            } else {
-                                var proxy_url = "/httpProxyAccess.htm?t="
-                                    + new Date().getTime();
-                                var sub_request_url = "http://public.jiuxian.com/saveUserSubscribeInfos.htm";
-                                jQuery.post(proxy_url, {
-                                    target: sub_request_url,
-                                    emailAddress: subscribeEmail
-                                }, function(data) {
-                                    if (data != null) {
-                                        if (data.code == 1) {
-                                            alert("订阅促销信息成功。")
-                                        } else {
-                                            if (data.code == 0) {
-                                                alert("请输入正确的邮箱")
-                                            } else {
-                                                if (data.code == 2) {
-                                                    alert("该Email地址已经订阅过促销信息！")
-                                                } else {
-                                                    if (data.code == 3) {
-                                                        alert("对不起，订阅失败！")
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }, "JSON")
-                            }
-                        }
-                    }
-                })
-    });
-</script>
-
-
-<script type="text/javascript">
-    //99click用户ID变量赋值
-    var _ozuid = getUserId();
-</script>
 <script type="text/javascript" src="https://misc.jiuxian.com/js/recommend_99.js"></script>
 <script type="text/javascript" src="https://misc.jiuxian.com/js/third/99click/p_code.js"></script>
 <script type="text/javascript" src="https://misc.jiuxian.com/js/third/99click/o_code.js"></script>
-<!--99click(统计)-->
-<script type="text/javascript">
-    var _mvq = _mvq || [];
-    _mvq.push(["$setAccount", "m-471-1"]);
-    _mvq.push(["$logConversion"]);
-    (function() {
-        var mvl = document.createElement("script");
-        mvl.type = "text/javascript";
-        mvl.async = true;
-        mvl.src = ("https:" == document.location.protocol
-            ? "https://static-ssl.mediav.com/mvl.js"
-            : "http://static.mediav.com/mvl.js");
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(mvl, s)
-    })();
-</script>
-<!-- mediav(访客找回) -->
 <script type="text/javascript">
 
-
-    <!--
-    (function (d) {
-        window._JX_INFO = window._JX_INFO || [];
-        _JX_INFO.push(["userId",getUserId()]);
-
-    })(document);
-    //-->
-
-
-    (function (d) {
-        window._JX_INFO = window._JX_INFO || [];
-        _JX_INFO.push(["userId",getUserId()]);
-        var s = d.createElement("script");s.type = "text/javascript";s.async = true;s.src = location.protocol + "//misc.jiuxian.com/js/visittrack.min.js";
-        var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
-    })(document);
-
-
-
-    //BFD begin
-    /*var bfd_on = bfd_on || "true";
-    var bfd_client_id = bfd_client_id || "Ctest_jiuxian";
-    if (bfd_on == "true") {
-      window["_BFD"] = window["_BFD"] || {};
-      _BFD.client_id = bfd_client_id;
-      if (window.getWareIdByRgnId) {
-        _BFD.city = getWareIdByRgnId();
-      }
-      _BFD.script = document.createElement("script");
-      _BFD.script.type = "text/javascript";
-      _BFD.script.async = true;
-      _BFD.script.charset = "utf-8";
-      _BFD.script.src = (('https:' == document.location.protocol
-              ? 'https://ssl-static1' : 'http://static1') + '.bfdcdn.com/service/jiuxianwang/jiuxianwang.js');
-      document.getElementsByTagName("head")[0].appendChild(_BFD.script);
-    }*/
-
-    var dmt_on = dmt_on || "true";
-    if (dmt_on == "true") {
-        try {
-            var dmtTracker = _dmt.init("mfn", "S-000168-01");
-            dmtTracker._setTrack(dmtJsHost + '://mdt.dmtrck.com');
-            dmtTracker._trackSpotLight();
-        } catch (err) {
-        }
-    }
-
-    //消息数量start
-    function showMesNum() {
-        var proxy_url = "/httpProxyAccess.htm?date=" + new Date().getTime();
-        jQuery.ajax({
-            type: 'post',
-            url: proxy_url,
-            data: {
-                target: "http://member.jiuxian.com/getUserMessageNums.htm"
-            },
-            dataType: 'json',
-            success: function(data) {
-                if (data != null) {
-                    if (data.returnCode == "1") {
-                        if (data.messageNums > 0) {
-                            $('.mesNum').eq(0).text(data.messageNums);
-                        } else {
-                            $('.mesNum').eq(0).text("0");
-                        }
-                        if (data.usableGold > 0) {
-                            $('.mesNum').eq(1).text(data.usableGold);
-                        } else {
-                            $('.mesNum').eq(1).text("0");
-                        }
-                    } else {
-                        $('.mesNum').eq(0).text("0");
-                        $('.mesNum').eq(1).text("0");
-                    }
-                }
-
+    $(function () {
+        search();
+    })
+    function search() {
+        var strIds =$("#liststr").val();
+        var arrayObj = "";
+        for(var i = 1 ; i < strIds.length - 1; i++ ){
+            if(!isNaN(strIds[i]) && strIds[i]!=" "){
+                arrayObj+=strIds[i]+",";
             }
+        }
+        var str = arrayObj.substr(0, arrayObj.length - 1);
+        //alert(str);
+        $.ajax({
+            url: 'http://192.168.1.111:8066/order/queryList',
+            type: 'get',
+            data: {
+                strIds:str
+            },
+            success: function (data) {
+                var goodsCountInfo = 0;
+                var totalPriceInfo = 0;
+                var shopInfos = "";
+                var userNameSp = $("#userNameSp").text();
+                var userAddSp = $("#userAddSp").text();
+                var goodsName = data[0].goods_name+"等";
+                for (var i = 0; i < data.length; i++) {
+                    goodsCountInfo += data[i].goods_num;
+                    totalPriceInfo += data[i].goods_unit_price * data[i].goods_num;
+                    shopInfos+='<div class="oTr">\n' +
+                        '            <div class="mainProduct ">\n' +
+                        '                <div class="oTd item-1">\n' +
+                        '                    <div class="img">\n' +
+                        '                        <img src="'+data[i].goods_img+'" width="60" height="60">\n' +
+                        '                    </div>\n' +
+                        '                    <div class="name">'+data[i].goods_name+'</div>\n' +
+                        '                </div>\n' +
+                        '                <div class="oTd item-2">'+data[i].goods_unit_price+'.00</div>\n' +
+                        '                <div class="oTd item-3">'+data[i].goods_num+'</div>\n' +
+                        '                <div class="oTd item-4">有货</div>\n' +
+                        '                <div class="oTd item-5">'+data[i].goods_total_price+'.00</div></div>\n' +
+                        '        </div>'
+                    $("#infoHtml").append(shopInfos);
+                }
+                $("#goodsCountInfo").html(goodsCountInfo);
+                $("#totalPriceInfo").html(totalPriceInfo);
+                $("#totlePrice").html(totalPriceInfo);
+                $("#settlAddressInfo").html(userAddSp);
+                $("#settlConsigneeInfo").html(userNameSp);
+                addOrders(goodsCountInfo,totalPriceInfo,userAddSp,userNameSp,goodsName);
+            }
+            })
+
+    }
+    function addOrders(goodsCountInfo,totalPriceInfo,userAddSp,userNameSp,goodsName) {
+        var outTradeNo="";  //订单号
+        for(var i=0;i<6;i++) //6位随机数，用以加在时间戳后面。
+        {
+            outTradeNo += Math.floor(Math.random()*10);
+        }
+        outTradeNo = new Date().getTime() + outTradeNo;  //时间戳，用来生成订单号。
+        $.ajax({
+            url: 'http://192.168.1.111:8066/order/addOrders',
+            type: 'post',
+            dataType:'json',
+            data:{
+                orderNum:outTradeNo,
+                userName:userNameSp,
+                userPhone:123456,
+                collectAdd:userAddSp,
+                goodsName:goodsName,
+                goodsNum:goodsCountInfo,
+                totalPrice:totalPriceInfo,
+                createTime:new Date().format("yyyy-MM-dd hh:mm:ss"),
+                orderStatus:1
+            },
+            success:function () {
+            },
         });
     }
-    <!-- 消息数量end -->
-</script>    </body>
-<script src="http://misc.jiuxian.com/js/public/region.js" type="text/javascript"></script>
-<script>
-    $(function () {
-        loadGoodList();
-    })
 
-    function loadGoodList(){
 
+    function submitOrders() {
+        var money = $("#totlePrice").text();
+        $.ajax({
+            url: 'http://192.168.1.111:8066/order/aliAddmoney?price='+money,
+            type: 'get',
+            success:function () {
+            },
+        });
+    }
+    
+    function toShoppingCar() {
+        
     }
 
+    Date.prototype.format = function(fmt) {
+        var o = {
+            "M+" : this.getMonth()+1,                 //月份
+            "d+" : this.getDate(),                    //日
+            "h+" : this.getHours(),                   //小时
+            "m+" : this.getMinutes(),                 //分
+            "s+" : this.getSeconds(),                 //秒
+            "q+" : Math.floor((this.getMonth()+3)/3), //季度
+            "S"  : this.getMilliseconds()             //毫秒
+        };
+        if(/(y+)/.test(fmt)) {
+            fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+        }
+        for(var k in o) {
+            if(new RegExp("("+ k +")").test(fmt)){
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+            }
+        }
+        return fmt;
+    }
 </script>
+</body>
+<script src="http://misc.jiuxian.com/js/public/region.js" type="text/javascript"></script>
 </html>

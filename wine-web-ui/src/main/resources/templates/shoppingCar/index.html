@@ -451,7 +451,6 @@
         var choice = confirm("你确认刪除吗?");//确认框。
         if (choice == true) {
             $.ajax({
-
                 url:"http://192.168.1.117:8089/shopping/del",
                 type:"get",
                 data:{strIds:strId},
@@ -604,7 +603,7 @@
                         "                            <div class=\"clearfix\" >" +
                         "<div class=\"cTab-tr \">\n" +
                         "                    <i class=\"cartIcon\"></i><input\n" +
-                        "                value="+data[i].car_id+"\" name=\"itemCheckbox\" type=\"checkbox\" ></div>\n" +
+                        "                value="+data[i].car_id+" name=\"itemCheckbox\" type=\"checkbox\" ></div>\n" +
                         "                <div class=\"cTab-tr cart-goods\">\n" +
                         "                    <div class=\"goods-info\">\n" +
                         "                    <div class=\"goods-img\">\n" +

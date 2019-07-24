@@ -15,6 +15,15 @@ public class Order {
     private BigDecimal totalPrice;
     private String shopName;
     private String createTime;
+    private Integer orderStatus;
+
+    public Integer getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(Integer orderStatus) {
+        this.orderStatus = orderStatus;
+    }
 
     public Integer getId() {
         return id;
