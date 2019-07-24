@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * @Classname 曹龙启
@@ -20,10 +21,10 @@ public class GoodsController implements GoodsServiceApi {
     public Goods findGood() {
 
         Goods good = new Goods();
-         good.setGoodId(521);
-         good.setGoodName("买个黑天鹅");
-         good.setGoodPrice(BigDecimal.valueOf(1000.90));
-         good.setGoodDate("2019-07-08");
+         good.setId(1229L);
+         good.setGoodsName("买个黑天鹅");
+         good.setGoodsPrice(BigDecimal.valueOf(1000.90));
+         good.setCreateDate(new Date());
 
         return good;
     }
