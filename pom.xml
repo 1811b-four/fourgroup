@@ -42,6 +42,11 @@
         <module>wine-consumer-wy</module>
         <module>wine-provider-wy</module>
 
+
+        <module>wine-provider-seckillgoods-clq</module>
+        <module>wine-consumer-seckillgoods-clq</module>
+
+
     </modules>
 
 

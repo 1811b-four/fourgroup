@@ -5,6 +5,57 @@ server:
 spring:
   application:
     name: wine-consumer-goods-clq
+  redis:
+    host: 192.168.1.122
+    database: 0
+    port: 6379
+    password: 123456
+    timeout: 3000
+    poolMaxTotal : 1000
+    poolMaxIdle : 500
+    poolMaxWait : 500
+  resources:
+    add-mappings: true
+    chain:
+      cache: true
+      enabled: true
+      html-application-cache: true
+    static-locations: classpath:/static/
+    cache:
+      period: 3600
+  thymeleaf:
+    cache: true
+    enabled: true
+    encoding: UTF-8
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+    servlet:
+      content-type: text/html
+  main:
+    allow-bean-definition-overriding: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: 123456
+    virtual-host: /
+    listener:
+      simple:
+        concurrency: 10
+        max-concurrency: 10
+        prefetch: 1
+        auto-startup: true
+        default-requeue-rejected: true
+    template:
+      retry:
+        enabled: true
+        initial-interval: 1000
+        max-attempts: 3
+        max-interval: 10000
+        multiplier: 1.0
+
+
 
 
 eureka:
@@ -17,3 +68,17 @@ eureka:
 feign:
   hystrix:
     enabled: true
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 300000
+
+
+
+
+
