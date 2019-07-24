@@ -13,3 +13,25 @@ spring:
         enabled: true
         service-id: wine-config-server
       uri: http://localhost:8090
+  redis:
+    host: 192.168.1.122
+    database: 0
+    port: 6379
+    password: 123456
+    timeout: 3000
+    poolMaxTotal: 1000
+    poolMaxIdle: 500
+    poolMaxWait: 500
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: 123456
+    virtual-host: /
+    listener:
+      simple:
+        concurrency: 10
+        max-concurrency: 10
+        prefetch: 1
+        auto-startup: true
+        default-requeue-rejected: true
