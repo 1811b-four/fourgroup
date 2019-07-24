@@ -184,11 +184,10 @@
 
         <div class="headerSearch">
             <div class="searchHome">
-                <form action="" method="get">
-                    <input id="wd" class="search-form" type="text" name="key"
+                <form  id="bootForm">
+                    <input id="wd" class="search-form" type="text" name="winename"
                            value="" maxLength="50" autocomplete="off" />
                     <input class="search-btn" type="button" onclick="search()" value="搜&nbsp;索" />
-                    <input id="area" name="area" type="hidden" value="">
                 </form>
                 <div class="searchCon" id="searchCon" style="display: none;">
                     <ul></ul>
@@ -198,9 +197,20 @@
 
             <script>
                 function search() {
-                    var key = $("#wd").val();
+                   // var key = $("#wd").val();
+                    $.ajax({
+                        url:'http://192.168.1.10:8085/queryAllWines',
+                        type:'post',
+                        data:$("#bootForm").serialize(),
+                        success:function(data){
+
+                        },
+                        error:function(){
+                            alert("ajax失败");
+                        }
+                    });
                     //alert(key);
-                    location.href='http://192.168.1.10:8085/queryAllWines'
+                    //location.href='http://192.168.1.10:8085/queryAllWines'
                 }
 
                 function findHots(){
