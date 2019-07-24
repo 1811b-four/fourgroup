@@ -1,12 +1,10 @@
 package com.jk.service;
 
 import com.jk.mapper.DfMapper;
-import com.jk.model.EchaBean;
-import com.jk.model.Goods;
-import com.jk.model.ParamBean;
-import com.jk.model.TreeBean;
+import com.jk.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -36,6 +34,16 @@ public class DfServiceImpl  implements  GoodsServiceApi{
     @Override
     public void add(Goods good) {
         newsMapper.addReceive(good);
+    }
+
+    @Override
+    public HashMap<String, Object> findchuizi2(  Integer start,  Integer rows) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        Integer  total = newsMapper.queryNewsCount();
+        List<LinkedHashMap<String,Object>> find = newsMapper.findNews2( start,rows);
+        hashMap.put("total",total);
+        hashMap.put("rows",find);
+        return hashMap;
     }
 /*
     @Override

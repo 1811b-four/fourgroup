@@ -16,6 +16,16 @@ public class Order {
     private String shopName;
     private String createTime;
 
+    private  Integer dateStatus;
+
+    public Integer getDateStatus() {
+        return dateStatus;
+    }
+
+    public void setDateStatus(Integer dateStatus) {
+        this.dateStatus = dateStatus;
+    }
+
     public Integer getId() {
         return id;
     }

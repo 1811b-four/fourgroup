@@ -1,9 +1,6 @@
 package com.jk.mapper;
 
-import com.jk.model.EchaBean;
-import com.jk.model.Goods;
-import com.jk.model.ParamBean;
-import com.jk.model.TreeBean;
+import com.jk.model.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -18,11 +15,13 @@ import java.util.List;
  */
 @Mapper
 public interface DfMapper {
-    List<LinkedHashMap<String,Object>> findNews(@Param("start") Integer start,@Param("rows")Integer rows);
+    List<LinkedHashMap<String,Object>> findNews(@Param("start") Integer start, @Param("rows")Integer rows);
 
     Integer queryNewsCount();
 
     void addReceive(Goods good);
+
+    List<LinkedHashMap<String, Object>> findNews2(  Integer start,@Param("rows")Integer rows);
 
 /*    List<EchaBean> queryDataList(ParamBean paramBean);
 
