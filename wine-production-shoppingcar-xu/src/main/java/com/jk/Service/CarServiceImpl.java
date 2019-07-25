@@ -3,6 +3,7 @@ package com.jk.Service;
 import com.jk.Mapper.CarMapper;
 import com.jk.model.shoppingcar;
 import com.jk.model.t_commodity;
+import com.jk.model.userBean;
 import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -87,6 +88,22 @@ public class CarServiceImpl implements CarServicePublic {
         BigDecimal big2 = new BigDecimal(t.getWinejiage().toString());
         s.setGoods_unit_price(big2);
         carMapper.addFrom(s);
+    }
+
+    @Override
+    public userBean queryaccount(String user_name) {
+        return carMapper.queryaccount(user_name);
+    }
+
+    @Override
+    public userBean findUserByLoginNumber(String phone) {
+        return carMapper.findUserByLoginNumber(phone);
+    }
+
+    @Override
+    public void Registration(userBean account) {
+        account.setPid(1);
+        carMapper.Registration(account);
     }
 
 

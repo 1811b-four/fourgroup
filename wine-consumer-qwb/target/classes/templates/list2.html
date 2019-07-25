@@ -26,12 +26,13 @@
                    <!-- <span class="price1" th:text="${goods.seckillPrice}+'元  '"></span>-->
                     <span class="price2" th:text="${goods.winejiage}+'元'"></span>
                 </p>
-                <a th:href="'/goods/goods_detail?goodsId='+${goods.wineid}" target="_blank">
+                <a th:href="'http://192.168.1.122:8089/shopp/queryListDetails?id='+${goods.wineid}" target="_blank">
                     <button class="btn btn-default" >进入详情页...</button>
                 </a>
             </div>
         </div>
     </div>
+</div>
 </body>
 <!-- jquery-validator -->
 <script type="text/javascript" th:src="@{/jquery-validation/jquery.validate.min.js}"></script>
