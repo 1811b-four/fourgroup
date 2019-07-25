@@ -7,6 +7,7 @@ import com.jk.model.Order;
 import com.jk.model.User_Coupon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -60,12 +61,12 @@ public class WineServiceImpl implements com.jk.service.Coupon {
                     System.out.println(res);
                 }
                 //获取当前登录用户ID
-                /*Jedis jedis = new Jedis("192.168.1.137",6379);
-                jedis.auth("123");
+                Jedis jedis = new Jedis("192.168.1.122",6379);
+                jedis.auth("123456");
                 String name = "jmh";
                 String s = jedis.get(name);
-                int i = Integer.parseInt(s);*/
-                int i = 1;
+                int i = Integer.parseInt(s);
+                //int i = 1;
                 userCoupon.setUserId(i);
                 userCoupon.setCouponId(couponId);
                 userCoupon.setStatus(1);
@@ -85,12 +86,12 @@ public class WineServiceImpl implements com.jk.service.Coupon {
     public HashMap<String, Object> getCouponNotUsed(Integer start, Integer pageSize) {
 
         //获取当前登录用户ID
-        /*Jedis jedis = new Jedis("192.168.1.137",6379);
-        jedis.auth("123");
+        Jedis jedis = new Jedis("192.168.1.122",6379);
+        jedis.auth("123456");
         String name = "jmh";
         String s = jedis.get(name);
-        int i = Integer.parseInt(s);*/
-        int i = 1;
+        int i = Integer.parseInt(s);
+        //int i = 1;
 
         HashMap<String, Object> hash = new HashMap<>();
         //查询总条数
@@ -106,12 +107,12 @@ public class WineServiceImpl implements com.jk.service.Coupon {
     @Override
     public HashMap<String, Object> getCouponUsed(Integer start, Integer pageSize) {
         //获取当前登录用户ID
-        /*Jedis jedis = new Jedis("192.168.1.137",6379);
-        jedis.auth("123");
+        Jedis jedis = new Jedis("192.168.1.122",6379);
+        jedis.auth("123456");
         String name = "jmh";
         String s = jedis.get(name);
-        int i = Integer.parseInt(s);*/
-        int i = 1;
+        int i = Integer.parseInt(s);
+        //int i = 1;
 
         HashMap<String, Object> hash = new HashMap<>();
         //查询总条数
@@ -127,12 +128,12 @@ public class WineServiceImpl implements com.jk.service.Coupon {
     @Override
     public HashMap<String, Object> getCouponExpired(Integer start, Integer pageSize) {
         //获取当前登录用户ID
-        /*Jedis jedis = new Jedis("192.168.1.137",6379);
-        jedis.auth("123");
+        Jedis jedis = new Jedis("192.168.1.122",6379);
+        jedis.auth("123456");
         String name = "jmh";
         String s = jedis.get(name);
-        int i = Integer.parseInt(s);*/
-        int i = 1;
+        int i = Integer.parseInt(s);
+        //int i = 1;
 
         HashMap<String, Object> hash = new HashMap<>();
         //查询总条数
@@ -148,12 +149,12 @@ public class WineServiceImpl implements com.jk.service.Coupon {
     @Override
     public HashMap<String, Object> getOrder(Integer start, Integer pageSize) {
         //获取当前登录用户ID
-        /*Jedis jedis = new Jedis("192.168.1.137",6379);
-        jedis.auth("123");
+        Jedis jedis = new Jedis("192.168.1.122",6379);
+        jedis.auth("123456");
         String name = "jmh";
         String s = jedis.get(name);
-        int i = Integer.parseInt(s);*/
-        int i = 1;
+        int i = Integer.parseInt(s);
+        //int i = 1;
 
         HashMap<String, Object> hash = new HashMap<>();
         //查询总条数
