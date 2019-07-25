@@ -7,6 +7,7 @@ import com.jk.model.userBean;
 import com.jk.service.shoppingcar.CarServicePublic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -23,8 +24,9 @@ public class CarServiceImpl implements CarServicePublic {
     private CarMapper carMapper;
 
     @Override
-    public List<shoppingcar> query() {
-        return carMapper.query();
+    public List<shoppingcar> query(String jmh) {
+        Integer integer = Integer.valueOf(jmh);
+        return carMapper.query(integer);
     }
 
     @Override
@@ -64,7 +66,12 @@ public class CarServiceImpl implements CarServicePublic {
 
     @Override
     public Integer sumA() {
-        return  carMapper.sumA();
+        Jedis jedis = new Jedis("192.168.1.122",6379);
+        jedis.auth("123456");
+        String name = "jmh";
+        String jmh = jedis.get(name);
+        Integer integer = Integer.valueOf(jmh);
+        return  carMapper.sumA(integer);
     }
 
     @Override
@@ -79,7 +86,7 @@ public class CarServiceImpl implements CarServicePublic {
     }
 
     @Override
-    public void addFrom(Integer id, Integer sum) {
+    public void addFrom(Integer id, Integer sum,String jmh) {
         t_commodity t = carMapper.queryListDetails(id);
         shoppingcar s = new shoppingcar();
         s.setGoods_img(t.getWineimg());
@@ -87,6 +94,8 @@ public class CarServiceImpl implements CarServicePublic {
         s.setGoods_num(sum);
         BigDecimal big2 = new BigDecimal(t.getWinejiage().toString());
         s.setGoods_unit_price(big2);
+        Integer integer = Integer.valueOf(jmh);
+        s.setUser_id(integer);
         carMapper.addFrom(s);
     }
 

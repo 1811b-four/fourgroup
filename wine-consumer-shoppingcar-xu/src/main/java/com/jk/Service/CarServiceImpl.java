@@ -18,7 +18,7 @@ import java.util.List;
 @Component
 public class CarServiceImpl implements CarService {
     @Override
-    public List<shoppingcar> query() {
+    public List<shoppingcar> query(String jmh) {
         return null;
     }
 
@@ -73,7 +73,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void addFrom(Integer id, Integer sum) {
+    public void addFrom(Integer id, Integer sum,String jmh) {
 
     }
 

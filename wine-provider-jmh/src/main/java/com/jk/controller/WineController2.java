@@ -1,7 +1,7 @@
 package com.jk.controller;
 
 import com.jk.model.User_Coupon;
-import com.jk.service.WineServiceXhsApi;
+import com.jk.service.Coupon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,38 +18,38 @@ import java.util.Map;
  * @Created by jmh
  */
 @RestController
-public class WineController2 implements WineServiceXhsApi {
+public class WineController2 implements Coupon {
 
     @Autowired
-    private WineServiceXhsApi wineServiceXhsApi;
+    private Coupon coupon;
 
     @Override
     @PostMapping("receive")
     public Map<String, Object> addReceive(@RequestParam(value = "couponId", required = true) Integer couponId, User_Coupon userCoupon) {
-        return wineServiceXhsApi.addReceive(couponId, userCoupon);
+        return coupon.addReceive(couponId, userCoupon);
     }
 
     @Override
     @PostMapping("getCouponNotUsed")
     public HashMap<String, Object> getCouponNotUsed(@RequestParam(value = "start",required = true) Integer start, @RequestParam(value = "pageSize",required = true) Integer pageSize) {
-        return wineServiceXhsApi.getCouponNotUsed(start,pageSize);
+        return coupon.getCouponNotUsed(start,pageSize);
     }
 
     @Override
     @PostMapping("getCouponUsed")
     public HashMap<String, Object> getCouponUsed(@RequestParam(value = "start",required = true) Integer start, @RequestParam(value = "pageSize",required = true) Integer pageSize) {
-        return wineServiceXhsApi.getCouponUsed(start,pageSize);
+        return coupon.getCouponUsed(start,pageSize);
     }
 
     @Override
     @PostMapping("getCouponExpired")
     public HashMap<String, Object> getCouponExpired(@RequestParam(value = "start",required = true) Integer start, @RequestParam(value = "pageSize",required = true) Integer pageSize) {
-        return wineServiceXhsApi.getCouponExpired(start,pageSize);
+        return coupon.getCouponExpired(start,pageSize);
     }
 
     @Override
     @PostMapping("getOrder")
     public HashMap<String, Object> getOrder(@RequestParam(value = "start",required = true) Integer start, @RequestParam(value = "pageSize",required = true) Integer pageSize) {
-        return wineServiceXhsApi.getOrder(start,pageSize);
+        return coupon.getOrder(start,pageSize);
     }
 }

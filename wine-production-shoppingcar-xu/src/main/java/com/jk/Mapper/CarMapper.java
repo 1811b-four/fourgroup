@@ -15,7 +15,6 @@ import java.util.List;
  * @Created by 谷凌杰
  */
 public interface CarMapper {
-    List<shoppingcar> query();
 
     void addNum(@Param("id") Integer id);
 
@@ -31,7 +30,6 @@ public interface CarMapper {
 
     void deleteA(@Param("id")Integer id);
 
-    Integer sumA();
 
 
     List<t_commodity> queryDetails();
@@ -45,4 +43,8 @@ public interface CarMapper {
     userBean findUserByLoginNumber(@Param("phone")String phone);
 
     void Registration(userBean account);
+
+    Integer sumA(@Param("integer")Integer integer);
+
+    List<shoppingcar> query(@Param("jmh")Integer integer);
 }

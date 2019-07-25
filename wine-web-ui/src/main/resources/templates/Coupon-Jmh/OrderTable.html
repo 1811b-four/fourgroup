@@ -80,7 +80,7 @@
                 {field:'xxx',title:'操作',width:100,
                     formatter: function (value,row,index){
                         if(row.orderStatus != 1){
-                            return "<a href='javascript:toPay("+row.orderNum & row.totalPrice+")'>去支付</a>";
+                            return "<a href='javascript:toPay("+row.orderNum+","+row.totalPrice+")'>去支付</a>";
                         }
                     }
                 },
@@ -113,8 +113,7 @@
     })
 
     function toPay(orderNum,totalPrice){
-        location.href='http://192.168.1.111:8066/order/goAlipay?price='+totalPrice+'&outTradeNo='+orderNum;
+        window.open('http://192.168.1.111:8066/order/goAlipay?price='+totalPrice+'&outTradeNo='+orderNum);
     }
-
 </script>
 </html>
