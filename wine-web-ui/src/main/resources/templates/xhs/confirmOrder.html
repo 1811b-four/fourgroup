@@ -181,6 +181,15 @@
                 </div>
             </div>
         </div>
+        <div id="assets" class="pubWrap">
+            <div class="pubTitle tabOpen tabUp">
+                <h3>使用优惠券</h3>
+            </div>
+            <div id="bootTab" class="rightCon-content">
+                <object style="border:1px solid #e4e4e4; border-top:none; width:100%;" type="text/x-scriptlet" data="http://192.168.1.110:8099/toRight" width="100%" height="200px"></object>
+            </div>
+        </div>
+
         <!-- 商品信息 -->
         <div class="pubWrap">
             <div class="pubTitle">
@@ -215,12 +224,16 @@
                     <div class="message"><span>留言信息</span><input id="orderPS" name="" type="text" placeholder="请勿填写有关支付、发票、物流配送等信息。谢谢！"  maxlength="45" class="form-5" /></div>
                     <div class="comTotalBox">
                         <div class="totalList"><span><em id="goodsCountInfo"></em>件商品，商品金额：</span><span class="comTotalSum" id="totalPriceInfo"></span></div>
-                    </div>
+                        <div class="totalList" id="settlFreight">
+                            <span>优惠：</span>
+                            <span class="comTotalSum yunfei" id="freightPriceInfo">￥<span id="couponSp">0.00</span></span>
+                        </div>
                     </div>
                 </div>
+            </div>
                 <div class="settlementBox settlementBg">
                     <div class="settlementAmount">
-                        <p><span>应付总金额：</span><em class="totleNum" id="totlePrice">￥0</em></p>
+                        <p><span>应付总金额：￥</span><em class="totleNum" id="totlePrice">0</em></p>
                         <p id="settlAddress"><span>寄送至：</span><em id="settlAddressInfo"></em></p>
                         <p id="settlConsignee"><span>收货人：</span><em id="settlConsigneeInfo"></em><em class="phoneNunber" id="settlMobleInfo"></em></p>
                     </div>
@@ -230,7 +243,7 @@
                         <a href="javascript:submitOrders()">提交订单</a>
                     </div>
                 </div>
-            </div>
+        </div>
         </div>
     </div>
 </div>
@@ -560,9 +573,11 @@
                 var userNameSp = $("#userNameSp").text();
                 var userAddSp = $("#userAddSp").text();
                 var goodsName = data[0].goods_name+"等";
+                var oneTotalPrice = 0;
                 for (var i = 0; i < data.length; i++) {
                     goodsCountInfo += data[i].goods_num;
                     totalPriceInfo += data[i].goods_unit_price * data[i].goods_num;
+                    oneTotalPrice = data[i].goods_unit_price * data[i].goods_num;
                     shopInfos+='<div class="oTr">\n' +
                         '            <div class="mainProduct ">\n' +
                         '                <div class="oTd item-1">\n' +
@@ -574,7 +589,7 @@
                         '                <div class="oTd item-2">'+data[i].goods_unit_price+'.00</div>\n' +
                         '                <div class="oTd item-3">'+data[i].goods_num+'</div>\n' +
                         '                <div class="oTd item-4">有货</div>\n' +
-                        '                <div class="oTd item-5">'+data[i].goods_total_price+'.00</div></div>\n' +
+                        '                <div class="oTd item-5">'+oneTotalPrice+'.00</div></div>\n' +
                         '        </div>'
                     $("#infoHtml").append(shopInfos);
                 }
@@ -625,8 +640,23 @@
         location.href='http://192.168.1.111:8066/order/goAlipay?price='+price+'&outTradeNo='+outTradeNo;
     }
     
-    function toShoppingCar() {
-        
+    function useCoupon(row) {
+        var oldprice = $("#price").val();
+        var coupon = row.couponFaceValue;
+        var newPrice = oldprice - coupon;
+        $("#price").val(newPrice);
+        $("#couponSp").html(coupon);
+        $("#totalPriceInfo").html(newPrice);
+        $("#totlePrice").html(newPrice);
+    }
+    function unuseCoupon(row) {
+        var oldprice = $("#price").val();
+        var coupon = row.couponFaceValue;
+        var newPrice = oldprice + coupon;
+        $("#price").val(newPrice);
+        $("#couponSp").html(coupon);
+        $("#totalPriceInfo").html(newPrice);
+        $("#totlePrice").html(newPrice);
     }
 
     Date.prototype.format = function(fmt) {
