@@ -22,8 +22,8 @@ public class CarController2 implements CarServicePublic {
 
     @Override
     @GetMapping("query")
-    public List<shoppingcar> query() {
-        return carServicePublic.query();
+    public List<shoppingcar> query(@RequestParam(value = "jmh", required = true) String jmh) {
+        return carServicePublic.query(jmh);
     }
 
     @Override
@@ -88,8 +88,8 @@ public class CarController2 implements CarServicePublic {
 
     @Override
     @PostMapping("addFrom")
-    public void addFrom(Integer id, Integer sum) {
-        carServicePublic.addFrom(id,sum);
+    public void addFrom(Integer id, Integer sum,String jmh) {
+        carServicePublic.addFrom(id,sum,jmh);
     }
 
     @Override

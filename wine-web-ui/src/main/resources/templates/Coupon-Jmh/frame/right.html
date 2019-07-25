@@ -54,12 +54,14 @@
                     uniqueId: "id",                //每一行的唯一标识，一般为主键列
                     showColumns: true,                  //是否显示所有的列
                     showRefresh: true,                  //是否显示刷新按钮
+                    singleSelect : true,                     // 单选checkbox
                     minimumCountColumns: 2,     //  最少留两列
                     detailView: false,                  //是否显示父子表
                     //发送到服务器的数据编码类型
                     contentType:'application/x-www-form-urlencoded;charset=UTF-8',   //数据编码纯文本  offset=0&limit=5
                     toolbar:'#tabToolBar',   //  工具定义位置
                     columns:[
+                        {checkbox: true},
                         {field:'couponName',title:"名称",width:100},
                         {field:'couponFaceValue',title:'面值',width:100,
                             formatter: function (value,row,index){
@@ -99,6 +101,12 @@
                     pageNum: 1,                       //每页的记录行数（*）
                     pageSize: 3,                       //每页的记录行数（*）
                     pageList: [3, 6, 9,12],        //可供选择的每页的行数（*）
+                    onCheck:function(row){
+                        useCoupon(row);
+                    },
+                    onUncheck:function(row){
+                        unuseCoupon(row);
+                    }
         });
     })
 
