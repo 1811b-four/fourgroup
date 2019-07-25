@@ -8,12 +8,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Classname Coupon
+ * @Classname CouponApi
  * @Description TODO
  * @Date 2019/7/24 23:21
  * @Created by jmh
  */
-public interface Coupon {
+public interface CouponApi {
 
     @PostMapping("receive")
     Map<String, Object> addReceive(@RequestParam(value = "couponId", required = true) Integer couponId, User_Coupon userCoupon);

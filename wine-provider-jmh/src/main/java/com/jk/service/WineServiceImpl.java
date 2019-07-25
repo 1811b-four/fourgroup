@@ -19,7 +19,7 @@ import java.util.*;
  * @Created by jmh
  */
 @Service
-public class WineServiceImpl implements com.jk.service.Coupon {
+public class WineServiceImpl implements CouponApi {
 
     @Autowired
     private WineMapper wineMapper;
