@@ -113,8 +113,7 @@
     })
 
     function toPay(orderNum,totalPrice){
-        location.href='http://192.168.1.111:8066/order/goAlipay?price='+totalPrice+'&outTradeNo='+orderNum;
+        window.open('http://192.168.1.111:8066/order/goAlipay?price='+totalPrice+'&outTradeNo='+orderNum);
     }
-
 </script>
 </html>
