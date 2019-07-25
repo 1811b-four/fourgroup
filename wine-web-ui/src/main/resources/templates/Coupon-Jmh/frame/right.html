@@ -109,7 +109,26 @@
                     }
         });
     })
-
+    function useCoupon(row) {
+        alert(row.couponFaceValue);
+        var oldprice = $("#price").val();
+        var coupon = row.couponFaceValue;
+        var newPrice = oldprice - coupon;
+        $("#price").val(newPrice);
+        $("#couponSp").html(coupon);
+        $("#totalPriceInfo").html(newPrice);
+        $("#totlePrice").html(newPrice);
+    }
+    function unuseCoupon(row) {
+        alert(row.couponFaceValue);
+        var oldprice = $("#price").val();
+        var coupon = row.couponFaceValue;
+        var newPrice = oldprice + coupon;
+        $("#price").val(newPrice);
+        $("#couponSp").html(coupon);
+        $("#totalPriceInfo").html(newPrice);
+        $("#totlePrice").html(newPrice);
+    }
    /* function used(){
 
     }*/
