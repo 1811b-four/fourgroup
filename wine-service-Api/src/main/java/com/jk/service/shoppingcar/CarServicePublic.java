@@ -2,8 +2,10 @@ package com.jk.service.shoppingcar;
 
 import com.jk.model.shoppingcar;
 import com.jk.model.t_commodity;
+import com.jk.model.userBean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -52,4 +54,12 @@ public interface CarServicePublic {
     @PostMapping("addFrom")
     void addFrom(@RequestParam(value = "id", required = true)Integer id,@RequestParam(value = "sum", required = true)Integer sum);
 
+    @PostMapping("queryaccount")
+    userBean queryaccount(@RequestParam(value = "user_name", required = true)String user_name);
+
+    @PostMapping("findUserByLoginNumber")
+    userBean findUserByLoginNumber(@RequestParam(value = "phone", required = true)String phone);
+
+    @PostMapping("Registration")
+    void Registration(@RequestBody userBean account);
 }

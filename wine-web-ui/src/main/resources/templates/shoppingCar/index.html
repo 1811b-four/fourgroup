@@ -186,7 +186,7 @@
                            rel="nofollow">配送费用</a>
                     </p>
                     <p>
-                        <a href="http://help.jiuxian.com/view-3-117.htm#delivery_01" target="_blank"
+                        <a href="http://help.jiuxian.com/view-3-122.htm#delivery_01" target="_blank"
                            rel="nofollow">配送范围</a>
                     </p>
                 </li>
@@ -399,7 +399,7 @@
 <script>
     function sumA(){
         $.ajax({
-            url: 'http://192.168.1.117:8089/shopping/sumA',
+            url: 'http://192.168.1.122:8089/shopping/sumA',
             type: 'post',
             success: function (data) {
                 $("#sumA").html(data);
@@ -451,7 +451,7 @@
         var choice = confirm("你确认刪除吗?");//确认框。
         if (choice == true) {
             $.ajax({
-                url:"http://192.168.1.117:8089/shopping/del",
+                url:"http://192.168.1.122:8089/shopping/del",
                 type:"get",
                 data:{strIds:strId},
                 success:function(){
@@ -490,7 +490,7 @@
         /*stock = Number(jQuery)+1;
         $("#price").val(stock);*/
         $.ajax({
-            url: 'http://192.168.1.117:8089/shopping/addNum',
+            url: 'http://192.168.1.122:8089/shopping/addNum',
             type: 'post',
             data:{id:id},
             success: function (data) {
@@ -510,7 +510,7 @@
        /* stock = Number(jQuery)-1;
         $("#price").val(stock);*/
         $.ajax({
-            url: 'http://192.168.1.117:8089/shopping/subNum',
+            url: 'http://192.168.1.122:8089/shopping/subNum',
             type: 'post',
             data:{id:id},
             success: function (data) {
@@ -524,7 +524,7 @@
         if(cc>99){
             alert("最多可买99件");
             $.ajax({
-                url: 'http://192.168.1.117:8089/shopping/sddLostNum',
+                url: 'http://192.168.1.122:8089/shopping/sddLostNum',
                 type: 'post',
                 data:{id:id},
                 success: function (data) {
@@ -539,7 +539,7 @@
         if(cc<1){
             alert("最少1件");
             $.ajax({
-                url: 'http://192.168.1.117:8089/shopping/subLostNum',
+                url: 'http://192.168.1.122:8089/shopping/subLostNum',
                 type: 'post',
                 data:{id:id,sum:cc},
                 success: function (data) {
@@ -553,7 +553,7 @@
         }
 
         $.ajax({
-            url: 'http://192.168.1.117:8089/shopping/LostNum',
+            url: 'http://192.168.1.122:8089/shopping/LostNum',
             type: 'post',
             data:{id:id},
             success: function (data) {
@@ -565,7 +565,7 @@
     //单删
     function deleteA(id){
     $.ajax({
-        url: 'http://192.168.1.117:8089/shopping/deleteA',
+        url: 'http://192.168.1.122:8089/shopping/deleteA',
         type: 'post',
         data:{id:id},
         success: function () {
@@ -582,7 +582,7 @@
 
     function query() {
         $.ajax({
-            url: 'http://192.168.1.117:8089/shopping/query',
+            url: 'http://192.168.1.122:8089/shopping/query',
             type: 'get',
             success: function (data) {
                 var sum = 0;

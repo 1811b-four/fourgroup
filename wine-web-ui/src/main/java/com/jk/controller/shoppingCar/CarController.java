@@ -23,4 +23,19 @@ public class CarController {
         return "shoppingCar/details";
     }
 
+    @RequestMapping("tologin")
+    public String tologin(){
+        return "shoppingCar/login";
+    }
+
+    @RequestMapping("toquickLogin")
+    public String toquickLogin(){
+        return "shoppingCar/quickLogin";
+    }
+
+    @RequestMapping("toregister")
+    public String toregister(){
+        return "shoppingCar/register";
+    }
+
 }

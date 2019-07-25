@@ -3,6 +3,7 @@ package com.jk.Mapper;
 import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
 import com.jk.model.t_commodity;
+import com.jk.model.userBean;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -38,4 +39,10 @@ public interface CarMapper {
     t_commodity queryListDetails(@Param("id")Integer id);
 
     void addFrom(shoppingcar s);
+
+    userBean queryaccount(@Param("user_name")String user_name);
+
+    userBean findUserByLoginNumber(@Param("phone")String phone);
+
+    void Registration(userBean account);
 }

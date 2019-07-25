@@ -2,6 +2,7 @@ package com.jk.Service;
 
 import com.jk.model.shoppingcar;
 import com.jk.model.t_commodity;
+import com.jk.model.userBean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -73,6 +74,21 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void addFrom(Integer id, Integer sum) {
+
+    }
+
+    @Override
+    public userBean queryaccount(String user_name) {
+        return null;
+    }
+
+    @Override
+    public userBean findUserByLoginNumber(String phone) {
+        return null;
+    }
+
+    @Override
+    public void Registration(userBean account) {
 
     }
 
