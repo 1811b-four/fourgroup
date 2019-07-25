@@ -4003,8 +4003,8 @@
                 type: "post",
                 success: function (data) {
                     if (data.code == 1) {
-                        alert(data.msg);
-                        location.href = "toindex";
+                        alert(data.msg,+"前去登录");
+                        location.href = "tologin";
                     }  else {
                         alert(data.msg);
                         return false;

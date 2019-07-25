@@ -3994,13 +3994,13 @@
             return false;
         } else {
             $.ajax({
-                url: 'http://192.168.1.122:8089/shopping/login/messageLogin',
+                url: 'http://192.168.1.122:8089/shopping/messageLogin',
                 data: from,
                 type: "post",
                 success: function (data) {
                     if (data.code == 1) {
                         alert(data.msg);
-                        location.href = "toindex";
+                        location.href = "http://192.168.1.116:8099/toindex2";
                     }  else {
                         alert(data.msg);
                         return false;
