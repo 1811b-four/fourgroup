@@ -19,7 +19,7 @@ import java.util.List;
 public interface CarServicePublic {
 
     @GetMapping("query")
-    List<shoppingcar> query();
+    List<shoppingcar> query(@RequestParam(value = "jmh", required = true)String jmh);
 
     @PostMapping("addNum")
     void addNum(@RequestParam(value = "id", required = true) Integer id);
@@ -52,7 +52,7 @@ public interface CarServicePublic {
     t_commodity queryListDetails(@RequestParam(value = "id", required = true)Integer id);
 
     @PostMapping("addFrom")
-    void addFrom(@RequestParam(value = "id", required = true)Integer id,@RequestParam(value = "sum", required = true)Integer sum);
+    void addFrom(@RequestParam(value = "id", required = true)Integer id,@RequestParam(value = "sum", required = true)Integer sum,@RequestParam(value = "jmh", required = true)String jmh);
 
     @PostMapping("queryaccount")
     userBean queryaccount(@RequestParam(value = "user_name", required = true)String user_name);
@@ -62,4 +62,7 @@ public interface CarServicePublic {
 
     @PostMapping("Registration")
     void Registration(@RequestBody userBean account);
+
+
+
 }

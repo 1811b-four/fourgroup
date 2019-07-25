@@ -36,7 +36,11 @@ public class CarController1 {
 
     @GetMapping("query")
     public List<shoppingcar> query(){
-        List<shoppingcar> query = carServicePublic.query();
+        Jedis jedis = new Jedis("192.168.1.122",6379);
+        jedis.auth("123456");
+        String name = "jmh";
+        String jmh = jedis.get(name);
+        List<shoppingcar> query = carServicePublic.query(jmh);
         return query;
     }
 
@@ -102,7 +106,11 @@ public class CarController1 {
 
     @PostMapping("addFrom")
     public void addFrom(@RequestParam(value = "id", required = true)Integer id,@RequestParam(value = "sum", required = true)Integer sum){
-        carServicePublic.addFrom(id,sum);
+        Jedis jedis = new Jedis("192.168.1.122",6379);
+        jedis.auth("123456");
+        String name = "jmh";
+        String jmh = jedis.get(name);
+        carServicePublic.addFrom(id,sum,jmh);
     }
 
 
@@ -137,15 +145,10 @@ public class CarController1 {
             jedis.set(name,usersacc.getId()+"");
             jedis.set(nam,usersacc.getUser_name());
         }
-        if(usersacc.getPid()==1){
-            hashMap.put("code", 2);
-            hashMap.put("msg", "登录成功");
-            return hashMap;
-        }else{
             hashMap.put("code", 1);
             hashMap.put("msg", "登录成功");
             return hashMap;
-        }
+
     }
 
 
@@ -232,13 +235,10 @@ public class CarController1 {
             jedis.set(name,account.getId()+"");
             jedis.set(name1,account.getUser_name());
         }
-        if(account.getPid()==1){
-            hashMap.put("code", 2);
-            hashMap.put("msg", "登录成功");
-        }else{
+
             hashMap.put("code", 1);
             hashMap.put("msg", "登录成功");
-        }
+
 
         return hashMap;
     }

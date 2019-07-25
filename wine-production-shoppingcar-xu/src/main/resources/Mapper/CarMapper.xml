@@ -3,7 +3,7 @@
 <mapper namespace="com.jk.Mapper.CarMapper">
 
 <select id="query" resultType="com.jk.model.shoppingcar">
-    select * from t_shopping_car
+    select * from t_shopping_car where user_id=#{jmh}
 </select>
 
     <update id="addNum">
@@ -39,7 +39,7 @@
     </delete>
 
     <select id="sumA" resultType="int">
-         select count(1) from t_shopping_car
+         select count(1) from t_shopping_car where user_id=#{integer}
     </select>
 
     <select id="queryDetails" resultType="com.jk.model.Goods">
@@ -53,7 +53,7 @@
     </select>
 
     <insert id="addFrom" parameterType="com.jk.model.shoppingcar">
-       INSERT INTO t_shopping_car(goods_name,goods_num,goods_unit_price,goods_img) value(#{goods_name},#{goods_num},#{goods_unit_price},#{goods_img})
+       INSERT INTO t_shopping_car(goods_name,goods_num,goods_unit_price,goods_img,user_id) value(#{goods_name},#{goods_num},#{goods_unit_price},#{goods_img},#{user_id})
     </insert>
 
     <select id="queryaccount" parameterType="String" resultType="com.jk.model.userBean">
