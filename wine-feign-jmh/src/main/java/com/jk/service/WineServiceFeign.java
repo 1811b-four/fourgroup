@@ -9,5 +9,5 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @Created by jmh
  */
 @FeignClient(value = "springcloud-provider",fallback = WineServiceError.class)
-public interface WineServiceFeign extends WineServiceXhsApi {
+public interface WineServiceFeign extends Coupon {
 }

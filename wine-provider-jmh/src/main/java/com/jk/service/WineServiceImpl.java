@@ -18,7 +18,7 @@ import java.util.*;
  * @Created by jmh
  */
 @Service
-public class WineServiceImpl implements WineServiceXhsApi {
+public class WineServiceImpl implements com.jk.service.Coupon {
 
     @Autowired
     private WineMapper wineMapper;
