@@ -2,15 +2,12 @@ package com.jk.Controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.jk.model.Goods;
 import com.jk.model.shoppingcar;
 import com.jk.model.t_commodity;
 import com.jk.model.userBean;
 import com.jk.service.shoppingcar.CarServicePublic;
 import com.jk.utils.HttpClientUtil;
-import com.jk.utils.Md5Util;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import redis.clients.jedis.Jedis;
 

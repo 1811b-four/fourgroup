@@ -10,6 +10,7 @@ import com.jk.redis.SeckillKey;
 import com.jk.result.CodeMsg;
 import com.jk.result.Result;
 import com.jk.service.SecGoodsServiceFeign;
+
 import com.jk.utils.MD5Util;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
