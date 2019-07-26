@@ -2,7 +2,7 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>一只快乐的哈达精</title>
+    <title>秒杀商品</title>
     <!-- 引入bootstrap的css -->
     <link  href="../js/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
     <!-- 引入bootstrap-treeview的css -->
@@ -82,7 +82,7 @@
                 {field:'createDate',title:'创建时间',width:100},
                 {field:'updateDate',title:'修改时间',width:100},
                 {field:'123',title:'操作',formatter:function(value,row,index){
-                        return '<a href="JavaScript:del(&quot;'+row.id+'&quot;)">加入购物车</a>|<a href="JavaScript:update(&quot;'+row.id+'&quot;)">详情</a>';
+                        return '<a href="JavaScript:del(&quot;'+row.id+'&quot;)">修改</a>|<a href="JavaScript:update(&quot;'+row.id+'&quot;)">删除</a>';
 
                     }
                 },
