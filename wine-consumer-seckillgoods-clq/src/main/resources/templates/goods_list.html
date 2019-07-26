@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>商品列表</title>
+    <title>秒杀商品列表</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- jquery -->
     <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
@@ -23,7 +23,7 @@
             <div class="seckill_price">
                 <p th:text="${goods.goodsTitle}"></p>
                 <p>
-                    <span class="price1" th:text="${goods.seckillPrice}+'元  '"></span>
+                    <span class="price1" th:text="${goods.seckillPrice}+'元'"></span>
                     <del><span class="price2" th:text="${goods.goodsPrice}+'元'"></span></del>
                 </p>
                 <a th:href="'/goods/goods_detail?goodsId='+${goods.id}" target="_blank">

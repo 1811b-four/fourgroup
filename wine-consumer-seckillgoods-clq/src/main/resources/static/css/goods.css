@@ -37,13 +37,13 @@
 .all_seckill_goods .seckill_goods .seckill_price p {
     text-align: center;
     overflow: hidden;
-    color: #b0b0b0;
+    color:#A9A9A9;
 }
 .all_seckill_goods .seckill_goods .seckill_price p .price1{
-    color: #ff6700;
+    color:#A9A9A9;
 }
 .all_seckill_goods .seckill_goods .seckill_price p .price2{
-    color: #b0b0b0;
+    color:#A9A9A9;
 }
 .seckill_price button{
     width: 100%;

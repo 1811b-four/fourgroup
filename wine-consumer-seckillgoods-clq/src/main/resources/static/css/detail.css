@@ -27,10 +27,10 @@
 .containers{
     width: 1224px;
     margin: 0 auto;
-    min-height: 560px;
+    min-height: 360px;
 }
 .containers .goods_view{
-    width: 560px;
+    width: 360px;
     float: left;
 }
 .containers .goods_info{
