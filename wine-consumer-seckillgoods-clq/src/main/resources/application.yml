@@ -5,7 +5,7 @@ spring:
   application:
     name: wine-consumer-seckillgoods-clq
   redis:
-    host: 192.168.1.117
+    host: 192.168.1.122
     database: 0
     port: 6379
     password: 123456

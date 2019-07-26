@@ -45,6 +45,7 @@ public class ElasticController {
 
 
            if (es.getWinename() != null && !"".equals(es.getWinename())) {
+
                //为当前查询添加where条件
                //matchQuery 第一个参数为要查询的字段 第二个为查询条件的值
                searchRequestBuilder.setQuery(QueryBuilders.matchQuery("winename", es.getWinename()));
@@ -56,7 +57,6 @@ public class ElasticController {
                //为searchRequestBuilder设置高亮对象
                searchRequestBuilder.highlighter(highlightBuilder);
            }
-
 
            searchRequestBuilder.setFrom((pageModel.getPageNow()-1)*pageModel.getPageCount()).setSize(pageModel.getPageCount());
 

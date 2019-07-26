@@ -1,9 +1,8 @@
 package com.jk.controller;
 
 import com.jk.model.User_Coupon;
-import com.jk.service.Coupon;
+import com.jk.service.CouponApi;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,10 +17,10 @@ import java.util.Map;
  * @Created by jmh
  */
 @RestController
-public class WineController2 implements Coupon {
+public class WineController2 implements CouponApi {
 
     @Autowired
-    private Coupon coupon;
+    private CouponApi coupon;
 
     @Override
     @PostMapping("receive")

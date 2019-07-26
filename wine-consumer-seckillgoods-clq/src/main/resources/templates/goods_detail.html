@@ -85,7 +85,6 @@
                 goodsId:goodsId
             },
             success:function(data){
-                alert("获取动态url，走查询方法")
                 doMiaosha(data);
 
             },
@@ -97,6 +96,7 @@
 
 
     function doMiaosha(path) {
+        alert("获取动态url，去秒杀哦")
         $.ajax({
                 url: "/goods/"+path+"/seckill",
                 type: "POST",

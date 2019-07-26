@@ -561,7 +561,7 @@
         var str = arrayObj.substr(0, arrayObj.length - 1);
         //alert(str);
         $.ajax({
-            url: 'http://192.168.1.111:8066/order/queryList',
+            url: 'http://192.168.1.117:8066/order/queryList',
             type: 'get',
             data: {
                 strIds:str
@@ -613,7 +613,7 @@
         outTradeNo = new Date().getTime() + outTradeNo;  //时间戳，用来生成订单号。
         $("#outTradeNo").val(outTradeNo);
         $.ajax({
-            url: 'http://192.168.1.111:8066/order/addOrders',
+            url: 'http://192.168.1.117:8066/order/addOrders',
             type: 'post',
             dataType:'json',
             data:{
@@ -637,7 +637,7 @@
         var price = $("#price").val();
         var outTradeNo = $("#outTradeNo").val();
 
-        location.href='http://192.168.1.111:8066/order/goAlipay?price='+price+'&outTradeNo='+outTradeNo;
+        location.href='http://192.168.1.117:8066/order/goAlipay?price='+price+'&outTradeNo='+outTradeNo;
     }
     
    /* function useCoupon(row) {

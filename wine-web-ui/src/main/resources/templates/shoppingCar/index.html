@@ -413,14 +413,14 @@
         var strId = "";
         arrObj.each(function (){
             if($(this).prop("checked")==true){
-                alert($(this).prop("value"))
+                //alert($(this).prop("value"))
                 strId += $(this).prop("value") + ","
             }
         })
         //截取逗号
         strId = strId.substring(0, strId.length-1);
         $.ajax({
-            url:"http://localhost:8099/order/toConfirmOrder?strIds="+strId,
+            url:"http://192.168.1.117:8099/order/toConfirmOrder?strIds="+strId,
             type:"get",
             success:function(){
             },
@@ -439,7 +439,7 @@
         arrObj.each(function (){
 
             if($(this).prop("checked")==true){
-                alert($(this).prop("value"))
+                //alert($(this).prop("value"))
                 strId += $(this).prop("value") + ","
             }
         })

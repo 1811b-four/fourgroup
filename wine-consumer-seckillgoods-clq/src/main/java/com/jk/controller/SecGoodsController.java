@@ -151,7 +151,9 @@ public class SecGoodsController {
 
         String  path =  MD5Util.md5(UUID.randomUUID()+"123456");
 
-        redisTemplate.opsForValue().set(SeckillKey.SECKILL_PATH+"_"+user1.getUserName()+"_"+goodsId,path);
+
+
+        redisTemplate.opsForValue().set(SeckillKey.SECKILL_PATH+"_"+user1.getId()+"_"+goodsId,path);
 
         redisTemplate.expire(SeckillKey.SECKILL_PATH+"_"+user1.getId()+"_"+goodsId,30,TimeUnit.SECONDS);
 

@@ -111,10 +111,10 @@
         <ul>
             <li class="hd-n1 dropTitle">
                 <div class="myJiuxian"><a href="" target="_blank" rel="nofollow">我的酒仙</a><s class="publicIcon"></s></div>
-                <div class="myJiuxianBox dropTitleBox clearfix"><a href="" target="_blank" rel="nofollow">我的订单</a>
-   </div>
+                <div class="myJiuxianBox dropTitleBox clearfix"><a href="http://192.168.1.110:8099/toOrder" target="_blank" rel="nofollow">我的订单</a>
+                    <a href="http://192.168.1.110:8099/toShow" target="_blank" rel="nofollow">领券中心</a><a href="http://192.168.1.110:8099/toShow2" target="_blank" rel="nofollow">我的优惠券</a></div>
             </li>
-            <li class="hd-n3"><i class="publicIcon"></i><a href="" target="_blank" rel="nofollow">购物车<b class="qty jx_car_num">&nbsp;0&nbsp;</b>件</a></li>
+            <li class="hd-n3"><i class="publicIcon"></i><a href="http://192.168.1.122:8099/shoppingCar/toindex" target="_blank" rel="nofollow">购物车<b class="qty jx_car_num"></a></li>
             <li class="hd-n7 dropTitle">
                 <div class="subNavBox dropTitleBox">
                     <div class="subNav-item  frist ">
@@ -157,7 +157,7 @@
             </li>
             <li class="hd-n8 dropTitle">
                 <div class="cusService"><i class="publicIcon"></i><a href="javascript:;" rel="nofollow">客户服务</a><s class="publicIcon"></s></div>
-                <div class="cusServiceBox dropTitleBox clearfix"><a href="http://help.jiuxian.com/view-2-424.htm" target="_blank" rel="nofollow">常见问题</a><a href="http://help.jiuxian.com/view-3-100.htm#delivery_04" target="_blank" rel="nofollow">配送说明</a><a href="http://help.jiuxian.com/view-5-123.htm#bz_1" target="_blank" rel="nofollow">售后服务</a></div>
+                <div class="cusServiceBox dropTitleBox clearfix"><a rel="nofollow">常见问题</a><a  rel="nofollow">配送说明</a><a  rel="nofollow">售后服务</a></div>
             </li>
             <li class="hd-n9"><span>客服热线</span><b class="servPhone">400-617-9999</b></li>
         </ul>
@@ -168,7 +168,7 @@
     <div class="midHeaderCon">
         <div class="headerLogo">
             <p class="jxwLogo"><a ><img alt="酒仙网" src="http://misc.jiuxian.com/img/newIndexImg/logo.png?20160405" width="137" height="65" /></a></p>
-            <p><a name="home_logogif" ><img  alt="" src="http://img06.jiuxian.com/bill/2019/0507/7d48c51d53fb4dad98998b375a8236d0.gif" width="110" height="65" /></a></p>
+            <p><a  ><img  alt="" src="http://img06.jiuxian.com/bill/2019/0507/7d48c51d53fb4dad98998b375a8236d0.gif" width="110" height="65" /></a></p>
         </div>
 
         <script type="text/javascript">
@@ -184,46 +184,33 @@
 
         <div class="headerSearch">
             <div class="searchHome">
-                <form action="" method="get">
-                    <input id="wd" class="search-form" type="text" name="key"
+                <form  id="bootForm">
+                    <input id="wd" class="search-form" type="text" name="winename"
                            value="" maxLength="50" autocomplete="off" />
-                    <input class="search-btn" type="submit" name="" value="搜&nbsp;索" />
-                    <input id="area" name="area" type="hidden" value="">
+                    <input class="search-btn" type="button" onclick="search()" value="搜&nbsp;索" />
                 </form>
                 <div class="searchCon" id="searchCon" style="display: none;">
                     <ul></ul>
                 </div>
             </div>
-            <div class="hotWords" style="display: none;"><!--
-                <p>
-                    <a  href="http://shop.jiuxian.com/brand-382/activity-3376.htm" target="_blank">茅台<s></s>
-                    </a>
-                    <a  href="http://list.jiuxian.com/1-2-0-0-0-0-0-0-0-0-0-0.htm#v2" target="_blank">五粮液<s></s>
-                    </a>
-                    <a  href="http://shop.jiuxian.com/brand-41/activity-3399.htm?source=23" target="_blank">酒鬼<s></s>
-                    </a>
-                    <a  href="http://list.jiuxian.com/search.htm?area=2&key=%E6%8B%89%E8%8F%B2" target="_blank">拉菲<s></s>
-                    </a>
-                    <a  href="http://shop.jiuxian.com/brand-381/activity-3106.htm" target="_blank">郎酒<s></s>
-                    </a>
-                    <a  href="http://list.jiuxian.com/2-254-0-0-0-0-0-0-0-0-0-0.htm" target="_blank">黄尾袋鼠<s></s>
-                    </a>
-                    <a  href="http://shop.jiuxian.com/index-1369.htm" target="_blank">水井坊<s></s>
-                    </a>
-                    <a  href="http://list.jiuxian.com/1-14-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0.htm" target="_blank">泸州老窖<s></s>
-                    </a>
-                    <a  href="http://list.jiuxian.com/search.htm?area=2&key=%E5%A5%94%E5%AF%8C" target="_blank">奔富<s></s>
-                    </a>
-                    <a  href="http://shop.jiuxian.com/index-1314.htm" target="_blank">董酒<s></s>
-                    </a>
-                </p>
-            --></div>
+            <div class="hotWords" style="display: none;"></div>
 
             <script>
                 function search() {
-                    var key = $("#wd").val();
+                   // var key = $("#wd").val();
+                  /*  $.ajax({
+                        url:'http://192.168.1.10:8085/queryAllWines',
+                        type:'post',
+                        //data:$("#bootForm").serialize(),
+                        success:function(data){
+
+                        },
+                        error:function(){
+                            alert("ajax失败");
+                        }
+                    });*/
                     //alert(key);
-                    location.href='http://192.168.1.10:8085/queryAllWines'
+                    location.href='http://192.168.1.10:8099/toElastic'
                 }
 
                 function findHots(){
@@ -1179,7 +1166,7 @@
         <div class="bigImg">
 
             <ul class="bigUl" style="position: relative; width: 1423px; height: 470px;">
-                <li _src="url(/image/bg.jpg)" style="background:  center 0 no-repeat;">
+                <!--<li _src="url(/image/bg.jpg)" style="background:  center 0 no-repeat;">
                     <div class="ban_cter">
                         <a class="focusArea" target="_blank" href=""></a>
                         <div class="mav">

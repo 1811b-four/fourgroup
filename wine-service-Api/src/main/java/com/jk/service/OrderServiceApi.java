@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public interface OrderServiceApi {
 
-   @GetMapping("add")
-   void add();
+       @GetMapping("add")
+       void add();
 
     @GetMapping("queryList")
     shoppingcar queryList(@RequestParam(value = "arr") String arr);

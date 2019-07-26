@@ -1,33 +1,82 @@
 package com.jk.utils;
 
-import org.apache.commons.codec.digest.DigestUtils;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
-public class MD5Util {
+/**
+ * 
+ * Copyright © 2017 金科教育. All rights reserved. <br>
+ * 类: Md5Util <br>
+ * 描述: MD5加密 <br>
+ * 作者: Teacher song<br>
+ * 时间: 2017年6月27日 下午2:27:06
+ */
+public class Md5Util {
 	
-	public static String md5(String src) {
-		return DigestUtils.md5Hex(src);
+	/**
+	 * 
+	 * 方法: getMd532 <br>
+	 * 描述: 32位md5加密 <br>
+	 * 作者: Teacher song<br>
+	 * 时间: 2017年6月27日 下午2:27:38
+	 * @param plainText
+	 * @return
+	 */
+	public static String getMd532(String plainText) {
+	    try {  
+	        MessageDigest md = MessageDigest.getInstance("MD5");  
+	        md.update(plainText.getBytes());  
+	        byte b[] = md.digest();  
+	        int i;
+	        StringBuffer buf = new StringBuffer("");  
+	        for (int offset = 0; offset < b.length; offset++) {  
+	            i = b[offset];  
+	            if (i < 0)  
+	                i += 256;  
+	            if (i < 16)  
+	                buf.append("0");  
+	            buf.append(Integer.toHexString(i));  
+	        }  
+	        //32位加密  
+	        return buf.toString();  
+	        // 16位的加密 
+	        //return buf.toString().substring(8, 24);  
+	    } catch (NoSuchAlgorithmException e) {  
+	        e.printStackTrace();  
+	        return null;  
+	    }  
+	}  
+	/**
+	 * 
+	 * 方法: getMd516 <br>
+	 * 描述: 16位MD5加密 <br>
+	 * 作者: Teacher song<br>
+	 * 时间: 2017年6月27日 下午2:27:52
+	 * @param plainText
+	 * @return
+	 */
+	public static String getMd516(String plainText) {  
+	    try {  
+	        MessageDigest md = MessageDigest.getInstance("MD5");  
+	        md.update(plainText.getBytes());  
+	        byte b[] = md.digest();  
+	        int i;  
+	        StringBuffer buf = new StringBuffer("");  
+	        for (int offset = 0; offset < b.length; offset++) {  
+	            i = b[offset];  
+	            if (i < 0)  
+	                i += 256;  
+	            if (i < 16)  
+	                buf.append("0");  
+	            buf.append(Integer.toHexString(i));  
+	        }  
+	        //32位加密  
+	       // return buf.toString();  
+	        // 16位的加密  
+	        return buf.toString().substring(8, 24);  
+	    } catch (NoSuchAlgorithmException e) {  
+	        e.printStackTrace();  
+	        return null;  
+	    }  
 	}
-	
-	private static final String salt = "9d5b364d";
-	
-	public static String inputPassToFormPass(String inputPass) {
-		String str = ""+salt.charAt(0)+salt.charAt(2) + inputPass +salt.charAt(5) + salt.charAt(4);
-		return md5(str);
-	}
-	
-	public static String formPassToDBPass(String formPass, String salt) {
-		String str = ""+salt.charAt(0)+salt.charAt(2) + formPass +salt.charAt(5) + salt.charAt(4);
-		return md5(str);
-	}
-	
-	public static String inputPassToDbPass(String inputPass, String saltDB) {
-		String formPass = inputPassToFormPass(inputPass);
-		String dbPass = formPassToDBPass(formPass, saltDB);
-		return dbPass;
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(inputPassToDbPass("12345678", "9d5b364d"));//cd235d8b395725d4c3352e9689f346b6
-	} 
-	
 }

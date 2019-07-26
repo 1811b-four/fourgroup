@@ -101,7 +101,7 @@
                     pageNum: 1,                       //每页的记录行数（*）
                     pageSize: 3,                       //每页的记录行数（*）
                     pageList: [3, 6, 9,12],        //可供选择的每页的行数（*）
-                    onCheck :function(row){
+                    onCheck:function(row){
                         alert(row.couponFaceValue);
                         var oldprice = $("#price").val();
                         var coupon = row.couponFaceValue;
@@ -111,7 +111,7 @@
                         $("#totalPriceInfo").html(newPrice);
                         $("#totlePrice").html(newPrice);
                     },
-                    onUncheck :function(row){
+                    onUncheck:function(row){
                         alert(row.couponFaceValue);
                         var oldprice = $("#price").val();
                         var coupon = row.couponFaceValue;
@@ -127,5 +127,4 @@
 
     }*/
 </script>
-<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 </html>
