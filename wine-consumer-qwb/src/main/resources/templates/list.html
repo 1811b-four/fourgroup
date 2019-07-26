@@ -21,10 +21,10 @@
             <img th:src="@{${goods.goodsImg}}" style="width: 150px;height: 100px"/>
             <br/>
             <div class="seckill_price">
-                <p th:text="${goods.goodsTitle}"></p>
+                 <p th:text="${goods.goodsTitle}"></p>
                 <p>
                    <!-- <span class="price1" th:text="${goods.seckillPrice}+'元  '"></span>-->
-                    <del><span class="price2" th:text="${goods.goodsPrice}+'元'"></span></del>
+                   <span class="price2" th:text="${goods.goodsPrice}+'元'"></span>
                 </p>
                 <a th:href="'http://192.168.1.10:8092/goods/goods_detail?goodsId='+${goods.id}" target="_blank">
                     <button class="btn btn-default" >进入详情页...</button>
